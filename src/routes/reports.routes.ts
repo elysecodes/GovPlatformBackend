@@ -44,17 +44,27 @@ router.post(
     const scope = await getScope(req.user!.id);
     if (scope.level < 2 || scope.level > 5) throw forbidden('Only administrative officers can create reports');
 
+    // Resolve a representative village inside the officer's scope so every
+    // hierarchy FK on the report record is valid (district/sector/cell/village
+    // admins do not own units below their own level).
+    const villageIds = await scopeVillageIds(scope);
+    const village = await prisma.village.findFirst({
+      where: { id: { in: villageIds } },
+      include: { cell: { include: { sector: { include: { district: true } } } } },
+    });
+    if (!village) throw badRequest('No villages inside your administrative scope');
+
     const report = await prisma.report.create({
       data: {
         title: req.body.title,
         content: req.body.content,
         level: LEVEL_MAP[scope.level],
         authorId: req.user!.id,
-        provinceId: scope.provinceId!,
-        districtId: scope.districtId!,
-        sectorId: scope.sectorId ?? 0,
-        cellId: scope.cellId ?? 0,
-        villageId: scope.villageId ?? 0,
+        provinceId: village.cell.sector.district.provinceId,
+        districtId: village.cell.sector.districtId,
+        sectorId: village.cell.sectorId,
+        cellId: village.cellId,
+        villageId: village.id,
         status: 'DRAFT',
       },
     });

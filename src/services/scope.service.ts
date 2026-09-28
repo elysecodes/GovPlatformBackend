@@ -1,5 +1,13 @@
 import { prisma } from '../lib/prisma';
 import { forbidden } from '../lib/httpError';
+import { cacheGet, cacheSet, cacheFlushPrefix } from '../lib/cache';
+
+const TTL = 10 * 60 * 1000; // 10 minutes
+
+/** Flush cached geography (triggered whenever an admin creates/renames/deletes a unit). */
+export function flushGeographyCache(): void {
+  cacheFlushPrefix('geo:');
+}
 
 export interface Scope {
   role: string;
@@ -120,6 +128,10 @@ export async function scopeVillageIds(scope: Scope): Promise<number[]> {
   if (scope.level === 6) return scope.villageId ? [scope.villageId] : [];
   if (scope.level === 5) return scope.villageId ? [scope.villageId] : [];
 
+  const key = `geo:villages:${[scope.provinceId, scope.districtId, scope.sectorId, scope.cellId].join('-')}`;
+  const cached = cacheGet<number[]>(key);
+  if (cached) return cached;
+
   const villages = await prisma.village.findMany({
     where: {
       ...(scope.provinceId ? { cell: { sector: { district: { provinceId: scope.provinceId } } } } : {}),
@@ -129,7 +141,9 @@ export async function scopeVillageIds(scope: Scope): Promise<number[]> {
     },
     select: { id: true },
   });
-  return villages.map((v) => v.id);
+  const ids = villages.map((v) => v.id);
+  cacheSet(key, ids, TTL);
+  return ids;
 }
 
 /** Convenience: add a "villageId in" filter for a query. */
@@ -142,6 +156,25 @@ export function assertInScope(villageIds: number[], recordVillageId: number): vo
   if (!villageIds.includes(recordVillageId)) {
     throw forbidden('This record is outside your administrative scope');
   }
+}
+
+/**
+ * A safe Prisma `where` for "records targeted at any unit inside my scope".
+ * Uses every administrative unit id in the caller's chain, so province/super
+ * admins (whose district/sector/cell/village ids are null) still match records
+ * by provinceId instead of an empty OR that matches nothing.
+ */
+export function unitScopeWhere(scope: Scope): any {
+  if (scope.level === 6) {
+    return scope.villageId ? { villageId: scope.villageId } : { id: -1 };
+  }
+  const conds: any[] = [];
+  if (scope.provinceId) conds.push({ provinceId: scope.provinceId });
+  if (scope.districtId) conds.push({ districtId: scope.districtId });
+  if (scope.sectorId) conds.push({ sectorId: scope.sectorId });
+  if (scope.cellId) conds.push({ cellId: scope.cellId });
+  if (scope.villageId) conds.push({ villageId: scope.villageId });
+  return conds.length ? { OR: conds } : {};
 }
 
 /**
@@ -176,6 +209,16 @@ export interface UnitNode {
 
 /** Returns the subtree below a scope (empty for citizens). */
 export async function scopeTree(scope: Scope): Promise<UnitNode> {
+  const key = `geo:tree:${[scope.level, scope.provinceId, scope.districtId, scope.sectorId, scope.cellId, scope.villageId].join('-')}`;
+  const cached = cacheGet<UnitNode>(key);
+  if (cached) return cached;
+
+  const tree = await buildScopeTree(scope);
+  cacheSet(key, tree, TTL);
+  return tree;
+}
+
+async function buildScopeTree(scope: Scope): Promise<UnitNode> {
   if (scope.level === 6) {
     return {
       id: scope.villageId ?? 0,

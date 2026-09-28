@@ -27,6 +27,7 @@ const updateSchema = z.object({
   activity: z.string().optional(),
   leaderName: z.string().optional(),
   membersCount: z.number().int().min(0).optional(),
+  status: z.enum(['ACTIVE', 'CLOSED']).optional(),
 });
 
 router.get(
@@ -39,6 +40,7 @@ router.get(
 
     const where: any = { villageId: { in: villageIds } };
     if (req.query.q) where.name = { contains: String(req.query.q) };
+    if (req.query.status) where.status = String(req.query.status);
 
     const [total, items] = await Promise.all([
       prisma.cooperative.count({ where }),

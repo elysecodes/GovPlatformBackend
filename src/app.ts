@@ -1,4 +1,5 @@
 import express, { Express } from 'express';
+import compression from 'compression';
 import cors from 'cors';
 import helmet from 'helmet';
 import rateLimit from 'express-rate-limit';
@@ -23,6 +24,9 @@ export function createApp(): Express {
   );
   app.use(express.json({ limit: '2mb' }));
   app.use(express.urlencoded({ extended: true }));
+
+  // gzip/deflate responses (skips binary + text/event-stream by default filter)
+  app.use(compression());
 
   // Request logging
   if (env.nodeEnv !== 'production') {

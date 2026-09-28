@@ -2,10 +2,16 @@ import { Router } from 'express';
 import { prisma } from '../lib/prisma';
 import { asyncHandler } from '../lib/httpError';
 import { authenticate, requirePermission } from '../middleware/auth';
-import { getScope, scopeTree, Scope } from '../services/scope.service';
+import { getScope, scopeTree, Scope, unitScopeWhere } from '../services/scope.service';
+import { cacheGet, cacheSet } from '../lib/cache';
 
 const router = Router();
 router.use(authenticate, requirePermission('dashboard.view'));
+
+// Aggregates are recomputed on heavy demand (tree + ~10 queries). A short
+// per-user TTL keeps the dashboard snappy without handing out stale verdicts.
+const DASHBOARD_TTL = 15 * 1000;
+const dashKey = (userId: number) => `dash:v1:${userId}`;
 
 /**
  * Where-clause for records that denormalize the full hierarchy
@@ -57,6 +63,10 @@ router.get(
   '/',
   asyncHandler(async (req, res) => {
     const scope = await getScope(req.user!.id);
+
+    const cached = cacheGet(dashKey(req.user!.id));
+    if (cached) return res.json(cached);
+
     const tree = await scopeTree(scope);
     const where = scopeWhere(scope);
     const vWhere = villageScopeWhere(scope);
@@ -78,7 +88,7 @@ router.get(
           where,
           select: { id: true, status: true, budget: true, budgetSpent: true, progress: true, createdAt: true },
         }),
-        prisma.event.count({ where: scope.level === 6 ? { villageId: scope.villageId ?? -1 } : visibleEventWhere(scope) }),
+        prisma.event.count({ where: scope.level === 6 ? { villageId: scope.villageId ?? -1 } : unitScopeWhere(scope) }),
         prisma.report.count({ where }),
         prisma.escalation.count({ where: { fromLevel: { gt: 0 }, status: 'PENDING' } }),
         prisma.complaintFeedback.findMany({ where: { complaint: where }, select: { rating: true } }),
@@ -121,7 +131,6 @@ router.get(
 
     const response: any = {
       scope,
-      tree,
       stats: {
         districts: scope.level <= 1 ? tree.children?.length ?? 0 : undefined,
         sectors: countChildren(tree, 1),
@@ -194,20 +203,10 @@ router.get(
       response.alerts = alerts;
     }
 
+    cacheSet(dashKey(req.user!.id), response, DASHBOARD_TTL);
     res.json(response);
   }),
 );
-
-function visibleEventWhere(scope: any) {
-  return {
-    OR: [
-      ...(scope.districtId ? [{ districtId: scope.districtId }] : []),
-      ...(scope.sectorId ? [{ sectorId: scope.sectorId }] : []),
-      ...(scope.cellId ? [{ cellId: scope.cellId }] : []),
-      ...(scope.villageId ? [{ villageId: scope.villageId }] : []),
-    ],
-  };
-}
 
 function countChildren(tree: any, depth: number): number {
   let count = 0;

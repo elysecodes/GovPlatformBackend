@@ -5,7 +5,7 @@ import { asyncHandler, badRequest, forbidden, notFound } from '../lib/httpError'
 import { validate } from '../middleware/validate';
 import { authenticate, requirePermission } from '../middleware/auth';
 import { audit } from '../middleware/audit';
-import { getScope, scopeVillageIds, assertInScope } from '../services/scope.service';
+import { getScope, scopeVillageIds, assertInScope, unitScopeWhere } from '../services/scope.service';
 import { notifyLevel } from '../services/notify.service';
 import { parsePagination, pageResponse } from '../utils/pagination';
 import { sortBy } from '../utils/sort';
@@ -35,20 +35,6 @@ const updateSchema = z.object({
   minutes: z.string().optional(),
   status: z.enum(['PLANNED', 'HELD', 'CANCELLED']).optional(),
 });
-
-function visibleScope(scope: any): any {
-  if (scope.level === 6) {
-    return scope.villageId ? { villageId: scope.villageId } : { id: -1 };
-  }
-  return {
-    OR: [
-      scope.districtId ? { districtId: scope.districtId } : {},
-      scope.sectorId ? { sectorId: scope.sectorId } : {},
-      scope.cellId ? { cellId: scope.cellId } : {},
-      scope.villageId ? { villageId: scope.villageId } : {},
-    ].filter((o) => Object.keys(o).length > 0),
-  };
-}
 
 router.post(
   '/',
@@ -112,7 +98,7 @@ router.get(
   asyncHandler(async (req, res) => {
     const scope = await getScope(req.user!.id);
     const { page, limit, skip } = parsePagination(req.query as any);
-    const where = { ...visibleScope(scope) };
+    const where = { ...unitScopeWhere(scope) };
     if (req.query.status) where.status = String(req.query.status);
     const orderBy = sortBy(req.query.sort, {
       oldest: { meetingDate: 'asc' },

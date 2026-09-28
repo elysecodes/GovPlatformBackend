@@ -5,7 +5,7 @@ import { asyncHandler, forbidden, notFound } from '../lib/httpError';
 import { validate } from '../middleware/validate';
 import { authenticate, requirePermission } from '../middleware/auth';
 import { audit } from '../middleware/audit';
-import { getScope, scopeVillageIds, assertInScope } from '../services/scope.service';
+import { getScope, scopeVillageIds, assertInScope, unitScopeWhere } from '../services/scope.service';
 import { parsePagination, pageResponse } from '../utils/pagination';
 import { sortBy } from '../utils/sort';
 
@@ -30,21 +30,6 @@ const updateSchema = z.object({
   report: z.string().optional(),
   description: z.string().min(5).optional(),
 });
-
-/** Events visible to a user: same-village or below + any within scope. */
-function visibleScope(scope: any): any {
-  if (scope.level === 6) {
-    return scope.villageId ? { villageId: scope.villageId } : { id: -1 };
-  }
-  return {
-    OR: [
-      scope.districtId ? { districtId: scope.districtId } : {},
-      scope.sectorId ? { sectorId: scope.sectorId } : {},
-      scope.cellId ? { cellId: scope.cellId } : {},
-      scope.villageId ? { villageId: scope.villageId } : {},
-    ].filter((o) => Object.keys(o).length > 0),
-  };
-}
 
 router.post(
   '/',
@@ -98,7 +83,7 @@ router.get(
     const scope = await getScope(req.user!.id);
     const { page, limit, skip } = parsePagination(req.query as any);
 
-    const where = { ...visibleScope(scope) };
+    const where = { ...unitScopeWhere(scope) };
     if (req.query.status) where.status = String(req.query.status);
     const orderBy = sortBy(req.query.sort, {
       oldest: { eventDate: 'asc' },

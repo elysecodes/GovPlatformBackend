@@ -5,13 +5,16 @@ import { asyncHandler, badRequest, forbidden, notFound } from '../lib/httpError'
 import { validate } from '../middleware/validate';
 import { authenticate, requirePermission } from '../middleware/auth';
 import { audit } from '../middleware/audit';
-import { getScope, scopeVillageIds, assertInScope } from '../services/scope.service';
+import { getScope, scopeVillageIds, assertInScope, isWithinScope } from '../services/scope.service';
 import { notify, notifyLevel } from '../services/notify.service';
 import { parsePagination, pageResponse } from '../utils/pagination';
 import { sortBy } from '../utils/sort';
 
 const router = Router();
 router.use(authenticate);
+
+/** Expired announcements are auto-archived after this many days past their expiration date. */
+const ARCHIVE_EXPIRED_AFTER_DAYS = 30;
 
 const createSchema = z.object({
   title: z.string().min(3).max(200),
@@ -158,7 +161,7 @@ router.get(
         status: req.query.status
           ? String(req.query.status)
           : scope.level < 6
-          ? { in: ['PUBLISHED', 'SCHEDULED'] }
+          ? { in: ['PUBLISHED', 'SCHEDULED', 'EXPIRED'] }
           : 'PUBLISHED',
         ...(req.query.q ? { title: { contains: String(req.query.q) } } : {}),
       },
@@ -170,20 +173,35 @@ router.get(
       take: 500,
     });
 
+    const statusFilter = req.query.status ? String(req.query.status) : '';
+
     const visible = recent
       .filter((a) => isVisible(a, scope))
       .filter((a) => {
         const now = new Date();
-        if (a.status === 'SCHEDULED' && a.publicationDate <= now) {
+        let s = a.status;
+        // Lazy transitions: scheduled → published when the time comes, published → expired at its end.
+        if (s === 'SCHEDULED' && a.publicationDate && a.publicationDate <= now) {
+          s = 'PUBLISHED';
           void prisma.announcement.update({ where: { id: a.id }, data: { status: 'PUBLISHED' } });
-          return true;
         }
-        if (a.status === 'SCHEDULED' && scope.level === 6) return false;
-        if (a.expirationDate && a.expirationDate < now) {
-          if (a.status === 'PUBLISHED') void prisma.announcement.update({ where: { id: a.id }, data: { status: 'EXPIRED' } });
-          return false;
+        if (s === 'PUBLISHED' && a.expirationDate && a.expirationDate < now) {
+          s = 'EXPIRED';
+          void prisma.announcement.update({ where: { id: a.id }, data: { status: 'EXPIRED' } });
         }
-        return true;
+        // Auto-archive: expired announcements are archived once the grace period has passed.
+        if (s === 'EXPIRED' && a.expirationDate) {
+          const autoArchiveAt = new Date(a.expirationDate);
+          autoArchiveAt.setDate(autoArchiveAt.getDate() + ARCHIVE_EXPIRED_AFTER_DAYS);
+          if (autoArchiveAt < now) {
+            s = 'ARCHIVED';
+            void prisma.announcement.update({ where: { id: a.id }, data: { status: 'ARCHIVED' } });
+          }
+        }
+        // An explicit status filter is honored as-is so expired/archived items stay reviewable.
+        if (statusFilter) return s === statusFilter;
+        if (scope.level === 6) return s === 'PUBLISHED';
+        return s === 'PUBLISHED' || s === 'SCHEDULED';
       });
 
     const total = visible.length;
@@ -239,6 +257,37 @@ router.put(
       );
     }
     res.json({ announcement: updated });
+  }),
+);
+
+/** Delete an announcement. The author may always delete it; any senior administrator inside the same jurisdiction may too. */
+router.delete(
+  '/:id',
+  requirePermission('announcements.create'),
+  asyncHandler(async (req, res) => {
+    const announcement = await prisma.announcement.findUnique({
+      where: { id: Number(req.params.id) },
+      include: { author: { select: { id: true, role: { select: { level: true } } } } },
+    });
+    if (!announcement) throw notFound('Announcement not found');
+
+    const scope = await getScope(req.user!.id);
+    if (scope.level >= 6) throw forbidden('Only administrators can delete announcements');
+
+    const authorLevel = announcement.author.role.level;
+    if (announcement.authorId !== req.user!.id) {
+      if (scope.level >= authorLevel) {
+        throw forbidden('Only the author or a senior administrator can delete this announcement');
+      }
+      if (!isWithinScope(scope, announcement)) {
+        throw forbidden('This announcement is outside your jurisdiction');
+      }
+    }
+
+    await prisma.attachment.deleteMany({ where: { entity: 'ANNOUNCEMENT', entityId: announcement.id } });
+    await prisma.announcement.delete({ where: { id: announcement.id } });
+    await audit(req, 'ANNOUNCEMENT_DELETED', 'ANNOUNCEMENT', announcement.id, null, { title: announcement.title });
+    res.json({ message: 'Announcement deleted' });
   }),
 );
 

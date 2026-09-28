@@ -59,6 +59,7 @@ async function main() {
     'reports.create', 'reports.review', 'announcements.create', 'projects.manage',
     'events.manage', 'citizens.view', 'households.manage', 'users.manage',
     'units.manage', 'audit.view', 'tasks.manage', 'meetings.manage', 'cooperatives.manage',
+    'notifications.send',
   ];
   const permissions: Record<string, { id: number }> = {};
   for (const slug of permissionSlugs) {
@@ -78,25 +79,25 @@ async function main() {
       'dashboard.view', 'complaints.manage', 'complaints.escalate', 'requests.manage',
       'reports.create', 'reports.review', 'announcements.create', 'projects.manage',
       'events.manage', 'citizens.view', 'households.manage', 'users.manage',
-      'tasks.manage', 'meetings.manage', 'cooperatives.manage',
+      'tasks.manage', 'meetings.manage', 'cooperatives.manage', 'notifications.send',
     ],
     SECTOR_ADMIN: [
       'dashboard.view', 'complaints.manage', 'complaints.escalate', 'requests.manage',
       'reports.create', 'reports.review', 'announcements.create', 'projects.manage',
       'events.manage', 'citizens.view', 'households.manage',
-      'tasks.manage', 'meetings.manage', 'cooperatives.manage',
+      'tasks.manage', 'meetings.manage', 'cooperatives.manage', 'notifications.send',
     ],
     CELL_ADMIN: [
-      'dashboard.view', 'complaints.manage', 'requests.manage',
+      'dashboard.view', 'complaints.manage', 'complaints.escalate', 'requests.manage',
       'reports.create', 'announcements.create', 'events.manage',
       'citizens.view', 'households.manage',
-      'tasks.manage', 'meetings.manage', 'cooperatives.manage',
+      'tasks.manage', 'meetings.manage', 'cooperatives.manage', 'notifications.send',
     ],
     VILLAGE_ADMIN: [
-      'dashboard.view', 'complaints.manage', 'requests.manage',
+      'dashboard.view', 'complaints.manage', 'complaints.escalate', 'requests.manage',
       'reports.create', 'announcements.create', 'events.manage',
       'citizens.view', 'households.manage',
-      'tasks.manage', 'meetings.manage', 'cooperatives.manage',
+      'tasks.manage', 'meetings.manage', 'cooperatives.manage', 'notifications.send',
     ],
     CITIZEN: ['dashboard.view'],
   };

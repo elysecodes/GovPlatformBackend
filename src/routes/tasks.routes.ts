@@ -25,7 +25,8 @@ const updateSchema = z.object({
   title: z.string().min(3).max(200).optional(),
   description: z.string().optional(),
   priority: z.enum(['LOW', 'MEDIUM', 'HIGH', 'URGENT']).optional(),
-  status: z.enum(['OPEN', 'IN_PROGRESS', 'COMPLETED']).optional(),
+  status: z.enum(['OPEN', 'IN_PROGRESS', 'COMPLETED', 'ARCHIVED']).optional(),
+  assigneeId: z.number().int().positive().optional(),
   dueDate: z.string().optional().or(z.literal('')),
 });
 
@@ -135,13 +136,25 @@ router.put(
 
     const data: any = { ...req.body };
     if (data.dueDate !== undefined) data.dueDate = data.dueDate ? new Date(data.dueDate) : null;
+
+    if (req.body.assigneeId !== undefined) {
+      const newAssignee = await prisma.user.findUnique({ where: { id: req.body.assigneeId }, include: { role: true } });
+      if (!newAssignee) throw badRequest('Invalid assignee');
+      if (newAssignee.role.level <= scope.level) throw forbidden('You can only assign tasks to lower-level staff');
+      if (newAssignee.villageId) assertInScope(villageIds, newAssignee.villageId);
+      data.assigneeId = newAssignee.id;
+    }
+
     if (data.status === 'COMPLETED') data.completedAt = new Date();
-    if (data.status && data.status !== 'COMPLETED') data.completedAt = null;
+    else if (data.status === 'OPEN' || data.status === 'IN_PROGRESS') data.completedAt = null;
 
     const updated = await prisma.task.update({ where: { id: task.id }, data });
     await audit(req, 'TASK_UPDATED', 'TASK', task.id, null, req.body);
     if (task.assignedById && data.status === 'COMPLETED') {
       await notify(task.assignedById, 'Task completed', `${task.title} was marked completed`, 'TASK', `/tasks/${task.id}`);
+    }
+    if (data.assigneeId && data.assigneeId !== task.assigneeId) {
+      await notify(data.assigneeId, 'Task reassigned', `${task.title} was reassigned to you`, 'TASK', `/tasks/${task.id}`);
     }
     res.json({ task: updated });
   }),

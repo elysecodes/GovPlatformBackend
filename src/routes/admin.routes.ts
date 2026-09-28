@@ -6,7 +6,7 @@ import { asyncHandler, badRequest, conflict, forbidden, notFound } from '../lib/
 import { validate } from '../middleware/validate';
 import { authenticate, requirePermission } from '../middleware/auth';
 import { audit } from '../middleware/audit';
-import { getScope, isWithinScope, scopeVillageIds } from '../services/scope.service';
+import { getScope, isWithinScope, scopeVillageIds, flushGeographyCache } from '../services/scope.service';
 import { parsePagination, pageResponse } from '../utils/pagination';
 import { toCsv, sendCsv } from '../utils/csv';
 import { sortBy } from '../utils/sort';
@@ -226,7 +226,33 @@ router.get(
       prisma.user.count({ where }),
       prisma.user.findMany({
         where,
-        include: { role: true, village: { include: { cell: { include: { sector: { include: { district: { include: { province: true } } } } } } } } },
+        include: {
+          role: true,
+          village: {
+            select: {
+              id: true,
+              name: true,
+              code: true,
+              cell: {
+                select: {
+                  id: true,
+                  name: true,
+                  code: true,
+                  sector: {
+                    select: {
+                      id: true,
+                      name: true,
+                      code: true,
+                      district: {
+                        select: { id: true, name: true, code: true, province: { select: { id: true, name: true, code: true } } },
+                      },
+                    },
+                  },
+                },
+              },
+            },
+          },
+        },
         orderBy: sortBy(req.query.sort, {
           oldest: { createdAt: 'asc' },
           name: { fullName: 'asc' },
@@ -316,6 +342,7 @@ router.post(
     }
 
     await audit(req, 'ADMIN_CREATE_UNIT', 'UNIT', created.id, null, req.body);
+    flushGeographyCache();
     res.status(201).json({ message: 'Unit created', unit: created });
   }),
 );
@@ -339,6 +366,7 @@ router.put(
 
     const updated = await (prisma as any)[type].update({ where: { id }, data: { name: req.body.name } });
     await audit(req, 'ADMIN_RENAME_UNIT', type.toUpperCase(), id, null, { name: req.body.name });
+    flushGeographyCache();
     res.json({ message: 'Unit updated', unit: updated });
   }),
 );
@@ -376,6 +404,7 @@ router.delete(
 
     await (prisma as any)[type].delete({ where: { id } });
     await audit(req, 'ADMIN_DELETE_UNIT', type.toUpperCase(), id);
+    flushGeographyCache();
     res.json({ message: 'Unit deleted' });
   }),
 );

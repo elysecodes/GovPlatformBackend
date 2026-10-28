@@ -1,6 +1,7 @@
 import { Router } from 'express';
 import { z } from 'zod';
 import { prisma } from '../lib/prisma';
+import { phoneField } from '../lib/phone';
 import { hashPassword } from '../lib/auth';
 import { asyncHandler, notFound, badRequest, conflict } from '../lib/httpError';
 import { validate } from '../middleware/validate';
@@ -18,7 +19,7 @@ const citizenCreateSchema = z.object({
   fullName: z.string().min(2, 'Full name is required'),
   username: z.string().min(3).max(30).regex(/^[a-z0-9_.]+$/i, 'Username: letters, numbers, _ .'),
   email: z.string().email().optional().or(z.literal('')),
-  phone: z.string().min(7).optional().or(z.literal('')),
+  phone: phoneField.optional(),
   password: z.string().min(8, 'Password must be at least 8 characters'),
   nationalId: z.string().min(5).optional().or(z.literal('')),
   dateOfBirth: z.string().optional().or(z.literal('')),
@@ -29,7 +30,7 @@ const citizenCreateSchema = z.object({
 const citizenUpdateSchema = z.object({
   fullName: z.string().min(2, 'Full name is required').optional(),
   email: z.string().email().optional().or(z.literal('')),
-  phone: z.string().min(7).optional().or(z.literal('')),
+  phone: phoneField.optional(),
   nationalId: z.string().min(5).optional().or(z.literal('')),
   dateOfBirth: z.string().optional().or(z.literal('')),
   gender: z.string().optional().or(z.literal('')),

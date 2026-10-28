@@ -45,7 +45,7 @@ describe('totp (RFC 6238)', () => {
     const b = generateTotpSecret();
     expect(a).not.toBe(b);
     expect(base32Decode(a).length).toBe(20);
-    const uri = totpProvisioningUri(a, 'admin', 'Northern Province Gov');
+    const uri = totpProvisioningUri(a, 'admin', 'Rwanda Digital Governance');
     expect(uri).toContain(`secret=${a}`);
     expect(uri.startsWith('otpauth://totp/')).toBe(true);
   });

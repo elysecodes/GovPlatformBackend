@@ -3,6 +3,7 @@ import { z } from 'zod';
 import rateLimit from 'express-rate-limit';
 import bcrypt from 'bcryptjs';
 import { prisma } from '../lib/prisma';
+import { phoneField } from '../lib/phone';
 import {
   hashPassword,
   randomToken,
@@ -28,11 +29,15 @@ const loginSchema = z.object({
   password: z.string().min(1),
 });
 
+const verifyPasswordSchema = z.object({
+  password: z.string().min(1),
+});
+
 const registerSchema = z.object({
   fullName: z.string().min(2, 'Full name is required'),
   username: z.string().min(3).max(30).regex(/^[a-z0-9_.]+$/i, 'Username: letters, numbers, _ .'),
   email: z.string().email().optional().or(z.literal('')),
-  phone: z.string().min(7).optional().or(z.literal('')),
+  phone: phoneField.optional(),
   password: z.string().min(8, 'Password must be at least 8 characters'),
   nationalId: z.string().min(5).optional().or(z.literal('')),
   dateOfBirth: z.string().optional().or(z.literal('')),
@@ -51,7 +56,7 @@ const resetSchema = z.object({
 
 const profileSchema = z.object({
   fullName: z.string().min(2).optional(),
-  phone: z.string().optional().or(z.literal('')),
+  phone: phoneField.optional(),
   email: z.string().email().optional().or(z.literal('')),
 });
 
@@ -134,16 +139,54 @@ function sessionUserPayload(user: {
   };
 }
 
+const UNIT_SUFFIXES = ['admin', 'sector', 'cell', 'village'];
+
+/**
+ * Resolves a login identifier to a user account. Beyond exact username/email,
+ * the demo database holds leader accounts named after their unit
+ * (<unit>.<level>, e.g. musanze.admin). To make signing in intuitive for every
+ * district, sector, cell and village we also accept:
+ *   1. case-insensitive exact username,
+ *   2. the full name (case-insensitive),
+ *   3. a unit prefix (e.g. "musanze" -> musanze.admin). When several units
+ *      share the same short name, the district ("admin") account wins, then
+ *      sector, cell, village.
+ */
+async function resolveLoginUser(identifier: string) {
+  const value = identifier.trim();
+  if (!value) return null;
+
+  const include = { role: true, citizenProfile: true };
+
+  const exact = await prisma.user.findFirst({ where: { OR: [{ username: value }, { email: value }] }, include });
+  if (exact) return exact;
+
+  const valueCi = value.toLowerCase();
+  const matches = await prisma.user.findMany({
+    where: { OR: [{ username: { contains: value } }, { fullName: { contains: value } }] },
+    include,
+  });
+  const candidates = matches.filter((u) => {
+    const un = u.username.toLowerCase();
+    const fn = u.fullName?.toLowerCase() ?? '';
+    return un === valueCi || fn === valueCi || un.startsWith(valueCi);
+  });
+  if (candidates.length === 0) return null;
+  if (candidates.length === 1) return candidates[0];
+  for (const suffix of UNIT_SUFFIXES) {
+    const preferred = candidates.find((u) => u.username.toLowerCase() === `${valueCi}.${suffix}`);
+    if (preferred) return preferred;
+  }
+  return null;
+}
+
 router.post(
   '/login',
   loginLimiter,
   validate(loginSchema),
   asyncHandler(async (req, res) => {
     const { username, password } = req.body;
-    const user = await prisma.user.findFirst({
-      where: { OR: [{ username }, { email: username }] },
-      include: { role: true, citizenProfile: true },
-    });
+    const user = await resolveLoginUser(username);
 
     const ip = req.ip;
     const ua = req.headers['user-agent'];
@@ -294,7 +337,7 @@ router.post(
 
     const secret = generateTotpSecret();
     await prisma.user.update({ where: { id: me.id }, data: { twoFactorSecret: secret } });
-    const appName = req.body.appName || 'Northern Province Gov';
+    const appName = req.body.appName || 'Rwanda Digital Governance';
     const otpauthUrl = totpProvisioningUri(secret, me.username, appName);
     await audit(req, 'MFA_SETUP_STARTED', 'USER', me.id);
     res.json({ secret, otpauthUrl, message: 'Scan the code with your authenticator app, then confirm with the 6-digit code.' });
@@ -457,6 +500,20 @@ router.post(
     });
     await audit(req, 'LOGOUT', 'USER', req.user!.id);
     res.json({ message: 'Logged out' });
+  }),
+);
+
+router.post(
+  '/verify-password',
+  authenticate,
+  validate(verifyPasswordSchema),
+  asyncHandler(async (req, res) => {
+    const user = await prisma.user.findUnique({ where: { id: req.user!.id }, select: { passwordHash: true } });
+    if (!user) throw notFound('User not found');
+    const ok = await verifyPassword(req.body.password, user.passwordHash);
+    if (!ok) throw forbidden('Password verification failed');
+    await audit(req, 'SENSITIVE_VERIFIED', 'USER', req.user!.id);
+    res.json({ verified: true });
   }),
 );
 

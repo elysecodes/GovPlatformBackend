@@ -94,12 +94,37 @@ router.post(
 );
 
 router.get(
+  '/stats',
+  asyncHandler(async (req, res) => {
+    const scope = await getScope(req.user!.id);
+    const where = { ...unitScopeWhere(scope) };
+    const [total, planned, held, cancelled] = await Promise.all([
+      prisma.meeting.count({ where }),
+      prisma.meeting.count({ where: { ...where, status: 'PLANNED' } }),
+      prisma.meeting.count({ where: { ...where, status: 'HELD' } }),
+      prisma.meeting.count({ where: { ...where, status: 'CANCELLED' } }),
+    ]);
+    res.json({ total, planned, held, cancelled });
+  }),
+);
+
+router.get(
   '/',
   asyncHandler(async (req, res) => {
     const scope = await getScope(req.user!.id);
     const { page, limit, skip } = parsePagination(req.query as any);
     const where = { ...unitScopeWhere(scope) };
     if (req.query.status) where.status = String(req.query.status);
+    if (req.query.q) {
+      const q = String(req.query.q);
+      where.OR = [
+        { title: { contains: q } },
+        { location: { contains: q } },
+        { organizer: { contains: q } },
+        { agenda: { contains: q } },
+        { description: { contains: q } },
+      ];
+    }
     const orderBy = sortBy(req.query.sort, {
       oldest: { meetingDate: 'asc' },
       name: { title: 'asc' },

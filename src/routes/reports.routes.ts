@@ -5,7 +5,7 @@ import { asyncHandler, badRequest, forbidden, notFound } from '../lib/httpError'
 import { validate } from '../middleware/validate';
 import { authenticate, requirePermission } from '../middleware/auth';
 import { audit } from '../middleware/audit';
-import { getScope, scopeVillageIds, assertInScope, reportsToLevel } from '../services/scope.service';
+import { getScope, scopeVillageIds, reportsToLevel, isWithinScope } from '../services/scope.service';
 import { notifyLevel } from '../services/notify.service';
 import { parsePagination, pageResponse } from '../utils/pagination';
 import { toCsv, sendCsv } from '../utils/csv';
@@ -167,10 +167,8 @@ router.get(
     if (report.authorId === req.user!.id) {
       return res.json({ report: reportWithAttachments });
     }
-    const villageIds = await scopeVillageIds(scope);
-    assertInScope(villageIds, report.villageId);
-    if (report.level !== LEVEL_MAP[scope.level] && scope.level > 4) {
-      if (report.authorId !== req.user!.id) throw forbidden('You cannot view this report');
+    if (!isWithinScope(scope, report)) {
+      throw forbidden('You cannot view this report');
     }
     res.json({ report: reportWithAttachments });
   }),
@@ -188,7 +186,7 @@ router.put(
 
     const updated = await prisma.report.update({
       where: { id: report.id },
-      data: { ...req.body, version: report.version + (report.status === 'REVISION' ? 0 : 0) },
+      data: { ...req.body },
     });
     await audit(req, 'REPORT_UPDATED', 'REPORT', report.id, null, req.body);
     res.json({ report: updated });
@@ -206,7 +204,8 @@ router.post(
 
     const updated = await prisma.report.update({
       where: { id: report.id },
-      data: { status: 'SUBMITTED', submittedAt: new Date() },
+      // A resubmission after review comments is a new revision of the report.
+      data: { status: 'SUBMITTED', submittedAt: new Date(), version: report.version + (report.status === 'REVISION' ? 1 : 0) },
     });
 
     const authorLevel = report.level === 'DISTRICT' ? 2 : report.level === 'SECTOR' ? 3 : report.level === 'CELL' ? 4 : 5;
@@ -228,8 +227,7 @@ router.post(
 
     const scope = await getScope(req.user!.id);
     if (report.authorId === req.user!.id) throw forbidden('You cannot review your own report');
-    const villageIds = await scopeVillageIds(scope);
-    assertInScope(villageIds, report.villageId);
+    if (!isWithinScope(scope, report)) throw forbidden('You cannot review this report');
 
     const reportLevel = report.level === 'DISTRICT' ? 2 : report.level === 'SECTOR' ? 3 : report.level === 'CELL' ? 4 : 5;
     if (scope.level >= reportLevel) throw forbidden('A higher administrative level must review this report');
@@ -259,8 +257,7 @@ router.post(
     if (!['APPROVED'].includes(report.status)) throw badRequest('Only approved reports can be finalized');
 
     const scope = await getScope(req.user!.id);
-    const villageIds = await scopeVillageIds(scope);
-    assertInScope(villageIds, report.villageId);
+    if (!isWithinScope(scope, report)) throw forbidden('You cannot finalize this report');
 
     const updated = await prisma.report.update({ where: { id: report.id }, data: { status: 'FINALIZED' } });
     await audit(req, 'REPORT_FINALIZED', 'REPORT', report.id, null, { status: 'FINALIZED' });

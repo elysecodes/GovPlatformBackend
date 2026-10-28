@@ -1,6 +1,7 @@
 import { Router } from 'express';
 import { z } from 'zod';
 import { prisma } from '../lib/prisma';
+import { phoneField } from '../lib/phone';
 import { hashPassword } from '../lib/auth';
 import { asyncHandler, badRequest, conflict, forbidden, notFound } from '../lib/httpError';
 import { validate } from '../middleware/validate';
@@ -18,7 +19,7 @@ const createUserSchema = z.object({
   fullName: z.string().min(2),
   username: z.string().min(3).max(30),
   email: z.string().email().optional().or(z.literal('')),
-  phone: z.string().optional().or(z.literal('')),
+  phone: phoneField.optional(),
   password: z.string().min(8),
   role: z.enum(['PROVINCE_ADMIN', 'DISTRICT_ADMIN', 'SECTOR_ADMIN', 'CELL_ADMIN', 'VILLAGE_ADMIN']),
   provinceId: z.number().int().positive(),
@@ -72,11 +73,13 @@ router.post(
 
     const scope = await getScope(req.user!.id);
     const villageIds = await scopeVillageIds(scope);
+    // The platform-level SUPER_ADMIN may provision administrators in any province.
+    const platformAdmin = scope.level === 0;
 
     // A PROVINCE_ADMIN target is a whole province, not a village.
     const isProvinceAdminTarget = req.body.role === 'PROVINCE_ADMIN';
     if (isProvinceAdminTarget) {
-      if (req.body.provinceId !== scope.provinceId) {
+      if (!platformAdmin && req.body.provinceId !== scope.provinceId) {
         throw forbidden('The target province is outside your jurisdiction');
       }
     } else {
@@ -191,10 +194,13 @@ router.get(
   requirePermission('users.manage'),
   asyncHandler(async (req, res) => {
     const scope = await getScope(req.user!.id);
+    const platformAdmin = scope.level === 0;
     const { page, limit, skip } = parsePagination(req.query as any);
 
     // Subordinate administrative accounts inside the caller's jurisdiction.
-    const where: any = { provinceId: scope.provinceId, role: { level: { not: 6 } } };
+    // The platform-level SUPER_ADMIN sees accounts across every province.
+    const where: any = { role: { level: { not: 6 } } };
+    if (scope.provinceId && !platformAdmin) where.provinceId = scope.provinceId;
     if (scope.level > 0) where.role.level.gt = scope.level;
     if (scope.districtId) where.districtId = scope.districtId;
     if (scope.sectorId) where.sectorId = scope.sectorId;
@@ -277,7 +283,7 @@ router.put(
 
     const scope = await getScope(req.user!.id);
     if (scope.level >= target.role.level) throw forbidden('You cannot modify this account');
-    if (!isWithinScope(scope, target)) throw forbidden('Out of jurisdiction');
+    if (scope.level !== 0 && !isWithinScope(scope, target)) throw forbidden('Out of jurisdiction');
 
     const prev = target.status;
     const updated = await prisma.user.update({
@@ -302,7 +308,7 @@ router.put(
 
     const scope = await getScope(req.user!.id);
     if (scope.level >= target.role.level) throw forbidden('You cannot modify this account');
-    if (!isWithinScope(scope, target)) throw forbidden('Out of jurisdiction');
+    if (scope.level !== 0 && !isWithinScope(scope, target)) throw forbidden('Out of jurisdiction');
 
     const passwordHash = await hashPassword(req.body.password);
     await prisma.user.update({

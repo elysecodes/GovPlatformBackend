@@ -11,7 +11,10 @@
     "db:push": "prisma db push",
     "db:seed": "tsx prisma/seed.ts",
     "db:seed-sample": "tsx prisma/seed-sample.ts",
+    "db:seed-workshop": "tsx prisma/seed-workshop.ts",
     "db:provision": "tsx prisma/provision-leaders.ts",
+    "db:add-provinces": "tsx prisma/add-provinces.ts",
+    "db:export-emails": "tsx prisma/export-emails.ts",
     "test": "vitest run",
     "typecheck": "tsc --noEmit"
   },

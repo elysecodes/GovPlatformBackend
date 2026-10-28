@@ -17,26 +17,37 @@ export interface JwtPayload {
 
 /** Short-lived token used to complete a 2FA challenge at login. */
 export const signMfaToken = (userId: number): string =>
-  jwt.sign({ sub: userId, role: '', type: 'mfa' }, env.jwtSecret, {
+  jwt.sign({ sub: userId, role: '', type: 'mfa' }, env.jwtMfaSecret, {
     expiresIn: '5m',
   } as jwt.SignOptions);
 
 export const signAccessToken = (userId: number, role: string): string =>
-  jwt.sign({ sub: userId, role, type: 'access' }, env.jwtSecret, {
+  jwt.sign({ sub: userId, role, type: 'access' }, env.jwtAccessSecret, {
     expiresIn: env.jwtAccessExpires as jwt.SignOptions['expiresIn'],
   } as jwt.SignOptions);
 
 export const signRefreshToken = (userId: number, role: string): string =>
-  jwt.sign({ sub: userId, role, type: 'refresh' }, env.jwtSecret, {
+  jwt.sign({ sub: userId, role, type: 'refresh' }, env.jwtRefreshSecret, {
     expiresIn: env.jwtRefreshExpires as jwt.SignOptions['expiresIn'],
   } as jwt.SignOptions);
 
 export const verifyToken = (token: string): JwtPayload => {
-  try {
-    return jwt.verify(token, env.jwtSecret) as unknown as JwtPayload;
-  } catch {
-    throw new Error('Invalid or expired token');
+  const secrets = [
+    env.jwtSecret,
+    env.jwtAccessSecret,
+    env.jwtRefreshSecret,
+    env.jwtMfaSecret,
+  ];
+  let lastErr: unknown = null;
+  for (const secret of secrets) {
+    if (!secret) continue;
+    try {
+      return jwt.verify(token, secret) as unknown as JwtPayload;
+    } catch (e) {
+      lastErr = e;
+    }
   }
+  throw new Error('Invalid or expired token');
 };
 
 export const sha256 = (value: string): string =>

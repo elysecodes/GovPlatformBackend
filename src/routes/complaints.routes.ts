@@ -196,6 +196,20 @@ router.get(
   }),
 );
 
+router.post(
+  '/bulk',
+  requirePermission('complaints.manage'),
+  asyncHandler(async (req, res) => {
+    const { ids, status, assignedOfficerId } = req.body || {};
+    if (!Array.isArray(ids) || ids.length === 0) throw badRequest('ids required');
+    const data: any = {};
+    if (status) data.status = status;
+    if (assignedOfficerId) data.assignedOfficerId = assignedOfficerId;
+    await prisma.complaint.updateMany({ where: { id: { in: ids.map(Number) } }, data });
+    res.json({ updated: ids.length });
+  }),
+);
+
 router.get(
   '/:id',
   asyncHandler(async (req, res) => {
@@ -371,5 +385,34 @@ async function ensureCitizenProfile(userId: number, villageId: number): Promise<
   const citizen = await prisma.citizen.create({ data: { userId, villageId } });
   return citizen.id;
 }
+
+// Append reopen endpoint before export
+router.post(
+  '/:id/reopen',
+  authenticate,
+  asyncHandler(async (req, res) => {
+    const complaint = await prisma.complaint.findUnique({ where: { id: Number(req.params.id) } });
+    if (!complaint) throw notFound('Complaint not found');
+    if (complaint.citizenId !== req.user!.citizenId && req.user!.roleLevel > 5) {
+      throw forbidden('Only the citizen or an officer can reopen');
+    }
+    if (!['RESOLVED', 'CLOSED'].includes(complaint.status)) {
+      throw badRequest('Only resolved/closed complaints can be reopened');
+    }
+    // 30-day window
+    const daysSince = (Date.now() - new Date(complaint.updatedAt).getTime()) / (1000 * 60 * 60 * 24);
+    if (daysSince > 30 && req.user!.roleLevel === 6) {
+      throw badRequest('Reopen window (30 days) has expired');
+    }
+    const updated = await prisma.complaint.update({
+      where: { id: complaint.id },
+      data: { status: 'REOPENED', updatedAt: new Date() },
+    });
+    await prisma.complaintComment.create({
+      data: { complaintId: complaint.id, userId: req.user!.id, comment: req.body?.reason || 'Reopened' },
+    });
+    res.json({ complaint: updated });
+  }),
+);
 
 export default router;

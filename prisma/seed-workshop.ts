@@ -96,32 +96,41 @@ const REPORTS: { title: string; content: string; level: 'DISTRICT' | 'SECTOR' | 
 async function main() {
   console.log('Running workshop sample-data filler...');
 
-  const province = await prisma.province.findFirst({ where: { code: 'NORTH' } });
-  if (!province) throw new Error('Northern Province not found. Run `npm run db:seed` first.');
-  const districts = await prisma.district.findMany({ where: { provinceId: province.id }, orderBy: { id: 'asc' } });
-  const provinceAdmin = await prisma.user.findUnique({ where: { username: 'province' } });
-  if (!provinceAdmin) throw new Error('Province admin missing. Run `npm run db:seed` first.');
+  const provinces = await prisma.province.findMany({ orderBy: { id: 'asc' } });
+  if (provinces.length === 0) throw new Error('No provinces found. Run `npm run db:seed` first.');
 
   const allVillages = await prisma.village.findMany({ include: { cell: { include: { sector: { include: { district: true } } } } } });
-  const byDistrict = (dId: number) => allVillages.filter((v) => v.cell.sector.district.id === dId);
-  const sampleVillages: typeof allVillages = [];
-  for (const d of districts) {
-    const list = byDistrict(d.id);
-    if (!list.length) continue;
-    const step = Math.max(1, Math.floor(list.length / 6));
-    sampleVillages.push(...list.filter((_, i) => i % step === 0).slice(0, 6));
-  }
-  if (sampleVillages.length < 5) throw new Error('Not enough villages for sample data.');
-  const sampleIds = sampleVillages.map((v) => v.id);
+
+  for (const province of provinces) {
+    const districts = await prisma.district.findMany({ where: { provinceId: province.id }, orderBy: { id: 'asc' } });
+    const provinceAdmin = await prisma.user.findFirst({ where: { role: { slug: 'PROVINCE_ADMIN' }, provinceId: province.id } });
+    if (!provinceAdmin || districts.length === 0) {
+      console.log(`  ${province.name}: skipped (no province admin or districts)`);
+      continue;
+    }
+
+    const byDistrict = (dId: number) => allVillages.filter((v) => v.cell.sector.district.id === dId);
+    const sampleVillages: typeof allVillages = [];
+    for (const d of districts) {
+      const list = byDistrict(d.id);
+      if (!list.length) continue;
+      const step = Math.max(1, Math.floor(list.length / 6));
+      sampleVillages.push(...list.filter((_, i) => i % step === 0).slice(0, 6));
+    }
+    if (sampleVillages.length < 5) throw new Error('Not enough villages for sample data.');
+    const sampleIds = sampleVillages.map((v) => v.id);
 
   // ---------------- officers ----------------
   const villageAdmins = await prisma.user.findMany({
-    where: { role: { slug: 'VILLAGE_ADMIN' }, status: 'ACTIVE', villageId: { in: sampleIds } },
+    where: { role: { slug: 'VILLAGE_ADMIN' }, status: 'ACTIVE', village: { cell: { sector: { district: { provinceId: province.id } } } } },
     select: { id: true, fullName: true, villageId: true },
   });
   const adminByVillage = new Map<number, { id: number; fullName: string; villageId: number | null }>();
-  for (const a of villageAdmins) adminByVillage.set(a.villageId ?? -1, a);
-  if (adminByVillage.size === 0) throw new Error('No village admins available in sample villages.');
+  for (const a of villageAdmins) if (a.villageId) adminByVillage.set(a.villageId, a);
+  if (adminByVillage.size === 0) {
+    console.log(`  ${province.name}: skipped (no active village admins)`);
+    continue;
+  }
   const officerPool = villageAdmins.map((v) => ({ id: v.id, fullName: v.fullName }));
 
   const cellAdmins = await prisma.user.findMany({
@@ -138,7 +147,7 @@ async function main() {
     where: { role: { slug: 'SECTOR_ADMIN' }, status: 'ACTIVE', sectorId: { in: sampleVillages.map((v) => v.cell.sectorId) } },
     select: { id: true, fullName: true, sectorId: true },
   });
-  const cellAdminAny = await prisma.user.findFirst({ where: { role: { slug: 'CELL_ADMIN' }, status: 'ACTIVE' }, select: { id: true } });
+  const cellAdminAny = await prisma.user.findFirst({ where: { role: { slug: 'CELL_ADMIN' }, status: 'ACTIVE', cell: { sector: { district: { provinceId: province.id } } } }, select: { id: true } });
 
   const officer = (exclude: number | null = null) => {
     const pool = officerPool.filter((o) => o.id !== exclude);
@@ -149,12 +158,13 @@ async function main() {
   let tasksCreated = 0;
   for (let i = 0; i < TASKS.length; i++) {
     const t = TASKS[i];
-    const existing = await prisma.task.findFirst({ where: { title: t.title } });
+    const taskTitle = `${t.title} (${province.code})`;
+    const existing = await prisma.task.findFirst({ where: { title: taskTitle } });
     if (existing) continue;
     const assignee = officer();
     const taskDone = t.status === 'COMPLETED' || t.status === 'ARCHIVED';
     const payload: any = {
-      title: t.title,
+      title: taskTitle,
       description: 'Sample task used to demonstrate the leader task tracker.',
       assigneeId: assignee.id,
       assignedById: provinceAdmin.id,
@@ -172,7 +182,7 @@ async function main() {
   // ---------------- meetings ----------------
   let meetingsCreated = 0;
   for (const m of MEETINGS) {
-    const existing = await prisma.meeting.findFirst({ where: { title: m.title } });
+    const existing = await prisma.meeting.findFirst({ where: { title: m.title, provinceId: province.id } });
     if (existing) continue;
     const village = pick(sampleVillages);
     const date = new Date(Date.now() + m.daysOffset * dayMs);
@@ -199,7 +209,7 @@ async function main() {
   // ---------------- announcements ----------------
   let announcementsCreated = 0;
   for (const a of ANNOUNCEMENTS) {
-    const existing = await prisma.announcement.findFirst({ where: { title: a.title } });
+    const existing = await prisma.announcement.findFirst({ where: { title: a.title, provinceId: province.id } });
     if (existing) continue;
     await prisma.announcement.create({
       data: {
@@ -221,11 +231,11 @@ async function main() {
   // ---------------- cooperatives ----------------
   let cooperativesCreated = 0;
   for (const c of COOPERATIVES) {
-    const existing = await prisma.cooperative.findFirst({ where: { name: c.name } });
+    const existing = await prisma.cooperative.findFirst({ where: { name: `${c.name} (${province.code})` } });
     if (existing) continue;
     await prisma.cooperative.create({
       data: {
-        name: c.name,
+        name: `${c.name} (${province.code})`,
         description: 'Sample socio-economic group registered on the governance platform.',
         activity: c.activity,
         leaderName: c.leaderName,
@@ -274,7 +284,7 @@ async function main() {
   }
   let eventsCreated = 0;
   for (const e of EVENT_EXTRAS) {
-    const existing = await prisma.event.findFirst({ where: { title: e.title } });
+    const existing = await prisma.event.findFirst({ where: { title: e.title, provinceId: province.id } });
     if (existing) continue;
     const village = pick(sampleVillages);
     await prisma.event.create({
@@ -301,7 +311,7 @@ async function main() {
   for (let i = 0; i < Math.min(2, sampleVillages.length); i++) {
     const village = sampleVillages[i];
     const title = `DEMO ${village.name} cooperative showcase`;
-    const existing = await prisma.event.findFirst({ where: { title } });
+    const existing = await prisma.event.findFirst({ where: { title, provinceId: province.id } });
     if (existing) continue;
     await prisma.event.create({
       data: {
@@ -429,7 +439,7 @@ async function main() {
   // ---------------- reports ----------------
   let reportsCreated = 0;
   for (const rep of REPORTS) {
-    const existing = await prisma.report.findFirst({ where: { title: rep.title } });
+    const existing = await prisma.report.findFirst({ where: { title: rep.title, provinceId: province.id } });
     if (existing) continue;
     const village = pick(sampleVillages);
     let authorId = provinceAdmin.id;
@@ -445,7 +455,7 @@ async function main() {
     }
     const created = await prisma.report.create({
       data: {
-        reportNo: `DEMOREP${reportsCreated}`,
+        reportNo: `DEMOREP${province.code}${reportsCreated}`,
         title: rep.title,
         content: rep.content,
         level: rep.level,
@@ -500,6 +510,9 @@ async function main() {
     }
   }
 
+  console.log(`  ${province.name}: created tasks=${tasksCreated} meetings=${meetingsCreated} announcements=${announcementsCreated} cooperatives=${cooperativesCreated} households=${householdsCreated} events=${eventsCreated} escalations=${escalationsCreated} notifications=${notificationsCreated} reports=${reportsCreated}`);
+}
+
   const stats = {
     tasks: await prisma.task.count(),
     meetings: await prisma.meeting.count(),
@@ -515,11 +528,11 @@ async function main() {
   };
 
   console.log('Workshop sample data ready.');
+  console.log(`  provinces: ${provinces.length}`);
   console.log(`  tasks: ${stats.tasks}  meetings: ${stats.meetings}  announcements: ${stats.announcements}`);
   console.log(`  cooperatives: ${stats.cooperatives}  households: ${stats.households}  events: ${stats.events}`);
   console.log(`  escalations: ${stats.escalations}  notifications: ${stats.notifications}  reports: ${stats.reports}`);
   console.log(`  participants: ${stats.participants}  complaintsAssigned: ${stats.complaintsAssigned}`);
-  console.log(`  created: tasks=${tasksCreated} meetings=${meetingsCreated} announcements=${announcementsCreated} cooperatives=${cooperativesCreated} households=${householdsCreated} events=${eventsCreated} escalations=${escalationsCreated} notifications=${notificationsCreated} reports=${reportsCreated}`);
 }
 
 main()

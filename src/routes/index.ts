@@ -17,6 +17,10 @@ import taskRoutes from './tasks.routes';
 import meetingRoutes from './meetings.routes';
 import cooperativeRoutes from './cooperatives.routes';
 import realtimeRoutes from './realtime.routes';
+import searchRoutes from './search.routes';
+import sessionsRoutes from './sessions.routes';
+import slaRoutes from './sla.routes';
+import reportTemplatesRoutes from './report-templates.routes';
 
 const router = Router();
 
@@ -37,10 +41,14 @@ router.use('/citizens', citizenRoutes);
 router.use('/tasks', taskRoutes);
 router.use('/meetings', meetingRoutes);
 router.use('/cooperatives', cooperativeRoutes);
+router.use('/sessions', sessionsRoutes);
+router.use('/sla', slaRoutes);
+router.use('/report-templates', reportTemplatesRoutes);
+router.use('/search', searchRoutes);
 router.use('/realtime', realtimeRoutes);
 
 router.get('/', (_req, res) => {
-  res.json({ name: 'Northern Province Governance API', version: 'v1' });
+  res.json({ name: 'Rwanda Digital Governance API', version: 'v1' });
 });
 
 export default router;

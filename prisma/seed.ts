@@ -11,20 +11,29 @@ interface SectorRef { name: string; code: string; cells: CellRef[] }
 interface DistrictRef { name: string; code: string; sectors: SectorRef[] }
 interface ProvinceRef { name: string; code: string; districts: DistrictRef[] }
 
-const northernData = JSON.parse(
-  fs.readFileSync(path.join(__dirname, 'northern-data.json'), 'utf-8'),
-) as ProvinceRef;
+// Every province with a JSON file in this directory is seeded. Files are
+// named `<province>-data.json` and share the District -> Sector -> Cell ->
+// Village shape used by northern-data.json.
+const provinceFiles = fs
+  .readdirSync(__dirname)
+  .filter((f) => f.endsWith('-data.json'))
+  .sort((a, b) => (a.startsWith('northern') ? -1 : b.startsWith('northern') ? 1 : a.localeCompare(b)));
+
+const provinceData = provinceFiles.map(
+  (f) => JSON.parse(fs.readFileSync(path.join(__dirname, f), 'utf-8')) as ProvinceRef,
+);
 
 async function main() {
   console.log('Seeding database...');
 
   // ------------------------------------------------------- full reset
   // Wipe dependent tables first (FK-safe order) so re-seeding always
-  // produces exactly the real Northern Province hierarchy + demo accounts.
+  // produces exactly the real Rwandan province hierarchy + demo accounts.
   const resetOrder = [
     'auditLog', 'attachment', 'notification', 'session', 'passwordReset', 'loginHistory',
-    'escalation', 'complaintComment', 'reportReview', 'projectUpdate', 'eventParticipant',
-    'announcement', 'report', 'project', 'event', 'complaint', 'serviceRequest',
+    'escalation', 'complaintComment', 'complaintFeedback', 'reportReview', 'projectUpdate',
+    'eventParticipant', 'announcement', 'report', 'project', 'event', 'complaint',
+    'serviceRequest', 'task', 'meeting', 'cooperative',
     'citizen', 'household', 'user',
     'village', 'cell', 'sector', 'district', 'province',
   ] as const;
@@ -36,7 +45,7 @@ async function main() {
   // ------------------------------------------------------------------ roles
   const rolesData = [
     { slug: 'SUPER_ADMIN', name: 'Super Administrator', level: 0, description: 'Platform-level administrator with full authority' },
-    { slug: 'PROVINCE_ADMIN', name: 'Province Administrator', level: 1, description: 'Supervises all districts in Northern Province' },
+    { slug: 'PROVINCE_ADMIN', name: 'Province Administrator', level: 1, description: 'Supervises all districts in the province' },
     { slug: 'DISTRICT_ADMIN', name: 'District Administrator', level: 2, description: 'Manages a district and its sectors' },
     { slug: 'SECTOR_ADMIN', name: 'Sector Administrator', level: 3, description: 'Coordinates activities inside a sector' },
     { slug: 'CELL_ADMIN', name: 'Cell Administrator', level: 4, description: 'Coordinates between sectors and villages' },
@@ -137,16 +146,12 @@ async function main() {
   }
 
   // -------------------------------------------------------------- hierarchy
-  // Real Northern Province data (NISR "List of Villages"): 5 districts,
-  // 89 sectors, 414 cells, 2,744 villages. Uses batched createMany so the
-  // seed stays fast even with ~3,200 rows.
-  const province = await prisma.province.upsert({
-    where: { code: northernData.code },
-    update: { name: northernData.name },
-    create: { name: northernData.name, code: northernData.code },
-  });
-
+  // Real Rwandan data: Northern (NISR "List of Villages": 5 districts,
+  // 89 sectors, 414 cells, 2,744 villages) plus any other province JSON in
+  // this directory. Uses batched createMany so the seed stays fast even
+  // with tens of thousands of rows.
   interface UnitRef { id: number; name: string; code: string }
+  const provincesByCode: Record<string, { id: number; name: string; code: string }> = {};
   const districts: UnitRef[] = [];
   const sectorIndex: Record<string, UnitRef> = {};
   const cellIndex: Record<string, UnitRef> = {};
@@ -156,62 +161,74 @@ async function main() {
   const existingCellCodes = new Set((await prisma.cell.findMany({ select: { code: true } })).map((r) => r.code));
   const existingVillageCodes = new Set((await prisma.village.findMany({ select: { code: true } })).map((r) => r.code));
 
-  for (const dd of northernData.districts) {
-    const district = await prisma.district.upsert({
-      where: { code: dd.code },
-      update: { name: dd.name },
-      create: { name: dd.name, code: dd.code, provinceId: province.id },
+  for (const data of provinceData) {
+    const province = await prisma.province.upsert({
+      where: { code: data.code },
+      update: { name: data.name },
+      create: { name: data.name, code: data.code },
     });
-    districts.push({ id: district.id, name: dd.name, code: dd.code });
+    provincesByCode[data.code] = province;
+    console.log(`Seeding ${data.name} (${data.districts.length} districts)...`);
 
-    const missingSectors = dd.sectors.filter((s) => !existingSectorCodes.has(s.code));
-    if (missingSectors.length) {
-      await prisma.sector.createMany({
-        data: missingSectors.map((s) => ({ name: s.name, code: s.code, districtId: district.id })),
+    for (const dd of data.districts) {
+      const district = await prisma.district.upsert({
+        where: { code: dd.code },
+        update: { name: dd.name },
+        create: { name: dd.name, code: dd.code, provinceId: province.id },
       });
-    }
+      districts.push({ id: district.id, name: dd.name, code: dd.code });
 
-    const sectorRows = await prisma.sector.findMany({ where: { districtId: district.id }, select: { id: true, name: true, code: true } });
-    const sectorIdByCode: Record<string, number> = {};
-    for (const s of sectorRows) {
-      sectorIndex[s.code] = s;
-      sectorIdByCode[s.code] = s.id;
-    }
+      const missingSectors = dd.sectors.filter((s) => !existingSectorCodes.has(s.code));
+      if (missingSectors.length) {
+        await prisma.sector.createMany({
+          data: missingSectors.map((s) => ({ name: s.name, code: s.code, districtId: district.id })),
+        });
+      }
 
-    const missingCells = dd.sectors.flatMap((s) =>
-      s.cells.filter((c) => !existingCellCodes.has(c.code)).map((c) => ({ name: c.name, code: c.code, sectorId: sectorIdByCode[s.code] })),
-    );
-    if (missingCells.length) {
-      await prisma.cell.createMany({ data: missingCells });
-    }
+      const sectorRows = await prisma.sector.findMany({ where: { districtId: district.id }, select: { id: true, name: true, code: true } });
+      const sectorIdByCode: Record<string, number> = {};
+      for (const s of sectorRows) {
+        sectorIndex[s.code] = s;
+        sectorIdByCode[s.code] = s.id;
+      }
 
-    const cellRows = await prisma.cell.findMany({
-      where: { sectorId: { in: sectorRows.map((s) => s.id) } },
-      select: { id: true, name: true, code: true },
-    });
-    const cellIdByCode: Record<string, number> = {};
-    for (const c of cellRows) {
-      cellIndex[c.code] = c;
-      cellIdByCode[c.code] = c.id;
-    }
+      const missingCells = dd.sectors.flatMap((s) =>
+        s.cells.filter((c) => !existingCellCodes.has(c.code)).map((c) => ({ name: c.name, code: c.code, sectorId: sectorIdByCode[s.code] })),
+      );
+      if (missingCells.length) {
+        await prisma.cell.createMany({ data: missingCells });
+      }
 
-    const missingVillages = dd.sectors.flatMap((s) =>
-      s.cells.flatMap((c) =>
-        c.villages.filter((v) => !existingVillageCodes.has(v.code)).map((v) => ({ name: v.name, code: v.code, cellId: cellIdByCode[c.code] })),
-      ),
-    );
-    if (missingVillages.length) {
-      await prisma.village.createMany({ data: missingVillages });
-    }
+      const cellRows = await prisma.cell.findMany({
+        where: { sectorId: { in: sectorRows.map((s) => s.id) } },
+        select: { id: true, name: true, code: true },
+      });
+      const cellIdByCode: Record<string, number> = {};
+      for (const c of cellRows) {
+        cellIndex[c.code] = c;
+        cellIdByCode[c.code] = c.id;
+      }
 
-    const villageRows = await prisma.village.findMany({
-      where: { cellId: { in: cellRows.map((c) => c.id) } },
-      select: { id: true, name: true, code: true },
-    });
-    for (const v of villageRows) {
-      villageIndex[v.code] = v;
+      const missingVillages = dd.sectors.flatMap((s) =>
+        s.cells.flatMap((c) =>
+          c.villages.filter((v) => !existingVillageCodes.has(v.code)).map((v) => ({ name: v.name, code: v.code, cellId: cellIdByCode[c.code] })),
+        ),
+      );
+      if (missingVillages.length) {
+        await prisma.village.createMany({ data: missingVillages });
+      }
+
+      const villageRows = await prisma.village.findMany({
+        where: { cellId: { in: cellRows.map((c) => c.id) } },
+        select: { id: true, name: true, code: true },
+      });
+      for (const v of villageRows) {
+        villageIndex[v.code] = v;
+      }
     }
   }
+
+  const province = provincesByCode['NORTH'];
 
   // -------------------------------------------------------------- demo users
   const pw = (s: string) => bcrypt.hash(s, 10);
@@ -255,14 +272,14 @@ async function main() {
 
   // Super admin (bootstrap role, provisioned via seed only)
   await createAdmin({
-    fullName: 'Super Administrator', username: 'super', email: 'super@northern.gov.rw',
+    fullName: 'Super Administrator', username: 'super', email: 'info@primature.gov.rw',
     phone: '0788000000', role: 'SUPER_ADMIN',
     provinceId: province.id, districtId: 0, sectorId: 0, cellId: 0, villageId: 0,
   });
 
   // Province admin
   await createAdmin({
-    fullName: 'Province Administrator', username: 'province', email: 'province@northern.gov.rw',
+    fullName: 'Province Administrator', username: 'province', email: 'governor@northern.gov.rw',
     phone: '0788000001', role: 'PROVINCE_ADMIN',
     provinceId: province.id, districtId: 0, sectorId: 0, cellId: 0, villageId: 0,
   });
@@ -296,6 +313,80 @@ async function main() {
     phone: '0788000005', role: 'VILLAGE_ADMIN',
     provinceId: province.id, districtId: musanze.district.id, sectorId: musanze.sector.id, cellId: musanze.cell.id, villageId: musanze.village.id,
   });
+
+  // -----------------------------------------------------------------------------
+  // Eastern Province (second province): one district administrator per district,
+  // plus the full leadership chain in Nyagatare and a citizen, mirroring Northern.
+  // -----------------------------------------------------------------------------
+  const eastern = provincesByCode['EAST'];
+  if (eastern) {
+    await createAdmin({
+      fullName: 'Eastern Province Administrator', username: 'eastern', email: 'governor@eastern.gov.rw',
+      phone: '0788000007', role: 'PROVINCE_ADMIN',
+      provinceId: eastern.id, districtId: 0, sectorId: 0, cellId: 0, villageId: 0,
+    });
+
+    const eastDistricts = districts.filter((d) => d.code.startsWith('EAST-'));
+    let eastPhone = 9;
+    for (const d of eastDistricts) {
+      const slug = d.name.toLowerCase().replace(/[^a-z]/g, '');
+      await createAdmin({
+        fullName: `${d.name} District Administrator`,
+        username: slug,
+        email: `district@${slug}.gov.rw`,
+        phone: `07880000${String(eastPhone).padStart(2, '0')}`,
+        role: 'DISTRICT_ADMIN',
+        provinceId: eastern.id, districtId: d.id, sectorId: 0, cellId: 0, villageId: 0,
+      });
+      eastPhone++;
+    }
+
+    const nyagatare = await findUnit('EAST-NYA', 1, 1, 1);
+    await createAdmin({
+      fullName: `${nyagatare.sector.name} Sector Administrator`, username: 'east_sector', email: 'sector@east.gov.rw',
+      phone: '0788000016', role: 'SECTOR_ADMIN',
+      provinceId: eastern.id, districtId: nyagatare.district.id, sectorId: nyagatare.sector.id, cellId: 0, villageId: 0,
+    });
+
+    await createAdmin({
+      fullName: `${nyagatare.cell.name} Cell Administrator`, username: 'east_cell', email: 'cell@east.gov.rw',
+      phone: '0788000017', role: 'CELL_ADMIN',
+      provinceId: eastern.id, districtId: nyagatare.district.id, sectorId: nyagatare.sector.id, cellId: nyagatare.cell.id, villageId: 0,
+    });
+
+    await createAdmin({
+      fullName: `${nyagatare.village.name} Village Administrator`, username: 'east_village', email: 'village@east.gov.rw',
+      phone: '0788000018', role: 'VILLAGE_ADMIN',
+      provinceId: eastern.id, districtId: nyagatare.district.id, sectorId: nyagatare.sector.id, cellId: nyagatare.cell.id, villageId: nyagatare.village.id,
+    });
+
+    // Eastern citizen in the same Nyagatare village.
+    const eastCitizenRole = await prisma.role.findUnique({ where: { slug: 'CITIZEN' } });
+    if (eastCitizenRole) {
+      const existingEastCitizen = await prisma.user.findUnique({ where: { username: 'east_citizen' } });
+      let eastCitizenUser;
+      if (existingEastCitizen) {
+        eastCitizenUser = existingEastCitizen;
+      } else {
+        eastCitizenUser = await prisma.user.create({
+          data: {
+            fullName: 'Aline Uwase', username: 'east_citizen', email: 'citizen@east.gov.rw',
+            phone: '0788000019', passwordHash: await pw('Citizen@123'),
+            roleId: eastCitizenRole.id,
+            provinceId: eastern.id, districtId: nyagatare.district.id, sectorId: nyagatare.sector.id,
+            cellId: nyagatare.cell.id, villageId: nyagatare.village.id,
+            status: 'ACTIVE',
+          },
+        });
+      }
+      const eastProfile = await prisma.citizen.findUnique({ where: { userId: eastCitizenUser.id } });
+      if (!eastProfile) {
+        await prisma.citizen.create({
+          data: { userId: eastCitizenUser.id, villageId: nyagatare.village.id, nationalId: '1198765432109999', gender: 'Female' },
+        });
+      }
+    }
+  }
 
   // Citizen
   const citizenRole = await prisma.role.findUnique({ where: { slug: 'CITIZEN' } });
@@ -406,13 +497,20 @@ async function main() {
 
   console.log('Seeding complete.');
   console.log('Demo accounts (password Admin@123 for admins, Citizen@123 for citizen):');
-  console.log('  super / super@northern.gov.rw');
-  console.log('  province / province@northern.gov.rw');
-  console.log('  district / district@musanze.gov.rw');
-  console.log('  sector / sector@muhoza.gov.rw');
-  console.log('  cell / cell@muhoza.gov.rw');
-  console.log('  village / village@umudugudu.gov.rw');
-  console.log('  citizen / citizen@example.com');
+  console.log('  Northern Province:');
+  console.log('    super / info@primature.gov.rw');
+  console.log('    province / province@northern.gov.rw');
+  console.log('    district / district@musanze.gov.rw');
+  console.log('    sector / sector@muhoza.gov.rw');
+  console.log('    cell / cell@muhoza.gov.rw');
+  console.log('    village / village@umudugudu.gov.rw');
+  console.log('    citizen / citizen@example.com');
+  console.log('  Eastern Province:');
+  console.log('    eastern / eastern@eastern.gov.rw');
+  console.log('    nyagatare / district@nyagatare.gov.rw');
+  console.log('    bugesera / gatsibo / kayonza / kirehe / ngoma / rwamagana (district admins)');
+  console.log('    east_sector / east_cell / east_village (Nyagatare chain)');
+  console.log('    east_citizen / citizen@east.gov.rw');
 }
 
 main()

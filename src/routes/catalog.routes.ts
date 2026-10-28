@@ -27,6 +27,20 @@ router.use(optionalAuthenticate);
 
 const unitIdSchema = z.object({ id: z.coerce.number().int().positive() });
 
+/** List all provinces (used by the super admin to provision province administrators). */
+router.get(
+  '/provinces',
+  asyncHandler(async (_req, res) => {
+    const items = await cached('geo:cat:provinces', () =>
+      prisma.province.findMany({
+        orderBy: { name: 'asc' },
+        select: { id: true, name: true, code: true, _count: { select: { districts: true } } },
+      }),
+    );
+    res.json({ items });
+  }),
+);
+
 /** List districts. Scoped to the caller's province when authenticated. */
 router.get(
   '/districts',
@@ -37,7 +51,7 @@ router.get(
       prisma.district.findMany({
         where: scope?.provinceId ? { provinceId: scope.provinceId } : {},
         orderBy: { name: 'asc' },
-        select: { id: true, name: true, code: true, _count: { select: { sectors: true } } },
+        select: { id: true, name: true, code: true, provinceId: true, _count: { select: { sectors: true } } },
       }),
     );
     res.json({ items });

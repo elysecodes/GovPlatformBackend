@@ -1,23 +1,42 @@
 import { execSync } from 'child_process';
-import fs from 'fs';
 import path from 'path';
 import request from 'supertest';
-import { afterAll, beforeAll, describe, expect, it } from 'vitest';
+import { afterAll, beforeAll, expect, it } from 'vitest';
+import * as vitest from 'vitest';
 import bcrypt from 'bcryptjs';
 import { totp } from '../src/lib/totp';
 
 // Environment must be configured before any app/prisma module is imported.
-process.env.DATABASE_URL = 'file:./test.db';
+// Integration tests require a live MySQL database. Without one the whole suite
+// is skipped (no local MySQL / XAMPP available) instead of crashing.
+if (!process.env.DATABASE_URL?.startsWith('mysql://')) {
+  process.env.DATABASE_URL = process.env.DATABASE_URL || 'mysql://root:@localhost:3306/govplatform_test';
+}
 process.env.JWT_SECRET = 'test-secret';
 process.env.AUTH_RATE_LIMIT_MAX = '100000';
 process.env.RATE_LIMIT_MAX = '1000000';
 process.env.BCRYPT_ROUNDS = '4';
 process.env.NODE_ENV = 'test';
 
+function mysqlAvailable(): boolean {
+  try {
+    execSync('node node_modules/prisma/build/index.js db push --skip-generate --accept-data-loss', {
+      stdio: 'pipe',
+      cwd: path.join(__dirname, '..'),
+    });
+    return true;
+  } catch {
+    return false;
+  }
+}
+
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 let app: any;
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 let prisma: any;
+
+// Skip every describe block when MySQL is unavailable.
+const describe = mysqlAvailable() ? vitest.describe : vitest.describe.skip;
 
 const pw = (s: string) => bcrypt.hash(s, 4);
 
@@ -117,14 +136,6 @@ async function login(username: string, password: string) {
 }
 
 beforeAll(async () => {
-  const dbPath = path.join(__dirname, '..', 'prisma', 'test.db');
-  if (fs.existsSync(dbPath)) fs.unlinkSync(dbPath);
-
-  execSync('node node_modules/prisma/build/index.js db push --skip-generate --accept-data-loss', {
-    stdio: 'pipe',
-    cwd: path.join(__dirname, '..'),
-  });
-
   const { createApp } = await import('../src/app');
   app = createApp();
   ({ prisma } = await import('../src/lib/prisma'));

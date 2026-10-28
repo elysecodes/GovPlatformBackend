@@ -38,7 +38,7 @@ export function createApp(): Express {
     app.use(morgan('combined', { stream }));
   }
 
-  // Global rate limiting
+  // Global rate limiting (per IP). Tunable via RATE_LIMIT_MAX / RATE_LIMIT_WINDOW_MIN.
   app.use(
     rateLimit({
       windowMs: env.rateLimitWindowMin * 60 * 1000,

@@ -4,8 +4,8 @@ import bcrypt from 'bcryptjs';
 /**
  * Idempotent sample-data expansion for the demo environment. Adds a spread of
  * complaints, service requests, projects, events, households, citizens and
- * satisfaction feedback across all five districts of Northern Province so the
- * province-level dashboard renders meaningful charts.
+ * satisfaction feedback across every province so the province-level dashboards
+ * render meaningful charts.
  *
  * Guard: only runs when the database is "thin" (fewer than 10 complaints) so a
  * re-run never duplicates data.
@@ -97,27 +97,34 @@ const NEW_FULL_NAMES = ['Aloys Niyonzima', 'Chantal Uwase', 'Eric Nsengimana', '
 async function main() {
   console.log('Checking sample data...');
 
-  const complaintCount = await prisma.complaint.count();
-  if (complaintCount >= 10) {
-    console.log(`Database already has ${complaintCount} complaints. Sample expansion skipped (nothing to add).`);
-    return;
-  }
-
   console.log('Expanding sample data for the demo dashboard...');
 
-  const province = await prisma.province.findFirst({ where: { code: 'NORTH' } });
-  if (!province) throw new Error('Northern Province not found. Run `npm run db:seed` first.');
+  const provinces = await prisma.province.findMany({ orderBy: { id: 'asc' } });
+  if (provinces.length === 0) throw new Error('No provinces found. Run `npm run db:seed` first.');
 
-  const districts = await prisma.district.findMany({ where: { provinceId: province.id }, orderBy: { id: 'asc' } });
   const categories = await prisma.complaintCategory.findMany();
   const serviceTypes = await prisma.serviceType.findMany();
   const citizenRole = await prisma.role.findUnique({ where: { slug: 'CITIZEN' } });
-  const provinceAdmin = await prisma.user.findUnique({ where: { username: 'province' } });
-  if (!citizenRole || !provinceAdmin) throw new Error('Roles or province admin missing. Run `npm run db:seed` first.');
+  if (!citizenRole) throw new Error('Citizen role missing. Run `npm run db:seed` first.');
 
   const allVillages: ChainVillage[] = await prisma.village.findMany({
     include: { cell: { include: { sector: { include: { district: true } } } } },
   });
+
+  for (const province of provinces) {
+    const districts = await prisma.district.findMany({ where: { provinceId: province.id }, orderBy: { id: 'asc' } });
+    const provinceAdmin = await prisma.user.findFirst({ where: { role: { slug: 'PROVINCE_ADMIN' }, provinceId: province.id } });
+    if (!provinceAdmin || districts.length === 0) {
+      console.log(`  ${province.name}: skipped (no province admin or districts)`);
+      continue;
+    }
+
+    const provinceComplaints = await prisma.complaint.count({ where: { provinceId: province.id } });
+    if (provinceComplaints >= 10) {
+      console.log(`  ${province.name}: already has ${provinceComplaints} complaints. Sample expansion skipped for this province.`);
+      continue;
+    }
+    console.log(`  ${province.name}: expanding sample data (0 existing complaints)...`);
 
   const byDistrict = (dId: number) => allVillages.filter((v) => v.cell.sector.district.id === dId);
 
@@ -138,7 +145,7 @@ async function main() {
   for (let vi = 0; vi < sampleVillages.length && citizenIdx < NEW_FULL_NAMES.length; vi += 1) {
     const village = sampleVillages[vi];
     const fullName = NEW_FULL_NAMES[citizenIdx];
-    const username = `samplec${citizenIdx + 1}`;
+    const username = `sample${province.code.toLowerCase()}${citizenIdx + 1}`;
     const existing = await prisma.user.findUnique({ where: { username } });
     if (existing) continue;
     const user = await prisma.user.create({
@@ -161,7 +168,7 @@ async function main() {
       data: {
         userId: user.id,
         villageId: village.id,
-        nationalId: `120${String(900000000 + citizenIdx * 13).padStart(9, '0')}`,
+        nationalId: `120${String(900000000 + province.id * 100000 + citizenIdx * 13).padStart(9, '0')}`,
         gender: citizenIdx % 2 === 0 ? 'Female' : 'Male',
       },
     });
@@ -209,7 +216,7 @@ async function main() {
     if (existing) continue;
     const complaint = await prisma.complaint.create({
       data: {
-        complaintNo: `SMP-${NewCuid(i)}`,
+        complaintNo: `SMP-${province.code}-${NewCuid(i)}`,
         citizenId: citizen.id,
         categoryId: cat.id,
         title: pick(COMPLAINT_TITLES),
@@ -253,7 +260,7 @@ async function main() {
     if (existing) continue;
     await prisma.serviceRequest.create({
       data: {
-        requestNo: `SMPR-${NewCuid(i)}`,
+        requestNo: `SMPR-${province.code}-${NewCuid(i)}`,
         citizenId: citizen.id,
         serviceTypeId: st.id,
         title: pick(REQUEST_TITLES),
@@ -276,7 +283,7 @@ async function main() {
     const status = P_STATUSES[i % P_STATUSES.length];
     const progress = status === 'COMPLETED' ? 100 : status === 'PLANNED' ? 0 : rand(10, 85);
     const budget = rand(8, 120) * 1000000;
-    const existing = await prisma.project.count({ where: { title: PROJECT_TITLES[i] } });
+    const existing = await prisma.project.count({ where: { title: PROJECT_TITLES[i], provinceId: province.id } });
     if (existing > 0) continue;
     await prisma.project.create({
       data: {
@@ -304,7 +311,7 @@ async function main() {
   for (let i = 0; i < EVENT_TITLES.length; i++) {
     const village = pick(sampleVillages);
     const held = i % 2 === 0;
-    const existing = await prisma.event.count({ where: { title: EVENT_TITLES[i] } });
+    const existing = await prisma.event.count({ where: { title: EVENT_TITLES[i], provinceId: province.id } });
     if (existing > 0) continue;
     await prisma.event.create({
       data: {
@@ -330,7 +337,7 @@ async function main() {
     if (existing > 0) continue;
     await prisma.report.create({
       data: {
-        reportNo: `SMPREP${i}`,
+        reportNo: `SMPREP${province.code}${i}`,
         title: `Quarterly monitoring report ${i + 1}`,
         content: 'Consolidated performance narrative for the governance dashboard demo.',
         level: i === 0 ? 'PROVINCE' : 'DISTRICT',
@@ -342,6 +349,8 @@ async function main() {
         updatedAt: daysAgo(rand(0, 3)),
       },
     });
+  }
+
   }
 
   const stats = await Promise.all([
@@ -358,7 +367,6 @@ async function main() {
   console.log('Sample data ready.');
   console.log(`  complaints: ${stats[0]}  requests: ${stats[1]}  projects: ${stats[2]}  events: ${stats[3]}`);
   console.log(`  citizens: ${stats[4]}  households: ${stats[5]}  feedback: ${stats[6]}  reports: ${stats[7]}`);
-  console.log(`  sample villages used: ${sampleVillages.length}  sample citizens: ${citizens.length}`);
 }
 
 function NewCuid(i: number): string {

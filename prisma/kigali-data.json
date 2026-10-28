@@ -1,0 +1,5904 @@
+{
+ "name": "Kigali City",
+ "code": "KIG",
+ "districts": [
+  {
+   "name": "Gasabo",
+   "code": "KIG-GAS",
+   "sectors": [
+    {
+     "name": "Bumbogo",
+     "code": "KIG-GAS-S1",
+     "cells": [
+      {
+       "name": "Kinyaga",
+       "code": "KIG-GAS-S1C1",
+       "villages": [
+        {
+         "name": "Akakaza",
+         "code": "KIG-GAS-S1C1V1"
+        },
+        {
+         "name": "Kigarama",
+         "code": "KIG-GAS-S1C1V2"
+        },
+        {
+         "name": "Kingabo",
+         "code": "KIG-GAS-S1C1V3"
+        },
+        {
+         "name": "Muhozi",
+         "code": "KIG-GAS-S1C1V4"
+        },
+        {
+         "name": "Rubungo",
+         "code": "KIG-GAS-S1C1V5"
+        },
+        {
+         "name": "Ryakigogo",
+         "code": "KIG-GAS-S1C1V6"
+        },
+        {
+         "name": "Zindiro",
+         "code": "KIG-GAS-S1C1V7"
+        }
+       ]
+      },
+      {
+       "name": "Musave",
+       "code": "KIG-GAS-S1C2",
+       "villages": [
+        {
+         "name": "Kagarama",
+         "code": "KIG-GAS-S1C2V1"
+        },
+        {
+         "name": "Kayumba",
+         "code": "KIG-GAS-S1C2V2"
+        },
+        {
+         "name": "Ramba",
+         "code": "KIG-GAS-S1C2V3"
+        },
+        {
+         "name": "Rebero",
+         "code": "KIG-GAS-S1C2V4"
+        },
+        {
+         "name": "Rugando",
+         "code": "KIG-GAS-S1C2V5"
+        }
+       ]
+      },
+      {
+       "name": "Mvuzo",
+       "code": "KIG-GAS-S1C3",
+       "villages": [
+        {
+         "name": "Kigabiro",
+         "code": "KIG-GAS-S1C3V1"
+        },
+        {
+         "name": "Kiyoro",
+         "code": "KIG-GAS-S1C3V2"
+        },
+        {
+         "name": "Murarambo",
+         "code": "KIG-GAS-S1C3V3"
+        },
+        {
+         "name": "Nkona",
+         "code": "KIG-GAS-S1C3V4"
+        },
+        {
+         "name": "Nyakabingo",
+         "code": "KIG-GAS-S1C3V5"
+        },
+        {
+         "name": "Rukoma",
+         "code": "KIG-GAS-S1C3V6"
+        }
+       ]
+      },
+      {
+       "name": "Ngara",
+       "code": "KIG-GAS-S1C4",
+       "villages": [
+        {
+         "name": "Birembo",
+         "code": "KIG-GAS-S1C4V1"
+        },
+        {
+         "name": "Gisasa",
+         "code": "KIG-GAS-S1C4V2"
+        },
+        {
+         "name": "Munini",
+         "code": "KIG-GAS-S1C4V3"
+        },
+        {
+         "name": "Ruhinga",
+         "code": "KIG-GAS-S1C4V4"
+        },
+        {
+         "name": "Uwaruraza",
+         "code": "KIG-GAS-S1C4V5"
+        }
+       ]
+      },
+      {
+       "name": "Nkuzuzu",
+       "code": "KIG-GAS-S1C5",
+       "villages": [
+        {
+         "name": "Akabenejuru",
+         "code": "KIG-GAS-S1C5V1"
+        },
+        {
+         "name": "Akasedogo",
+         "code": "KIG-GAS-S1C5V2"
+        },
+        {
+         "name": "Akimpama",
+         "code": "KIG-GAS-S1C5V3"
+        },
+        {
+         "name": "Burima",
+         "code": "KIG-GAS-S1C5V4"
+        },
+        {
+         "name": "Kityazo",
+         "code": "KIG-GAS-S1C5V5"
+        }
+       ]
+      },
+      {
+       "name": "Nyabikenke",
+       "code": "KIG-GAS-S1C6",
+       "villages": [
+        {
+         "name": "Bushya",
+         "code": "KIG-GAS-S1C6V1"
+        },
+        {
+         "name": "Gikumba",
+         "code": "KIG-GAS-S1C6V2"
+        },
+        {
+         "name": "Kamutamu",
+         "code": "KIG-GAS-S1C6V3"
+        },
+        {
+         "name": "Karama",
+         "code": "KIG-GAS-S1C6V4"
+        },
+        {
+         "name": "Kayenzi",
+         "code": "KIG-GAS-S1C6V5"
+        },
+        {
+         "name": "Kigara",
+         "code": "KIG-GAS-S1C6V6"
+        },
+        {
+         "name": "Kiriza",
+         "code": "KIG-GAS-S1C6V7"
+        },
+        {
+         "name": "Masizi",
+         "code": "KIG-GAS-S1C6V8"
+        },
+        {
+         "name": "Mbogo",
+         "code": "KIG-GAS-S1C6V9"
+        },
+        {
+         "name": "Nyampamo",
+         "code": "KIG-GAS-S1C6V10"
+        }
+       ]
+      },
+      {
+       "name": "Nyagasozi",
+       "code": "KIG-GAS-S1C7",
+       "villages": [
+        {
+         "name": "Akanyiramugarura",
+         "code": "KIG-GAS-S1C7V1"
+        },
+        {
+         "name": "Akigabiro",
+         "code": "KIG-GAS-S1C7V2"
+        },
+        {
+         "name": "Gishaka",
+         "code": "KIG-GAS-S1C7V3"
+        },
+        {
+         "name": "Kabuye",
+         "code": "KIG-GAS-S1C7V4"
+        },
+        {
+         "name": "Mpabwa",
+         "code": "KIG-GAS-S1C7V5"
+        },
+        {
+         "name": "Nyagasambu",
+         "code": "KIG-GAS-S1C7V6"
+        },
+        {
+         "name": "Urutarishonga",
+         "code": "KIG-GAS-S1C7V7"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "name": "Gatsata",
+     "code": "KIG-GAS-S2",
+     "cells": [
+      {
+       "name": "Karuruma",
+       "code": "KIG-GAS-S2C1",
+       "villages": [
+        {
+         "name": "Akamamana",
+         "code": "KIG-GAS-S2C1V1"
+        },
+        {
+         "name": "Akimihigo",
+         "code": "KIG-GAS-S2C1V2"
+        },
+        {
+         "name": "Bigega",
+         "code": "KIG-GAS-S2C1V3"
+        },
+        {
+         "name": "Busasamana",
+         "code": "KIG-GAS-S2C1V4"
+        },
+        {
+         "name": "Kingasire",
+         "code": "KIG-GAS-S2C1V5"
+        },
+        {
+         "name": "Kumuyange",
+         "code": "KIG-GAS-S2C1V6"
+        },
+        {
+         "name": "Muremera",
+         "code": "KIG-GAS-S2C1V7"
+        },
+        {
+         "name": "Nyagasozi",
+         "code": "KIG-GAS-S2C1V8"
+        },
+        {
+         "name": "Rugoro",
+         "code": "KIG-GAS-S2C1V9"
+        },
+        {
+         "name": "Rwesero",
+         "code": "KIG-GAS-S2C1V10"
+        },
+        {
+         "name": "Tetero",
+         "code": "KIG-GAS-S2C1V11"
+        }
+       ]
+      },
+      {
+       "name": "Nyamabuye",
+       "code": "KIG-GAS-S2C2",
+       "villages": [
+        {
+         "name": "Agakomeye",
+         "code": "KIG-GAS-S2C2V1"
+        },
+        {
+         "name": "Gashubi",
+         "code": "KIG-GAS-S2C2V2"
+        },
+        {
+         "name": "Gisiza",
+         "code": "KIG-GAS-S2C2V3"
+        },
+        {
+         "name": "Hanika",
+         "code": "KIG-GAS-S2C2V4"
+        },
+        {
+         "name": "Juru",
+         "code": "KIG-GAS-S2C2V5"
+        },
+        {
+         "name": "Kibaya",
+         "code": "KIG-GAS-S2C2V6"
+        },
+        {
+         "name": "Mpakabavu",
+         "code": "KIG-GAS-S2C2V7"
+        },
+        {
+         "name": "Musango",
+         "code": "KIG-GAS-S2C2V8"
+        },
+        {
+         "name": "Ndengo",
+         "code": "KIG-GAS-S2C2V9"
+        },
+        {
+         "name": "Nyakabande",
+         "code": "KIG-GAS-S2C2V10"
+        },
+        {
+         "name": "Nyakanunga",
+         "code": "KIG-GAS-S2C2V11"
+        },
+        {
+         "name": "Rubonobono",
+         "code": "KIG-GAS-S2C2V12"
+        },
+        {
+         "name": "Runyonza",
+         "code": "KIG-GAS-S2C2V13"
+        },
+        {
+         "name": "Rusoro",
+         "code": "KIG-GAS-S2C2V14"
+        },
+        {
+         "name": "Ruvumero",
+         "code": "KIG-GAS-S2C2V15"
+        },
+        {
+         "name": "Uwagatovu",
+         "code": "KIG-GAS-S2C2V16"
+        }
+       ]
+      },
+      {
+       "name": "Nyamugari",
+       "code": "KIG-GAS-S2C3",
+       "villages": [
+        {
+         "name": "Agataramo",
+         "code": "KIG-GAS-S2C3V1"
+        },
+        {
+         "name": "Akamwunguzi",
+         "code": "KIG-GAS-S2C3V2"
+        },
+        {
+         "name": "Akarubimbura",
+         "code": "KIG-GAS-S2C3V3"
+        },
+        {
+         "name": "Akisoko",
+         "code": "KIG-GAS-S2C3V4"
+        },
+        {
+         "name": "Amarembo",
+         "code": "KIG-GAS-S2C3V5"
+        },
+        {
+         "name": "Amizero",
+         "code": "KIG-GAS-S2C3V6"
+        },
+        {
+         "name": "Bwiza",
+         "code": "KIG-GAS-S2C3V7"
+        },
+        {
+         "name": "Ihuriro",
+         "code": "KIG-GAS-S2C3V8"
+        },
+        {
+         "name": "Isangano",
+         "code": "KIG-GAS-S2C3V9"
+        },
+        {
+         "name": "Kanyonyomba",
+         "code": "KIG-GAS-S2C3V10"
+        },
+        {
+         "name": "Nyakariba",
+         "code": "KIG-GAS-S2C3V11"
+        },
+        {
+         "name": "Rwakarihejuru",
+         "code": "KIG-GAS-S2C3V12"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "name": "Gikomero",
+     "code": "KIG-GAS-S3",
+     "cells": [
+      {
+       "name": "Gasagara",
+       "code": "KIG-GAS-S3C1",
+       "villages": [
+        {
+         "name": "Bwimiyange",
+         "code": "KIG-GAS-S3C1V1"
+        },
+        {
+         "name": "Bwingeyo",
+         "code": "KIG-GAS-S3C1V2"
+        },
+        {
+         "name": "Gasagara",
+         "code": "KIG-GAS-S3C1V3"
+        },
+        {
+         "name": "Rugwiza",
+         "code": "KIG-GAS-S3C1V4"
+        }
+       ]
+      },
+      {
+       "name": "Gicaca",
+       "code": "KIG-GAS-S3C2",
+       "villages": [
+        {
+         "name": "Ntaganzwa",
+         "code": "KIG-GAS-S3C2V1"
+        },
+        {
+         "name": "Nyagasozi",
+         "code": "KIG-GAS-S3C2V2"
+        },
+        {
+         "name": "Nyagisozi",
+         "code": "KIG-GAS-S3C2V3"
+        },
+        {
+         "name": "Ruganda",
+         "code": "KIG-GAS-S3C2V4"
+        }
+       ]
+      },
+      {
+       "name": "Kibara",
+       "code": "KIG-GAS-S3C3",
+       "villages": [
+        {
+         "name": "Gahinga",
+         "code": "KIG-GAS-S3C3V1"
+        },
+        {
+         "name": "Gasharu",
+         "code": "KIG-GAS-S3C3V2"
+        },
+        {
+         "name": "Kibobo",
+         "code": "KIG-GAS-S3C3V3"
+        },
+        {
+         "name": "Nombe",
+         "code": "KIG-GAS-S3C3V4"
+        }
+       ]
+      },
+      {
+       "name": "Munini",
+       "code": "KIG-GAS-S3C4",
+       "villages": [
+        {
+         "name": "Munini",
+         "code": "KIG-GAS-S3C4V1"
+        },
+        {
+         "name": "Mutokerezwa",
+         "code": "KIG-GAS-S3C4V2"
+        },
+        {
+         "name": "Rudakabukirwa",
+         "code": "KIG-GAS-S3C4V3"
+        },
+        {
+         "name": "Runyinya",
+         "code": "KIG-GAS-S3C4V4"
+        }
+       ]
+      },
+      {
+       "name": "Murambi",
+       "code": "KIG-GAS-S3C5",
+       "villages": [
+        {
+         "name": "Kimisebeya",
+         "code": "KIG-GAS-S3C5V1"
+        },
+        {
+         "name": "Kivugiza",
+         "code": "KIG-GAS-S3C5V2"
+        },
+        {
+         "name": "Rugarama",
+         "code": "KIG-GAS-S3C5V3"
+        },
+        {
+         "name": "Twina",
+         "code": "KIG-GAS-S3C5V4"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "name": "Gisozi",
+     "code": "KIG-GAS-S4",
+     "cells": [
+      {
+       "name": "Musezero",
+       "code": "KIG-GAS-S4C1",
+       "villages": [
+        {
+         "name": "Amajyambere",
+         "code": "KIG-GAS-S4C1V1"
+        },
+        {
+         "name": "Amarembo",
+         "code": "KIG-GAS-S4C1V2"
+        },
+        {
+         "name": "Byimana",
+         "code": "KIG-GAS-S4C1V3"
+        },
+        {
+         "name": "Gasave",
+         "code": "KIG-GAS-S4C1V4"
+        },
+        {
+         "name": "Gasharu",
+         "code": "KIG-GAS-S4C1V5"
+        },
+        {
+         "name": "Kagara",
+         "code": "KIG-GAS-S4C1V6"
+        },
+        {
+         "name": "Nyakariba",
+         "code": "KIG-GAS-S4C1V7"
+        },
+        {
+         "name": "Rwinyana",
+         "code": "KIG-GAS-S4C1V8"
+        }
+       ]
+      },
+      {
+       "name": "Ruhango",
+       "code": "KIG-GAS-S4C2",
+       "villages": [
+        {
+         "name": "Kanyinya",
+         "code": "KIG-GAS-S4C2V1"
+        },
+        {
+         "name": "Kumukenke",
+         "code": "KIG-GAS-S4C2V2"
+        },
+        {
+         "name": "Murambi",
+         "code": "KIG-GAS-S4C2V3"
+        },
+        {
+         "name": "Ntora",
+         "code": "KIG-GAS-S4C2V4"
+        },
+        {
+         "name": "Rukeri",
+         "code": "KIG-GAS-S4C2V5"
+        },
+        {
+         "name": "Umurava",
+         "code": "KIG-GAS-S4C2V6"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "name": "Jabana",
+     "code": "KIG-GAS-S5",
+     "cells": [
+      {
+       "name": "Akamatamu",
+       "code": "KIG-GAS-S5C1",
+       "villages": [
+        {
+         "name": "Akamatamu",
+         "code": "KIG-GAS-S5C1V1"
+        },
+        {
+         "name": "Cyeyere",
+         "code": "KIG-GAS-S5C1V2"
+        },
+        {
+         "name": "Murehe",
+         "code": "KIG-GAS-S5C1V3"
+        },
+        {
+         "name": "Nyacyonga",
+         "code": "KIG-GAS-S5C1V4"
+        },
+        {
+         "name": "Nyagasozi",
+         "code": "KIG-GAS-S5C1V5"
+        },
+        {
+         "name": "Nyarukurazo",
+         "code": "KIG-GAS-S5C1V6"
+        }
+       ]
+      },
+      {
+       "name": "Bweramvura",
+       "code": "KIG-GAS-S5C2",
+       "villages": [
+        {
+         "name": "Agakenke",
+         "code": "KIG-GAS-S5C2V1"
+        },
+        {
+         "name": "Agatare",
+         "code": "KIG-GAS-S5C2V2"
+        },
+        {
+         "name": "Akinyana",
+         "code": "KIG-GAS-S5C2V3"
+        },
+        {
+         "name": "Gikingo",
+         "code": "KIG-GAS-S5C2V4"
+        },
+        {
+         "name": "Gitega",
+         "code": "KIG-GAS-S5C2V5"
+        },
+        {
+         "name": "Gitenga",
+         "code": "KIG-GAS-S5C2V6"
+        },
+        {
+         "name": "Nyakabingo",
+         "code": "KIG-GAS-S5C2V7"
+        },
+        {
+         "name": "Nyarurama",
+         "code": "KIG-GAS-S5C2V8"
+        },
+        {
+         "name": "Rugogwe",
+         "code": "KIG-GAS-S5C2V9"
+        },
+        {
+         "name": "Taba",
+         "code": "KIG-GAS-S5C2V10"
+        }
+       ]
+      },
+      {
+       "name": "Kabuye",
+       "code": "KIG-GAS-S5C3",
+       "villages": [
+        {
+         "name": "Amakawa",
+         "code": "KIG-GAS-S5C3V1"
+        },
+        {
+         "name": "Amasangano",
+         "code": "KIG-GAS-S5C3V2"
+        },
+        {
+         "name": "Buliza",
+         "code": "KIG-GAS-S5C3V3"
+        },
+        {
+         "name": "Ihuriro",
+         "code": "KIG-GAS-S5C3V4"
+        },
+        {
+         "name": "Kabeza",
+         "code": "KIG-GAS-S5C3V5"
+        },
+        {
+         "name": "Karuruma",
+         "code": "KIG-GAS-S5C3V6"
+        },
+        {
+         "name": "Murama",
+         "code": "KIG-GAS-S5C3V7"
+        },
+        {
+         "name": "Nyagasozi",
+         "code": "KIG-GAS-S5C3V8"
+        },
+        {
+         "name": "Rebero",
+         "code": "KIG-GAS-S5C3V9"
+        },
+        {
+         "name": "Rugarama",
+         "code": "KIG-GAS-S5C3V10"
+        },
+        {
+         "name": "Tetero",
+         "code": "KIG-GAS-S5C3V11"
+        }
+       ]
+      },
+      {
+       "name": "Kidashya",
+       "code": "KIG-GAS-S5C4",
+       "villages": [
+        {
+         "name": "Agasekabuye",
+         "code": "KIG-GAS-S5C4V1"
+        },
+        {
+         "name": "Agatare",
+         "code": "KIG-GAS-S5C4V2"
+        },
+        {
+         "name": "Amasangano",
+         "code": "KIG-GAS-S5C4V3"
+        },
+        {
+         "name": "Mubuga",
+         "code": "KIG-GAS-S5C4V4"
+        },
+        {
+         "name": "Nyamweru",
+         "code": "KIG-GAS-S5C4V5"
+        }
+       ]
+      },
+      {
+       "name": "Ngiryi",
+       "code": "KIG-GAS-S5C5",
+       "villages": [
+        {
+         "name": "Agahama",
+         "code": "KIG-GAS-S5C5V1"
+        },
+        {
+         "name": "Agasharu",
+         "code": "KIG-GAS-S5C5V2"
+        },
+        {
+         "name": "Akabuga",
+         "code": "KIG-GAS-S5C5V3"
+        },
+        {
+         "name": "Jurwe",
+         "code": "KIG-GAS-S5C5V4"
+        },
+        {
+         "name": "Kiberinka",
+         "code": "KIG-GAS-S5C5V5"
+        },
+        {
+         "name": "Nyakirehe",
+         "code": "KIG-GAS-S5C5V6"
+        },
+        {
+         "name": "Nyarubuye",
+         "code": "KIG-GAS-S5C5V7"
+        },
+        {
+         "name": "Rubona",
+         "code": "KIG-GAS-S5C5V8"
+        },
+        {
+         "name": "Rwanyanza",
+         "code": "KIG-GAS-S5C5V9"
+        },
+        {
+         "name": "Uwanyange",
+         "code": "KIG-GAS-S5C5V10"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "name": "Jali",
+     "code": "KIG-GAS-S6",
+     "cells": [
+      {
+       "name": "Agateko",
+       "code": "KIG-GAS-S6C1",
+       "villages": [
+        {
+         "name": "Bugarama",
+         "code": "KIG-GAS-S6C1V1"
+        },
+        {
+         "name": "Bukamba",
+         "code": "KIG-GAS-S6C1V2"
+        },
+        {
+         "name": "Byimana",
+         "code": "KIG-GAS-S6C1V3"
+        },
+        {
+         "name": "Kabizoza",
+         "code": "KIG-GAS-S6C1V4"
+        },
+        {
+         "name": "Kinunga",
+         "code": "KIG-GAS-S6C1V5"
+        },
+        {
+         "name": "Runyinya",
+         "code": "KIG-GAS-S6C1V6"
+        },
+        {
+         "name": "Rwankuba",
+         "code": "KIG-GAS-S6C1V7"
+        }
+       ]
+      },
+      {
+       "name": "Buhiza",
+       "code": "KIG-GAS-S6C2",
+       "villages": [
+        {
+         "name": "Agatare",
+         "code": "KIG-GAS-S6C2V1"
+        },
+        {
+         "name": "Akabande",
+         "code": "KIG-GAS-S6C2V2"
+        },
+        {
+         "name": "Nyamugali",
+         "code": "KIG-GAS-S6C2V3"
+        },
+        {
+         "name": "Nyarubuye",
+         "code": "KIG-GAS-S6C2V4"
+        }
+       ]
+      },
+      {
+       "name": "Muko",
+       "code": "KIG-GAS-S6C3",
+       "villages": [
+        {
+         "name": "Gahinga",
+         "code": "KIG-GAS-S6C3V1"
+        },
+        {
+         "name": "Gatare",
+         "code": "KIG-GAS-S6C3V2"
+        },
+        {
+         "name": "Umunyinya",
+         "code": "KIG-GAS-S6C3V3"
+        }
+       ]
+      },
+      {
+       "name": "Nkusi",
+       "code": "KIG-GAS-S6C4",
+       "villages": [
+        {
+         "name": "Agatwa",
+         "code": "KIG-GAS-S6C4V1"
+        },
+        {
+         "name": "Kabagina",
+         "code": "KIG-GAS-S6C4V2"
+        },
+        {
+         "name": "Kajevuba",
+         "code": "KIG-GAS-S6C4V3"
+        },
+        {
+         "name": "Kigarama",
+         "code": "KIG-GAS-S6C4V4"
+        },
+        {
+         "name": "Nyagasayo",
+         "code": "KIG-GAS-S6C4V5"
+        }
+       ]
+      },
+      {
+       "name": "Nyabuliba",
+       "code": "KIG-GAS-S6C5",
+       "villages": [
+        {
+         "name": "Byimana",
+         "code": "KIG-GAS-S6C5V1"
+        },
+        {
+         "name": "Kirehe",
+         "code": "KIG-GAS-S6C5V2"
+        },
+        {
+         "name": "Mataba",
+         "code": "KIG-GAS-S6C5V3"
+        },
+        {
+         "name": "Nyarurembo",
+         "code": "KIG-GAS-S6C5V4"
+        },
+        {
+         "name": "Rubona",
+         "code": "KIG-GAS-S6C5V5"
+        }
+       ]
+      },
+      {
+       "name": "Nyakabungo",
+       "code": "KIG-GAS-S6C6",
+       "villages": [
+        {
+         "name": "Bwocya",
+         "code": "KIG-GAS-S6C6V1"
+        },
+        {
+         "name": "Gitaba",
+         "code": "KIG-GAS-S6C6V2"
+        },
+        {
+         "name": "Karenge",
+         "code": "KIG-GAS-S6C6V3"
+        },
+        {
+         "name": "Rugina",
+         "code": "KIG-GAS-S6C6V4"
+        },
+        {
+         "name": "Ruhihi",
+         "code": "KIG-GAS-S6C6V5"
+        }
+       ]
+      },
+      {
+       "name": "Nyamitanga",
+       "code": "KIG-GAS-S6C7",
+       "villages": [
+        {
+         "name": "Agasharu",
+         "code": "KIG-GAS-S6C7V1"
+        },
+        {
+         "name": "Agatare",
+         "code": "KIG-GAS-S6C7V2"
+        },
+        {
+         "name": "Kabuga",
+         "code": "KIG-GAS-S6C7V3"
+        },
+        {
+         "name": "Urunyinya",
+         "code": "KIG-GAS-S6C7V4"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "name": "Kacyiru",
+     "code": "KIG-GAS-S7",
+     "cells": [
+      {
+       "name": "Kamatamu",
+       "code": "KIG-GAS-S7C1",
+       "villages": [
+        {
+         "name": "Amajyambere",
+         "code": "KIG-GAS-S7C1V1"
+        },
+        {
+         "name": "Bukinanyana",
+         "code": "KIG-GAS-S7C1V2"
+        },
+        {
+         "name": "Cyimana",
+         "code": "KIG-GAS-S7C1V3"
+        },
+        {
+         "name": "Gataba",
+         "code": "KIG-GAS-S7C1V4"
+        },
+        {
+         "name": "Itetero",
+         "code": "KIG-GAS-S7C1V5"
+        },
+        {
+         "name": "Kabare",
+         "code": "KIG-GAS-S7C1V6"
+        },
+        {
+         "name": "Kamuhire",
+         "code": "KIG-GAS-S7C1V7"
+        },
+        {
+         "name": "Karukamba",
+         "code": "KIG-GAS-S7C1V8"
+        },
+        {
+         "name": "Nyagacyamo",
+         "code": "KIG-GAS-S7C1V9"
+        },
+        {
+         "name": "Rwinzovu",
+         "code": "KIG-GAS-S7C1V10"
+        },
+        {
+         "name": "Urugwiro",
+         "code": "KIG-GAS-S7C1V11"
+        },
+        {
+         "name": "Uruhongore",
+         "code": "KIG-GAS-S7C1V12"
+        }
+       ]
+      },
+      {
+       "name": "Kamutwa",
+       "code": "KIG-GAS-S7C2",
+       "villages": [
+        {
+         "name": "Agasaro",
+         "code": "KIG-GAS-S7C2V1"
+        },
+        {
+         "name": "Gasharu",
+         "code": "KIG-GAS-S7C2V2"
+        },
+        {
+         "name": "Inkingi",
+         "code": "KIG-GAS-S7C2V3"
+        },
+        {
+         "name": "Kanserege",
+         "code": "KIG-GAS-S7C2V4"
+        },
+        {
+         "name": "Kigugu",
+         "code": "KIG-GAS-S7C2V5"
+        },
+        {
+         "name": "Ruganwa",
+         "code": "KIG-GAS-S7C2V6"
+        },
+        {
+         "name": "Umuco",
+         "code": "KIG-GAS-S7C2V7"
+        },
+        {
+         "name": "Umutekano",
+         "code": "KIG-GAS-S7C2V8"
+        },
+        {
+         "name": "Urugero",
+         "code": "KIG-GAS-S7C2V9"
+        },
+        {
+         "name": "Urwibutso",
+         "code": "KIG-GAS-S7C2V10"
+        }
+       ]
+      },
+      {
+       "name": "Kibaza",
+       "code": "KIG-GAS-S7C3",
+       "villages": [
+        {
+         "name": "Amahoro",
+         "code": "KIG-GAS-S7C3V1"
+        },
+        {
+         "name": "Bwiza",
+         "code": "KIG-GAS-S7C3V2"
+        },
+        {
+         "name": "Ihuriro",
+         "code": "KIG-GAS-S7C3V3"
+        },
+        {
+         "name": "Ineza",
+         "code": "KIG-GAS-S7C3V4"
+        },
+        {
+         "name": "Inyange",
+         "code": "KIG-GAS-S7C3V5"
+        },
+        {
+         "name": "Iriba",
+         "code": "KIG-GAS-S7C3V6"
+        },
+        {
+         "name": "Kabagari",
+         "code": "KIG-GAS-S7C3V7"
+        },
+        {
+         "name": "Ubumwe",
+         "code": "KIG-GAS-S7C3V8"
+        },
+        {
+         "name": "Umutako",
+         "code": "KIG-GAS-S7C3V9"
+        },
+        {
+         "name": "Urukundo",
+         "code": "KIG-GAS-S7C3V10"
+        },
+        {
+         "name": "Virunga",
+         "code": "KIG-GAS-S7C3V11"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "name": "Kimihurura",
+     "code": "KIG-GAS-S8",
+     "cells": [
+      {
+       "name": "Kamukina",
+       "code": "KIG-GAS-S8C1",
+       "villages": [
+        {
+         "name": "Inyamibwa",
+         "code": "KIG-GAS-S8C1V1"
+        },
+        {
+         "name": "Isangano",
+         "code": "KIG-GAS-S8C1V2"
+        },
+        {
+         "name": "Isano",
+         "code": "KIG-GAS-S8C1V3"
+        },
+        {
+         "name": "Ituze",
+         "code": "KIG-GAS-S8C1V4"
+        },
+        {
+         "name": "Izuba",
+         "code": "KIG-GAS-S8C1V5"
+        },
+        {
+         "name": "Juru",
+         "code": "KIG-GAS-S8C1V6"
+        },
+        {
+         "name": "Nyenyeri",
+         "code": "KIG-GAS-S8C1V7"
+        },
+        {
+         "name": "Umurava",
+         "code": "KIG-GAS-S8C1V8"
+        },
+        {
+         "name": "Urumuri",
+         "code": "KIG-GAS-S8C1V9"
+        }
+       ]
+      },
+      {
+       "name": "Kimihurura",
+       "code": "KIG-GAS-S8C2",
+       "villages": [
+        {
+         "name": "Amahoro",
+         "code": "KIG-GAS-S8C2V1"
+        },
+        {
+         "name": "Amajyambere",
+         "code": "KIG-GAS-S8C2V2"
+        },
+        {
+         "name": "Imihigo",
+         "code": "KIG-GAS-S8C2V3"
+        },
+        {
+         "name": "Intambwe",
+         "code": "KIG-GAS-S8C2V4"
+        },
+        {
+         "name": "Mutara",
+         "code": "KIG-GAS-S8C2V5"
+        },
+        {
+         "name": "Rugarama",
+         "code": "KIG-GAS-S8C2V6"
+        },
+        {
+         "name": "Ubumwe",
+         "code": "KIG-GAS-S8C2V7"
+        },
+        {
+         "name": "Umutekano",
+         "code": "KIG-GAS-S8C2V8"
+        },
+        {
+         "name": "Urwego",
+         "code": "KIG-GAS-S8C2V9"
+        }
+       ]
+      },
+      {
+       "name": "Rugando",
+       "code": "KIG-GAS-S8C3",
+       "villages": [
+        {
+         "name": "Gasange",
+         "code": "KIG-GAS-S8C3V1"
+        },
+        {
+         "name": "Gasasa",
+         "code": "KIG-GAS-S8C3V2"
+        },
+        {
+         "name": "Marembo",
+         "code": "KIG-GAS-S8C3V3"
+        },
+        {
+         "name": "Rebero",
+         "code": "KIG-GAS-S8C3V4"
+        },
+        {
+         "name": "Taba",
+         "code": "KIG-GAS-S8C3V5"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "name": "Kimironko",
+     "code": "KIG-GAS-S9",
+     "cells": [
+      {
+       "name": "Bibare",
+       "code": "KIG-GAS-S9C1",
+       "villages": [
+        {
+         "name": "Abatuje",
+         "code": "KIG-GAS-S9C1V1"
+        },
+        {
+         "name": "Amariza",
+         "code": "KIG-GAS-S9C1V2"
+        },
+        {
+         "name": "Imanzi",
+         "code": "KIG-GAS-S9C1V3"
+        },
+        {
+         "name": "Imena",
+         "code": "KIG-GAS-S9C1V4"
+        },
+        {
+         "name": "Imitari",
+         "code": "KIG-GAS-S9C1V5"
+        },
+        {
+         "name": "Inganji",
+         "code": "KIG-GAS-S9C1V6"
+        },
+        {
+         "name": "Ingenzi",
+         "code": "KIG-GAS-S9C1V7"
+        },
+        {
+         "name": "Ingeri",
+         "code": "KIG-GAS-S9C1V8"
+        },
+        {
+         "name": "Inshuti",
+         "code": "KIG-GAS-S9C1V9"
+        },
+        {
+         "name": "Intashyo",
+         "code": "KIG-GAS-S9C1V10"
+        },
+        {
+         "name": "Intwari",
+         "code": "KIG-GAS-S9C1V11"
+        },
+        {
+         "name": "Inyamibwa",
+         "code": "KIG-GAS-S9C1V12"
+        },
+        {
+         "name": "Inyange",
+         "code": "KIG-GAS-S9C1V13"
+        },
+        {
+         "name": "Ubwiza",
+         "code": "KIG-GAS-S9C1V14"
+        },
+        {
+         "name": "Umwezi",
+         "code": "KIG-GAS-S9C1V15"
+        }
+       ]
+      },
+      {
+       "name": "Kibagabaga",
+       "code": "KIG-GAS-S9C2",
+       "villages": [
+        {
+         "name": "Akintwari",
+         "code": "KIG-GAS-S9C2V1"
+        },
+        {
+         "name": "Buranga",
+         "code": "KIG-GAS-S9C2V2"
+        },
+        {
+         "name": "Gasharu",
+         "code": "KIG-GAS-S9C2V3"
+        },
+        {
+         "name": "Ibuhoro",
+         "code": "KIG-GAS-S9C2V4"
+        },
+        {
+         "name": "Kageyo",
+         "code": "KIG-GAS-S9C2V5"
+        },
+        {
+         "name": "Kamahinda",
+         "code": "KIG-GAS-S9C2V6"
+        },
+        {
+         "name": "Karisimbi",
+         "code": "KIG-GAS-S9C2V7"
+        },
+        {
+         "name": "Karongi",
+         "code": "KIG-GAS-S9C2V8"
+        },
+        {
+         "name": "Nyirabwana",
+         "code": "KIG-GAS-S9C2V9"
+        },
+        {
+         "name": "Ramiro",
+         "code": "KIG-GAS-S9C2V10"
+        },
+        {
+         "name": "Rindiro",
+         "code": "KIG-GAS-S9C2V11"
+        },
+        {
+         "name": "Rugero",
+         "code": "KIG-GAS-S9C2V12"
+        },
+        {
+         "name": "Rukurazo",
+         "code": "KIG-GAS-S9C2V13"
+        },
+        {
+         "name": "Rumuri",
+         "code": "KIG-GAS-S9C2V14"
+        }
+       ]
+      },
+      {
+       "name": "Nyagatovu",
+       "code": "KIG-GAS-S9C3",
+       "villages": [
+        {
+         "name": "Bukinanyana",
+         "code": "KIG-GAS-S9C3V1"
+        },
+        {
+         "name": "Ibuhoro",
+         "code": "KIG-GAS-S9C3V2"
+        },
+        {
+         "name": "Ijabiro",
+         "code": "KIG-GAS-S9C3V3"
+        },
+        {
+         "name": "Isangano",
+         "code": "KIG-GAS-S9C3V4"
+        },
+        {
+         "name": "Itetero",
+         "code": "KIG-GAS-S9C3V5"
+        },
+        {
+         "name": "Urugwiro",
+         "code": "KIG-GAS-S9C3V6"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "name": "Kinyinya",
+     "code": "KIG-GAS-S10",
+     "cells": [
+      {
+       "name": "Gacuriro",
+       "code": "KIG-GAS-S10C1",
+       "villages": [
+        {
+         "name": "Agatare",
+         "code": "KIG-GAS-S10C1V1"
+        },
+        {
+         "name": "Akanyamugabo",
+         "code": "KIG-GAS-S10C1V2"
+        },
+        {
+         "name": "Akarambo",
+         "code": "KIG-GAS-S10C1V3"
+        },
+        {
+         "name": "Akaruvusha",
+         "code": "KIG-GAS-S10C1V4"
+        },
+        {
+         "name": "Bishikiri",
+         "code": "KIG-GAS-S10C1V5"
+        },
+        {
+         "name": "Cyeru",
+         "code": "KIG-GAS-S10C1V6"
+        },
+        {
+         "name": "Gacuriro2020",
+         "code": "KIG-GAS-S10C1V7"
+        },
+        {
+         "name": "KabuhundeIi",
+         "code": "KIG-GAS-S10C1V8"
+        },
+        {
+         "name": "Kirira",
+         "code": "KIG-GAS-S10C1V9"
+        },
+        {
+         "name": "Urubanda",
+         "code": "KIG-GAS-S10C1V10"
+        },
+        {
+         "name": "Urugarama",
+         "code": "KIG-GAS-S10C1V11"
+        }
+       ]
+      },
+      {
+       "name": "Gasharu",
+       "code": "KIG-GAS-S10C2",
+       "villages": [
+        {
+         "name": "Agatare",
+         "code": "KIG-GAS-S10C2V1"
+        },
+        {
+         "name": "Gasharu",
+         "code": "KIG-GAS-S10C2V2"
+        },
+        {
+         "name": "Kami",
+         "code": "KIG-GAS-S10C2V3"
+        },
+        {
+         "name": "Rwankuba",
+         "code": "KIG-GAS-S10C2V4"
+        }
+       ]
+      },
+      {
+       "name": "Kagugu",
+       "code": "KIG-GAS-S10C3",
+       "villages": [
+        {
+         "name": "Dusenyi",
+         "code": "KIG-GAS-S10C3V1"
+        },
+        {
+         "name": "Gicikiza",
+         "code": "KIG-GAS-S10C3V2"
+        },
+        {
+         "name": "Giheka",
+         "code": "KIG-GAS-S10C3V3"
+        },
+        {
+         "name": "KabuhundeI",
+         "code": "KIG-GAS-S10C3V4"
+        },
+        {
+         "name": "Kadobogo",
+         "code": "KIG-GAS-S10C3V5"
+        },
+        {
+         "name": "Kagarama",
+         "code": "KIG-GAS-S10C3V6"
+        },
+        {
+         "name": "Muhororo",
+         "code": "KIG-GAS-S10C3V7"
+        },
+        {
+         "name": "Nyakabungo",
+         "code": "KIG-GAS-S10C3V8"
+        },
+        {
+         "name": "Rukingu",
+         "code": "KIG-GAS-S10C3V9"
+        }
+       ]
+      },
+      {
+       "name": "Murama",
+       "code": "KIG-GAS-S10C4",
+       "villages": [
+        {
+         "name": "Binunga",
+         "code": "KIG-GAS-S10C4V1"
+        },
+        {
+         "name": "Ngaruyinka",
+         "code": "KIG-GAS-S10C4V2"
+        },
+        {
+         "name": "Rusenyi",
+         "code": "KIG-GAS-S10C4V3"
+        },
+        {
+         "name": "Taba",
+         "code": "KIG-GAS-S10C4V4"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "name": "Ndera",
+     "code": "KIG-GAS-S11",
+     "cells": [
+      {
+       "name": "Bwiza",
+       "code": "KIG-GAS-S11C1",
+       "villages": [
+        {
+         "name": "AKagarama",
+         "code": "KIG-GAS-S11C1V1"
+        },
+        {
+         "name": "Akarwasa",
+         "code": "KIG-GAS-S11C1V2"
+        },
+        {
+         "name": "Akasemuromba",
+         "code": "KIG-GAS-S11C1V3"
+        },
+        {
+         "name": "Bucyemba",
+         "code": "KIG-GAS-S11C1V4"
+        },
+        {
+         "name": "Gasharu",
+         "code": "KIG-GAS-S11C1V5"
+        },
+        {
+         "name": "Ruhangare",
+         "code": "KIG-GAS-S11C1V6"
+        }
+       ]
+      },
+      {
+       "name": "Cyaruzinge",
+       "code": "KIG-GAS-S11C2",
+       "villages": [
+        {
+         "name": "Ayabakora",
+         "code": "KIG-GAS-S11C2V1"
+        },
+        {
+         "name": "Cyaruzinge",
+         "code": "KIG-GAS-S11C2V2"
+        },
+        {
+         "name": "Gashure",
+         "code": "KIG-GAS-S11C2V3"
+        },
+        {
+         "name": "Gatare",
+         "code": "KIG-GAS-S11C2V4"
+        },
+        {
+         "name": "Gisura",
+         "code": "KIG-GAS-S11C2V5"
+        },
+        {
+         "name": "Karubibi",
+         "code": "KIG-GAS-S11C2V6"
+        },
+        {
+         "name": "Murindi",
+         "code": "KIG-GAS-S11C2V7"
+        }
+       ]
+      },
+      {
+       "name": "Kibenga",
+       "code": "KIG-GAS-S11C3",
+       "villages": [
+        {
+         "name": "Bahoze",
+         "code": "KIG-GAS-S11C3V1"
+        },
+        {
+         "name": "Berwa",
+         "code": "KIG-GAS-S11C3V2"
+        },
+        {
+         "name": "Buhoro",
+         "code": "KIG-GAS-S11C3V3"
+        },
+        {
+         "name": "Burunga",
+         "code": "KIG-GAS-S11C3V4"
+        },
+        {
+         "name": "Gitaraga",
+         "code": "KIG-GAS-S11C3V5"
+        },
+        {
+         "name": "Kira",
+         "code": "KIG-GAS-S11C3V6"
+        },
+        {
+         "name": "Nezerwa",
+         "code": "KIG-GAS-S11C3V7"
+        },
+        {
+         "name": "Rugazi",
+         "code": "KIG-GAS-S11C3V8"
+        },
+        {
+         "name": "Runyonza",
+         "code": "KIG-GAS-S11C3V9"
+        },
+        {
+         "name": "Tumurere",
+         "code": "KIG-GAS-S11C3V10"
+        },
+        {
+         "name": "Ururembo",
+         "code": "KIG-GAS-S11C3V11"
+        }
+       ]
+      },
+      {
+       "name": "Masoro",
+       "code": "KIG-GAS-S11C4",
+       "villages": [
+        {
+         "name": "Byimana",
+         "code": "KIG-GAS-S11C4V1"
+        },
+        {
+         "name": "Kabeza",
+         "code": "KIG-GAS-S11C4V2"
+        },
+        {
+         "name": "Masoro",
+         "code": "KIG-GAS-S11C4V3"
+        },
+        {
+         "name": "Matwari",
+         "code": "KIG-GAS-S11C4V4"
+        },
+        {
+         "name": "Mubuga",
+         "code": "KIG-GAS-S11C4V5"
+        },
+        {
+         "name": "Munini",
+         "code": "KIG-GAS-S11C4V6"
+        }
+       ]
+      },
+      {
+       "name": "Mukuyu",
+       "code": "KIG-GAS-S11C5",
+       "villages": [
+        {
+         "name": "Akamusare",
+         "code": "KIG-GAS-S11C5V1"
+        },
+        {
+         "name": "Akimana",
+         "code": "KIG-GAS-S11C5V2"
+        },
+        {
+         "name": "Gasharu",
+         "code": "KIG-GAS-S11C5V3"
+        },
+        {
+         "name": "Jurwe",
+         "code": "KIG-GAS-S11C5V4"
+        },
+        {
+         "name": "Karambo",
+         "code": "KIG-GAS-S11C5V5"
+        },
+        {
+         "name": "Kigabiro",
+         "code": "KIG-GAS-S11C5V6"
+        },
+        {
+         "name": "Ruseno",
+         "code": "KIG-GAS-S11C5V7"
+        }
+       ]
+      },
+      {
+       "name": "Rudashya",
+       "code": "KIG-GAS-S11C6",
+       "villages": [
+        {
+         "name": "Kacyinyaga",
+         "code": "KIG-GAS-S11C6V1"
+        },
+        {
+         "name": "Kamahoro",
+         "code": "KIG-GAS-S11C6V2"
+        },
+        {
+         "name": "Munini",
+         "code": "KIG-GAS-S11C6V3"
+        },
+        {
+         "name": "Nyakagezi",
+         "code": "KIG-GAS-S11C6V4"
+        },
+        {
+         "name": "Ruhangare",
+         "code": "KIG-GAS-S11C6V5"
+        },
+        {
+         "name": "Ruhogo",
+         "code": "KIG-GAS-S11C6V6"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "name": "Nduba",
+     "code": "KIG-GAS-S12",
+     "cells": [
+      {
+       "name": "Butare",
+       "code": "KIG-GAS-S12C1",
+       "villages": [
+        {
+         "name": "Kanani",
+         "code": "KIG-GAS-S12C1V1"
+        },
+        {
+         "name": "Kidahe",
+         "code": "KIG-GAS-S12C1V2"
+        },
+        {
+         "name": "Kigabiro",
+         "code": "KIG-GAS-S12C1V3"
+        },
+        {
+         "name": "Nyamurambi",
+         "code": "KIG-GAS-S12C1V4"
+        },
+        {
+         "name": "Nyarubuye",
+         "code": "KIG-GAS-S12C1V5"
+        },
+        {
+         "name": "Nyura",
+         "code": "KIG-GAS-S12C1V6"
+        }
+       ]
+      },
+      {
+       "name": "Gasanze",
+       "code": "KIG-GAS-S12C2",
+       "villages": [
+        {
+         "name": "Gatagara",
+         "code": "KIG-GAS-S12C2V1"
+        },
+        {
+         "name": "Kagarama",
+         "code": "KIG-GAS-S12C2V2"
+        },
+        {
+         "name": "Nyabitare",
+         "code": "KIG-GAS-S12C2V3"
+        },
+        {
+         "name": "Nyakabungo",
+         "code": "KIG-GAS-S12C2V4"
+        },
+        {
+         "name": "Nyarubande",
+         "code": "KIG-GAS-S12C2V5"
+        },
+        {
+         "name": "Uruhetse",
+         "code": "KIG-GAS-S12C2V6"
+        }
+       ]
+      },
+      {
+       "name": "Gasura",
+       "code": "KIG-GAS-S12C3",
+       "villages": [
+        {
+         "name": "Agacyamo",
+         "code": "KIG-GAS-S12C3V1"
+        },
+        {
+         "name": "Gashinya",
+         "code": "KIG-GAS-S12C3V2"
+        },
+        {
+         "name": "Gikombe",
+         "code": "KIG-GAS-S12C3V3"
+        },
+        {
+         "name": "Kazi",
+         "code": "KIG-GAS-S12C3V4"
+        },
+        {
+         "name": "Kigufi",
+         "code": "KIG-GAS-S12C3V5"
+        },
+        {
+         "name": "Nyirakibehe",
+         "code": "KIG-GAS-S12C3V6"
+        },
+        {
+         "name": "Uruhahiro",
+         "code": "KIG-GAS-S12C3V7"
+        }
+       ]
+      },
+      {
+       "name": "Gatunga",
+       "code": "KIG-GAS-S12C4",
+       "villages": [
+        {
+         "name": "Agasharu",
+         "code": "KIG-GAS-S12C4V1"
+        },
+        {
+         "name": "Amataba",
+         "code": "KIG-GAS-S12C4V2"
+        },
+        {
+         "name": "Burungero",
+         "code": "KIG-GAS-S12C4V3"
+        },
+        {
+         "name": "Karama",
+         "code": "KIG-GAS-S12C4V4"
+        },
+        {
+         "name": "Nyange",
+         "code": "KIG-GAS-S12C4V5"
+        },
+        {
+         "name": "Rebero",
+         "code": "KIG-GAS-S12C4V6"
+        },
+        {
+         "name": "Uruyange",
+         "code": "KIG-GAS-S12C4V7"
+        }
+       ]
+      },
+      {
+       "name": "Muremure",
+       "code": "KIG-GAS-S12C5",
+       "villages": [
+        {
+         "name": "Gatobotobo",
+         "code": "KIG-GAS-S12C5V1"
+        },
+        {
+         "name": "Kibungo",
+         "code": "KIG-GAS-S12C5V2"
+        },
+        {
+         "name": "Musezero",
+         "code": "KIG-GAS-S12C5V3"
+        },
+        {
+         "name": "Nyaburoro",
+         "code": "KIG-GAS-S12C5V4"
+        },
+        {
+         "name": "Taba",
+         "code": "KIG-GAS-S12C5V5"
+        }
+       ]
+      },
+      {
+       "name": "Sha",
+       "code": "KIG-GAS-S12C6",
+       "villages": [
+        {
+         "name": "Bikumba",
+         "code": "KIG-GAS-S12C6V1"
+        },
+        {
+         "name": "Gakizi",
+         "code": "KIG-GAS-S12C6V2"
+        },
+        {
+         "name": "Gatare",
+         "code": "KIG-GAS-S12C6V3"
+        },
+        {
+         "name": "Kamuyange",
+         "code": "KIG-GAS-S12C6V4"
+        },
+        {
+         "name": "Kigarama",
+         "code": "KIG-GAS-S12C6V5"
+        },
+        {
+         "name": "Ngara",
+         "code": "KIG-GAS-S12C6V6"
+        }
+       ]
+      },
+      {
+       "name": "Shango",
+       "code": "KIG-GAS-S12C7",
+       "villages": [
+        {
+         "name": "Akazi",
+         "code": "KIG-GAS-S12C7V1"
+        },
+        {
+         "name": "Kaduha",
+         "code": "KIG-GAS-S12C7V2"
+        },
+        {
+         "name": "Kamuhoza",
+         "code": "KIG-GAS-S12C7V3"
+        },
+        {
+         "name": "Mirambi",
+         "code": "KIG-GAS-S12C7V4"
+        },
+        {
+         "name": "Munini",
+         "code": "KIG-GAS-S12C7V5"
+        },
+        {
+         "name": "Ndanyoye",
+         "code": "KIG-GAS-S12C7V6"
+        },
+        {
+         "name": "Nyamigina",
+         "code": "KIG-GAS-S12C7V7"
+        },
+        {
+         "name": "Rugarama",
+         "code": "KIG-GAS-S12C7V8"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "name": "Remera",
+     "code": "KIG-GAS-S13",
+     "cells": [
+      {
+       "name": "Nyabisindu",
+       "code": "KIG-GAS-S13C1",
+       "villages": [
+        {
+         "name": "AmaremboI",
+         "code": "KIG-GAS-S13C1V1"
+        },
+        {
+         "name": "AmaremboIl",
+         "code": "KIG-GAS-S13C1V2"
+        },
+        {
+         "name": "Gihogere",
+         "code": "KIG-GAS-S13C1V3"
+        },
+        {
+         "name": "Kagara",
+         "code": "KIG-GAS-S13C1V4"
+        },
+        {
+         "name": "Kinunga",
+         "code": "KIG-GAS-S13C1V5"
+        },
+        {
+         "name": "Nyabisindu",
+         "code": "KIG-GAS-S13C1V6"
+        },
+        {
+         "name": "Rugarama",
+         "code": "KIG-GAS-S13C1V7"
+        }
+       ]
+      },
+      {
+       "name": "Nyarutarama",
+       "code": "KIG-GAS-S13C2",
+       "villages": [
+        {
+         "name": "Gishushu",
+         "code": "KIG-GAS-S13C2V1"
+        },
+        {
+         "name": "Juru",
+         "code": "KIG-GAS-S13C2V2"
+        },
+        {
+         "name": "Kamahwa",
+         "code": "KIG-GAS-S13C2V3"
+        },
+        {
+         "name": "KangondoI",
+         "code": "KIG-GAS-S13C2V4"
+        },
+        {
+         "name": "KangondoIi",
+         "code": "KIG-GAS-S13C2V5"
+        },
+        {
+         "name": "KibiraroI",
+         "code": "KIG-GAS-S13C2V6"
+        },
+        {
+         "name": "KibiraroIi",
+         "code": "KIG-GAS-S13C2V7"
+        }
+       ]
+      },
+      {
+       "name": "RukiriI",
+       "code": "KIG-GAS-S13C3",
+       "villages": [
+        {
+         "name": "Agashyitsi",
+         "code": "KIG-GAS-S13C3V1"
+        },
+        {
+         "name": "Amajyambere",
+         "code": "KIG-GAS-S13C3V2"
+        },
+        {
+         "name": "Izuba",
+         "code": "KIG-GAS-S13C3V3"
+        },
+        {
+         "name": "Kisimenti",
+         "code": "KIG-GAS-S13C3V4"
+        },
+        {
+         "name": "Ubumwe",
+         "code": "KIG-GAS-S13C3V5"
+        },
+        {
+         "name": "Ukwezi",
+         "code": "KIG-GAS-S13C3V6"
+        },
+        {
+         "name": "Urumuri",
+         "code": "KIG-GAS-S13C3V7"
+        }
+       ]
+      },
+      {
+       "name": "RukiriIi",
+       "code": "KIG-GAS-S13C4",
+       "villages": [
+        {
+         "name": "Amahoro",
+         "code": "KIG-GAS-S13C4V1"
+        },
+        {
+         "name": "Rebero",
+         "code": "KIG-GAS-S13C4V2"
+        },
+        {
+         "name": "RuturusuI",
+         "code": "KIG-GAS-S13C4V3"
+        },
+        {
+         "name": "RuturusuIi",
+         "code": "KIG-GAS-S13C4V4"
+        },
+        {
+         "name": "Ubumwe",
+         "code": "KIG-GAS-S13C4V5"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "name": "Rusororo",
+     "code": "KIG-GAS-S14",
+     "cells": [
+      {
+       "name": "Bisenga",
+       "code": "KIG-GAS-S14C1",
+       "villages": [
+        {
+         "name": "Bisenga",
+         "code": "KIG-GAS-S14C1V1"
+        },
+        {
+         "name": "Gakenyeri",
+         "code": "KIG-GAS-S14C1V2"
+        },
+        {
+         "name": "Gasiza",
+         "code": "KIG-GAS-S14C1V3"
+        },
+        {
+         "name": "Kidogo",
+         "code": "KIG-GAS-S14C1V4"
+        }
+       ]
+      },
+      {
+       "name": "Gasagara",
+       "code": "KIG-GAS-S14C2",
+       "villages": [
+        {
+         "name": "Agatare",
+         "code": "KIG-GAS-S14C2V1"
+        },
+        {
+         "name": "Gasagara",
+         "code": "KIG-GAS-S14C2V2"
+        },
+        {
+         "name": "Kamasasa",
+         "code": "KIG-GAS-S14C2V3"
+        },
+        {
+         "name": "Rugagi",
+         "code": "KIG-GAS-S14C2V4"
+        },
+        {
+         "name": "Ryabazana",
+         "code": "KIG-GAS-S14C2V5"
+        }
+       ]
+      },
+      {
+       "name": "KabugaI",
+       "code": "KIG-GAS-S14C3",
+       "villages": [
+        {
+         "name": "Abatangampundu",
+         "code": "KIG-GAS-S14C3V1"
+        },
+        {
+         "name": "Amahoro",
+         "code": "KIG-GAS-S14C3V2"
+        },
+        {
+         "name": "Isangano",
+         "code": "KIG-GAS-S14C3V3"
+        },
+        {
+         "name": "Kabeza",
+         "code": "KIG-GAS-S14C3V4"
+        },
+        {
+         "name": "Kalisimbi",
+         "code": "KIG-GAS-S14C3V5"
+        },
+        {
+         "name": "Masango",
+         "code": "KIG-GAS-S14C3V6"
+        }
+       ]
+      },
+      {
+       "name": "KabugaIi",
+       "code": "KIG-GAS-S14C4",
+       "villages": [
+        {
+         "name": "Bwiza",
+         "code": "KIG-GAS-S14C4V1"
+        },
+        {
+         "name": "Cyanamo",
+         "code": "KIG-GAS-S14C4V2"
+        },
+        {
+         "name": "Gatare",
+         "code": "KIG-GAS-S14C4V3"
+        },
+        {
+         "name": "Kamashashi",
+         "code": "KIG-GAS-S14C4V4"
+        },
+        {
+         "name": "Mataba",
+         "code": "KIG-GAS-S14C4V5"
+        },
+        {
+         "name": "Nyagakombe",
+         "code": "KIG-GAS-S14C4V6"
+        },
+        {
+         "name": "Ruhangare",
+         "code": "KIG-GAS-S14C4V7"
+        }
+       ]
+      },
+      {
+       "name": "Kinyana",
+       "code": "KIG-GAS-S14C5",
+       "villages": [
+        {
+         "name": "Busenyi",
+         "code": "KIG-GAS-S14C5V1"
+        },
+        {
+         "name": "Kigabiro",
+         "code": "KIG-GAS-S14C5V2"
+        },
+        {
+         "name": "Kinyana",
+         "code": "KIG-GAS-S14C5V3"
+        },
+        {
+         "name": "Nyagisozi",
+         "code": "KIG-GAS-S14C5V4"
+        }
+       ]
+      },
+      {
+       "name": "Mbandazi",
+       "code": "KIG-GAS-S14C6",
+       "villages": [
+        {
+         "name": "Cyeru",
+         "code": "KIG-GAS-S14C6V1"
+        },
+        {
+         "name": "Karambo",
+         "code": "KIG-GAS-S14C6V2"
+        },
+        {
+         "name": "Kataruha",
+         "code": "KIG-GAS-S14C6V3"
+        },
+        {
+         "name": "Mugeyo",
+         "code": "KIG-GAS-S14C6V4"
+        },
+        {
+         "name": "Rugarama",
+         "code": "KIG-GAS-S14C6V5"
+        },
+        {
+         "name": "Samuduha",
+         "code": "KIG-GAS-S14C6V6"
+        }
+       ]
+      },
+      {
+       "name": "Nyagahinga",
+       "code": "KIG-GAS-S14C7",
+       "villages": [
+        {
+         "name": "Gisharara",
+         "code": "KIG-GAS-S14C7V1"
+        },
+        {
+         "name": "Kabutare",
+         "code": "KIG-GAS-S14C7V2"
+        },
+        {
+         "name": "Kanyinya",
+         "code": "KIG-GAS-S14C7V3"
+        },
+        {
+         "name": "Kigarama",
+         "code": "KIG-GAS-S14C7V4"
+        },
+        {
+         "name": "Nyarucundura",
+         "code": "KIG-GAS-S14C7V5"
+        },
+        {
+         "name": "Runyonza",
+         "code": "KIG-GAS-S14C7V6"
+        },
+        {
+         "name": "Urumuri",
+         "code": "KIG-GAS-S14C7V7"
+        }
+       ]
+      },
+      {
+       "name": "Ruhanga",
+       "code": "KIG-GAS-S14C8",
+       "villages": [
+        {
+         "name": "Kinyaga",
+         "code": "KIG-GAS-S14C8V1"
+        },
+        {
+         "name": "Mirama",
+         "code": "KIG-GAS-S14C8V2"
+        },
+        {
+         "name": "Nyagacyamo",
+         "code": "KIG-GAS-S14C8V3"
+        },
+        {
+         "name": "Rugende",
+         "code": "KIG-GAS-S14C8V4"
+        },
+        {
+         "name": "Ruhanga",
+         "code": "KIG-GAS-S14C8V5"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "name": "Rutunga",
+     "code": "KIG-GAS-S15",
+     "cells": [
+      {
+       "name": "Gasabo",
+       "code": "KIG-GAS-S15C1",
+       "villages": [
+        {
+         "name": "Gasharu",
+         "code": "KIG-GAS-S15C1V1"
+        },
+        {
+         "name": "Mulindi",
+         "code": "KIG-GAS-S15C1V2"
+        },
+        {
+         "name": "Vugavuge",
+         "code": "KIG-GAS-S15C1V3"
+        }
+       ]
+      },
+      {
+       "name": "Indatemwa",
+       "code": "KIG-GAS-S15C2",
+       "villages": [
+        {
+         "name": "Kabarera",
+         "code": "KIG-GAS-S15C2V1"
+        },
+        {
+         "name": "Kamusengo",
+         "code": "KIG-GAS-S15C2V2"
+        },
+        {
+         "name": "Karekare",
+         "code": "KIG-GAS-S15C2V3"
+        },
+        {
+         "name": "Karuranga",
+         "code": "KIG-GAS-S15C2V4"
+        },
+        {
+         "name": "Nyakabande",
+         "code": "KIG-GAS-S15C2V5"
+        }
+       ]
+      },
+      {
+       "name": "Kabaliza",
+       "code": "KIG-GAS-S15C3",
+       "villages": [
+        {
+         "name": "Kabaliza",
+         "code": "KIG-GAS-S15C3V1"
+        },
+        {
+         "name": "Nyamise",
+         "code": "KIG-GAS-S15C3V2"
+        },
+        {
+         "name": "Rwanyanza",
+         "code": "KIG-GAS-S15C3V3"
+        }
+       ]
+      },
+      {
+       "name": "Kacyatwa",
+       "code": "KIG-GAS-S15C4",
+       "villages": [
+        {
+         "name": "Cyili",
+         "code": "KIG-GAS-S15C4V1"
+        },
+        {
+         "name": "Kacyatwa",
+         "code": "KIG-GAS-S15C4V2"
+        },
+        {
+         "name": "Kandamira",
+         "code": "KIG-GAS-S15C4V3"
+        },
+        {
+         "name": "Kantabana",
+         "code": "KIG-GAS-S15C4V4"
+        },
+        {
+         "name": "Munini",
+         "code": "KIG-GAS-S15C4V5"
+        }
+       ]
+      },
+      {
+       "name": "Kibenga",
+       "code": "KIG-GAS-S15C5",
+       "villages": [
+        {
+         "name": "Abanyangeyo",
+         "code": "KIG-GAS-S15C5V1"
+        },
+        {
+         "name": "Kibenga",
+         "code": "KIG-GAS-S15C5V2"
+        },
+        {
+         "name": "Nyamvumvu",
+         "code": "KIG-GAS-S15C5V3"
+        }
+       ]
+      },
+      {
+       "name": "Kigabiro",
+       "code": "KIG-GAS-S15C6",
+       "villages": [
+        {
+         "name": "Kamusare",
+         "code": "KIG-GAS-S15C6V1"
+        },
+        {
+         "name": "Karwiru",
+         "code": "KIG-GAS-S15C6V2"
+        },
+        {
+         "name": "Kigabiro",
+         "code": "KIG-GAS-S15C6V3"
+        },
+        {
+         "name": "Rukerereza",
+         "code": "KIG-GAS-S15C6V4"
+        },
+        {
+         "name": "Rwintare",
+         "code": "KIG-GAS-S15C6V5"
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "name": "Kicukiro",
+   "code": "KIG-KIC",
+   "sectors": [
+    {
+     "name": "Gahanga",
+     "code": "KIG-KIC-S1",
+     "cells": [
+      {
+       "name": "Gahanga",
+       "code": "KIG-KIC-S1C1",
+       "villages": [
+        {
+         "name": "Gahanga",
+         "code": "KIG-KIC-S1C1V1"
+        },
+        {
+         "name": "Gatare",
+         "code": "KIG-KIC-S1C1V2"
+        },
+        {
+         "name": "Gatovu",
+         "code": "KIG-KIC-S1C1V3"
+        },
+        {
+         "name": "Rinini",
+         "code": "KIG-KIC-S1C1V4"
+        },
+        {
+         "name": "Rwinanka",
+         "code": "KIG-KIC-S1C1V5"
+        },
+        {
+         "name": "Ubumwe",
+         "code": "KIG-KIC-S1C1V6"
+        }
+       ]
+      },
+      {
+       "name": "Kagasa",
+       "code": "KIG-KIC-S1C2",
+       "villages": [
+        {
+         "name": "Kabeza",
+         "code": "KIG-KIC-S1C2V1"
+        },
+        {
+         "name": "Kabidandi",
+         "code": "KIG-KIC-S1C2V2"
+        },
+        {
+         "name": "Kiyanja",
+         "code": "KIG-KIC-S1C2V3"
+        },
+        {
+         "name": "Nyacyonga",
+         "code": "KIG-KIC-S1C2V4"
+        },
+        {
+         "name": "Nyagafunzo",
+         "code": "KIG-KIC-S1C2V5"
+        },
+        {
+         "name": "Nyakuguma",
+         "code": "KIG-KIC-S1C2V6"
+        },
+        {
+         "name": "RugandoIi",
+         "code": "KIG-KIC-S1C2V7"
+        }
+       ]
+      },
+      {
+       "name": "Karembure",
+       "code": "KIG-KIC-S1C3",
+       "villages": [
+        {
+         "name": "Amahoro",
+         "code": "KIG-KIC-S1C3V1"
+        },
+        {
+         "name": "Bigo",
+         "code": "KIG-KIC-S1C3V2"
+        },
+        {
+         "name": "Kabeza",
+         "code": "KIG-KIC-S1C3V3"
+        },
+        {
+         "name": "Kamuyinga",
+         "code": "KIG-KIC-S1C3V4"
+        },
+        {
+         "name": "Karembure",
+         "code": "KIG-KIC-S1C3V5"
+        },
+        {
+         "name": "Kimena",
+         "code": "KIG-KIC-S1C3V6"
+        },
+        {
+         "name": "Mubuga",
+         "code": "KIG-KIC-S1C3V7"
+        },
+        {
+         "name": "Rwamaya",
+         "code": "KIG-KIC-S1C3V8"
+        }
+       ]
+      },
+      {
+       "name": "Murinja",
+       "code": "KIG-KIC-S1C4",
+       "villages": [
+        {
+         "name": "Kampuro",
+         "code": "KIG-KIC-S1C4V1"
+        },
+        {
+         "name": "Kigasa",
+         "code": "KIG-KIC-S1C4V2"
+        },
+        {
+         "name": "Mashyiga",
+         "code": "KIG-KIC-S1C4V3"
+        },
+        {
+         "name": "Nyabigugu",
+         "code": "KIG-KIC-S1C4V4"
+        },
+        {
+         "name": "Nyamuharaza",
+         "code": "KIG-KIC-S1C4V5"
+        },
+        {
+         "name": "Rukore",
+         "code": "KIG-KIC-S1C4V6"
+        },
+        {
+         "name": "Runyoni",
+         "code": "KIG-KIC-S1C4V7"
+        },
+        {
+         "name": "Sabununga",
+         "code": "KIG-KIC-S1C4V8"
+        }
+       ]
+      },
+      {
+       "name": "Nunga",
+       "code": "KIG-KIC-S1C5",
+       "villages": [
+        {
+         "name": "Kigarama",
+         "code": "KIG-KIC-S1C5V1"
+        },
+        {
+         "name": "Kinyana",
+         "code": "KIG-KIC-S1C5V2"
+        },
+        {
+         "name": "Mugendo",
+         "code": "KIG-KIC-S1C5V3"
+        },
+        {
+         "name": "NungaI",
+         "code": "KIG-KIC-S1C5V4"
+        },
+        {
+         "name": "NungaIi",
+         "code": "KIG-KIC-S1C5V5"
+        },
+        {
+         "name": "Rugasa",
+         "code": "KIG-KIC-S1C5V6"
+        }
+       ]
+      },
+      {
+       "name": "Rwabutenge",
+       "code": "KIG-KIC-S1C6",
+       "villages": [
+        {
+         "name": "Gahosha",
+         "code": "KIG-KIC-S1C6V1"
+        },
+        {
+         "name": "Gashubi",
+         "code": "KIG-KIC-S1C6V2"
+        },
+        {
+         "name": "Kaboshya",
+         "code": "KIG-KIC-S1C6V3"
+        },
+        {
+         "name": "Karambo",
+         "code": "KIG-KIC-S1C6V4"
+        },
+        {
+         "name": "Rebero",
+         "code": "KIG-KIC-S1C6V5"
+        },
+        {
+         "name": "RugandoI",
+         "code": "KIG-KIC-S1C6V6"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "name": "Gatenga",
+     "code": "KIG-KIC-S2",
+     "cells": [
+      {
+       "name": "Gatenga",
+       "code": "KIG-KIC-S2C1",
+       "villages": [
+        {
+         "name": "Amahoro",
+         "code": "KIG-KIC-S2C1V1"
+        },
+        {
+         "name": "Gakoki",
+         "code": "KIG-KIC-S2C1V2"
+        },
+        {
+         "name": "Gatenga",
+         "code": "KIG-KIC-S2C1V3"
+        },
+        {
+         "name": "Ihuriro",
+         "code": "KIG-KIC-S2C1V4"
+        },
+        {
+         "name": "Isangano",
+         "code": "KIG-KIC-S2C1V5"
+        },
+        {
+         "name": "Rugari",
+         "code": "KIG-KIC-S2C1V6"
+        }
+       ]
+      },
+      {
+       "name": "Karambo",
+       "code": "KIG-KIC-S2C2",
+       "villages": [
+        {
+         "name": "Gwiza",
+         "code": "KIG-KIC-S2C2V1"
+        },
+        {
+         "name": "Ihuriro",
+         "code": "KIG-KIC-S2C2V2"
+        },
+        {
+         "name": "Jyambere",
+         "code": "KIG-KIC-S2C2V3"
+        },
+        {
+         "name": "Kamabuye",
+         "code": "KIG-KIC-S2C2V4"
+        },
+        {
+         "name": "Mahoro",
+         "code": "KIG-KIC-S2C2V5"
+        },
+        {
+         "name": "Ramiro",
+         "code": "KIG-KIC-S2C2V6"
+        },
+        {
+         "name": "Rebero",
+         "code": "KIG-KIC-S2C2V7"
+        },
+        {
+         "name": "Rugwiro",
+         "code": "KIG-KIC-S2C2V8"
+        },
+        {
+         "name": "Ruhuka",
+         "code": "KIG-KIC-S2C2V9"
+        },
+        {
+         "name": "Sangwa",
+         "code": "KIG-KIC-S2C2V10"
+        }
+       ]
+      },
+      {
+       "name": "Nyanza",
+       "code": "KIG-KIC-S2C3",
+       "villages": [
+        {
+         "name": "Bwiza",
+         "code": "KIG-KIC-S2C3V1"
+        },
+        {
+         "name": "Cyeza",
+         "code": "KIG-KIC-S2C3V2"
+        },
+        {
+         "name": "Gasabo",
+         "code": "KIG-KIC-S2C3V3"
+        },
+        {
+         "name": "Ihuriro",
+         "code": "KIG-KIC-S2C3V4"
+        },
+        {
+         "name": "Isonga",
+         "code": "KIG-KIC-S2C3V5"
+        },
+        {
+         "name": "Juru",
+         "code": "KIG-KIC-S2C3V6"
+        },
+        {
+         "name": "Marembo",
+         "code": "KIG-KIC-S2C3V7"
+        },
+        {
+         "name": "Murambi",
+         "code": "KIG-KIC-S2C3V8"
+        },
+        {
+         "name": "Nyanza",
+         "code": "KIG-KIC-S2C3V9"
+        },
+        {
+         "name": "Rebero",
+         "code": "KIG-KIC-S2C3V10"
+        },
+        {
+         "name": "Rusororo",
+         "code": "KIG-KIC-S2C3V11"
+        },
+        {
+         "name": "Sabaganga",
+         "code": "KIG-KIC-S2C3V12"
+        },
+        {
+         "name": "Taba",
+         "code": "KIG-KIC-S2C3V13"
+        }
+       ]
+      },
+      {
+       "name": "Nyarurama",
+       "code": "KIG-KIC-S2C4",
+       "villages": [
+        {
+         "name": "Bigo",
+         "code": "KIG-KIC-S2C4V1"
+        },
+        {
+         "name": "Bisambu",
+         "code": "KIG-KIC-S2C4V2"
+        },
+        {
+         "name": "Kabeza",
+         "code": "KIG-KIC-S2C4V3"
+        },
+        {
+         "name": "Nyabikenke",
+         "code": "KIG-KIC-S2C4V4"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "name": "Gikondo",
+     "code": "KIG-KIC-S3",
+     "cells": [
+      {
+       "name": "Kagunga",
+       "code": "KIG-KIC-S3C1",
+       "villages": [
+        {
+         "name": "Gatare",
+         "code": "KIG-KIC-S3C1V1"
+        },
+        {
+         "name": "KabuyeI",
+         "code": "KIG-KIC-S3C1V2"
+        },
+        {
+         "name": "KabuyeIi",
+         "code": "KIG-KIC-S3C1V3"
+        },
+        {
+         "name": "KagungaI",
+         "code": "KIG-KIC-S3C1V4"
+        },
+        {
+         "name": "KagungaIi",
+         "code": "KIG-KIC-S3C1V5"
+        },
+        {
+         "name": "Rebero",
+         "code": "KIG-KIC-S3C1V6"
+        }
+       ]
+      },
+      {
+       "name": "Kanserege",
+       "code": "KIG-KIC-S3C2",
+       "villages": [
+        {
+         "name": "KanseregeI",
+         "code": "KIG-KIC-S3C2V1"
+        },
+        {
+         "name": "KanseregeIi",
+         "code": "KIG-KIC-S3C2V2"
+        },
+        {
+         "name": "KanseregeIii",
+         "code": "KIG-KIC-S3C2V3"
+        },
+        {
+         "name": "MaremboI",
+         "code": "KIG-KIC-S3C2V4"
+        },
+        {
+         "name": "MaremboIi",
+         "code": "KIG-KIC-S3C2V5"
+        },
+        {
+         "name": "MaremboIii",
+         "code": "KIG-KIC-S3C2V6"
+        }
+       ]
+      },
+      {
+       "name": "Kinunga",
+       "code": "KIG-KIC-S3C3",
+       "villages": [
+        {
+         "name": "KiguguI",
+         "code": "KIG-KIC-S3C3V1"
+        },
+        {
+         "name": "KiguguIi",
+         "code": "KIG-KIC-S3C3V2"
+        },
+        {
+         "name": "KiguguIii",
+         "code": "KIG-KIC-S3C3V3"
+        },
+        {
+         "name": "Kinunga",
+         "code": "KIG-KIC-S3C3V4"
+        },
+        {
+         "name": "RuganwaI",
+         "code": "KIG-KIC-S3C3V5"
+        },
+        {
+         "name": "RuganwaIi",
+         "code": "KIG-KIC-S3C3V6"
+        },
+        {
+         "name": "RuganwaIii",
+         "code": "KIG-KIC-S3C3V7"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "name": "Kagarama",
+     "code": "KIG-KIC-S4",
+     "cells": [
+      {
+       "name": "Kanserege",
+       "code": "KIG-KIC-S4C1",
+       "villages": [
+        {
+         "name": "Bwiza",
+         "code": "KIG-KIC-S4C1V1"
+        },
+        {
+         "name": "Byimana",
+         "code": "KIG-KIC-S4C1V2"
+        },
+        {
+         "name": "Ituze",
+         "code": "KIG-KIC-S4C1V3"
+        },
+        {
+         "name": "Kanserege",
+         "code": "KIG-KIC-S4C1V4"
+        },
+        {
+         "name": "Kinunga",
+         "code": "KIG-KIC-S4C1V5"
+        }
+       ]
+      },
+      {
+       "name": "Muyange",
+       "code": "KIG-KIC-S4C2",
+       "villages": [
+        {
+         "name": "Kamuna",
+         "code": "KIG-KIC-S4C2V1"
+        },
+        {
+         "name": "Mugeyo",
+         "code": "KIG-KIC-S4C2V2"
+        },
+        {
+         "name": "Muyange",
+         "code": "KIG-KIC-S4C2V3"
+        },
+        {
+         "name": "Rugunga",
+         "code": "KIG-KIC-S4C2V4"
+        }
+       ]
+      },
+      {
+       "name": "Rukatsa",
+       "code": "KIG-KIC-S4C3",
+       "villages": [
+        {
+         "name": "Inshuti",
+         "code": "KIG-KIC-S4C3V1"
+        },
+        {
+         "name": "Mpingayanyanza",
+         "code": "KIG-KIC-S4C3V2"
+        },
+        {
+         "name": "Nyacyonga",
+         "code": "KIG-KIC-S4C3V3"
+        },
+        {
+         "name": "Nyanza",
+         "code": "KIG-KIC-S4C3V4"
+        },
+        {
+         "name": "Rukatsa",
+         "code": "KIG-KIC-S4C3V5"
+        },
+        {
+         "name": "Taba",
+         "code": "KIG-KIC-S4C3V6"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "name": "Kanombe",
+     "code": "KIG-KIC-S5",
+     "cells": [
+      {
+       "name": "Busanza",
+       "code": "KIG-KIC-S5C1",
+       "villages": [
+        {
+         "name": "Amahoro",
+         "code": "KIG-KIC-S5C1V1"
+        },
+        {
+         "name": "Antene",
+         "code": "KIG-KIC-S5C1V2"
+        },
+        {
+         "name": "BamporezeI",
+         "code": "KIG-KIC-S5C1V3"
+        },
+        {
+         "name": "BamporezeIi",
+         "code": "KIG-KIC-S5C1V4"
+        },
+        {
+         "name": "Gashyushya",
+         "code": "KIG-KIC-S5C1V5"
+        },
+        {
+         "name": "Gishikiri",
+         "code": "KIG-KIC-S5C1V6"
+        },
+        {
+         "name": "Hope",
+         "code": "KIG-KIC-S5C1V7"
+        },
+        {
+         "name": "Kariyeri",
+         "code": "KIG-KIC-S5C1V8"
+        },
+        {
+         "name": "Nyarugugu",
+         "code": "KIG-KIC-S5C1V9"
+        },
+        {
+         "name": "Radari",
+         "code": "KIG-KIC-S5C1V10"
+        },
+        {
+         "name": "Rukore",
+         "code": "KIG-KIC-S5C1V11"
+        }
+       ]
+      },
+      {
+       "name": "Kabeza",
+       "code": "KIG-KIC-S5C2",
+       "villages": [
+        {
+         "name": "Akagera",
+         "code": "KIG-KIC-S5C2V1"
+        },
+        {
+         "name": "Bwiza",
+         "code": "KIG-KIC-S5C2V2"
+        },
+        {
+         "name": "Gasabo",
+         "code": "KIG-KIC-S5C2V3"
+        },
+        {
+         "name": "GiporosoI",
+         "code": "KIG-KIC-S5C2V4"
+        },
+        {
+         "name": "GiporosoIi",
+         "code": "KIG-KIC-S5C2V5"
+        },
+        {
+         "name": "Juru",
+         "code": "KIG-KIC-S5C2V6"
+        },
+        {
+         "name": "Kabeza",
+         "code": "KIG-KIC-S5C2V7"
+        },
+        {
+         "name": "Karisimbi",
+         "code": "KIG-KIC-S5C2V8"
+        },
+        {
+         "name": "Muhabura",
+         "code": "KIG-KIC-S5C2V9"
+        },
+        {
+         "name": "Mulindi",
+         "code": "KIG-KIC-S5C2V10"
+        },
+        {
+         "name": "Nyarurembo",
+         "code": "KIG-KIC-S5C2V11"
+        },
+        {
+         "name": "Nyenyeri",
+         "code": "KIG-KIC-S5C2V12"
+        },
+        {
+         "name": "Rebero",
+         "code": "KIG-KIC-S5C2V13"
+        }
+       ]
+      },
+      {
+       "name": "Karama",
+       "code": "KIG-KIC-S5C3",
+       "villages": [
+        {
+         "name": "Bitare",
+         "code": "KIG-KIC-S5C3V1"
+        },
+        {
+         "name": "Byimana",
+         "code": "KIG-KIC-S5C3V2"
+        },
+        {
+         "name": "Cyurusagara",
+         "code": "KIG-KIC-S5C3V3"
+        },
+        {
+         "name": "Gakorokombe",
+         "code": "KIG-KIC-S5C3V4"
+        },
+        {
+         "name": "Gikundiro",
+         "code": "KIG-KIC-S5C3V5"
+        },
+        {
+         "name": "Gitarama",
+         "code": "KIG-KIC-S5C3V6"
+        },
+        {
+         "name": "Karama",
+         "code": "KIG-KIC-S5C3V7"
+        },
+        {
+         "name": "Nyabyunyu",
+         "code": "KIG-KIC-S5C3V8"
+        },
+        {
+         "name": "Nyarutovu",
+         "code": "KIG-KIC-S5C3V9"
+        },
+        {
+         "name": "Urukundo",
+         "code": "KIG-KIC-S5C3V10"
+        }
+       ]
+      },
+      {
+       "name": "Rubirizi",
+       "code": "KIG-KIC-S5C4",
+       "villages": [
+        {
+         "name": "Beninka",
+         "code": "KIG-KIC-S5C4V1"
+        },
+        {
+         "name": "Bukunzi",
+         "code": "KIG-KIC-S5C4V2"
+        },
+        {
+         "name": "Cyeru",
+         "code": "KIG-KIC-S5C4V3"
+        },
+        {
+         "name": "Intwari",
+         "code": "KIG-KIC-S5C4V4"
+        },
+        {
+         "name": "Itunda",
+         "code": "KIG-KIC-S5C4V5"
+        },
+        {
+         "name": "Kavumu",
+         "code": "KIG-KIC-S5C4V6"
+        },
+        {
+         "name": "Susuruka",
+         "code": "KIG-KIC-S5C4V7"
+        },
+        {
+         "name": "Ubumwe",
+         "code": "KIG-KIC-S5C4V8"
+        },
+        {
+         "name": "Umunara",
+         "code": "KIG-KIC-S5C4V9"
+        },
+        {
+         "name": "Uwabarezi",
+         "code": "KIG-KIC-S5C4V10"
+        },
+        {
+         "name": "Zirakamwa",
+         "code": "KIG-KIC-S5C4V11"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "name": "Kicukiro",
+     "code": "KIG-KIC-S6",
+     "cells": [
+      {
+       "name": "Gasharu",
+       "code": "KIG-KIC-S6C1",
+       "villages": [
+        {
+         "name": "Amajyambere",
+         "code": "KIG-KIC-S6C1V1"
+        },
+        {
+         "name": "Gasharu",
+         "code": "KIG-KIC-S6C1V2"
+        },
+        {
+         "name": "Sakirwa",
+         "code": "KIG-KIC-S6C1V3"
+        },
+        {
+         "name": "Umunyinya",
+         "code": "KIG-KIC-S6C1V4"
+        }
+       ]
+      },
+      {
+       "name": "Kagina",
+       "code": "KIG-KIC-S6C2",
+       "villages": [
+        {
+         "name": "Gashiha",
+         "code": "KIG-KIC-S6C2V1"
+        },
+        {
+         "name": "Iriba",
+         "code": "KIG-KIC-S6C2V2"
+        },
+        {
+         "name": "Multimedia",
+         "code": "KIG-KIC-S6C2V3"
+        },
+        {
+         "name": "Umunyinya",
+         "code": "KIG-KIC-S6C2V4"
+        },
+        {
+         "name": "Umuremure",
+         "code": "KIG-KIC-S6C2V5"
+        },
+        {
+         "name": "Urugero",
+         "code": "KIG-KIC-S6C2V6"
+        }
+       ]
+      },
+      {
+       "name": "Kicukiro",
+       "code": "KIG-KIC-S6C3",
+       "villages": [
+        {
+         "name": "Gasave",
+         "code": "KIG-KIC-S6C3V1"
+        },
+        {
+         "name": "Isoko",
+         "code": "KIG-KIC-S6C3V2"
+        },
+        {
+         "name": "Karisimbi",
+         "code": "KIG-KIC-S6C3V3"
+        },
+        {
+         "name": "Kicukiro",
+         "code": "KIG-KIC-S6C3V4"
+        },
+        {
+         "name": "Triangle",
+         "code": "KIG-KIC-S6C3V5"
+        },
+        {
+         "name": "Ubumwe",
+         "code": "KIG-KIC-S6C3V6"
+        }
+       ]
+      },
+      {
+       "name": "Ngoma",
+       "code": "KIG-KIC-S6C4",
+       "villages": [
+        {
+         "name": "Ahitegeye",
+         "code": "KIG-KIC-S6C4V1"
+        },
+        {
+         "name": "Intaho",
+         "code": "KIG-KIC-S6C4V2"
+        },
+        {
+         "name": "Iriba",
+         "code": "KIG-KIC-S6C4V3"
+        },
+        {
+         "name": "Isangano",
+         "code": "KIG-KIC-S6C4V4"
+        },
+        {
+         "name": "Urugero",
+         "code": "KIG-KIC-S6C4V5"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "name": "Kigarama",
+     "code": "KIG-KIC-S7",
+     "cells": [
+      {
+       "name": "Bwerankori",
+       "code": "KIG-KIC-S7C1",
+       "villages": [
+        {
+         "name": "Gakokobe",
+         "code": "KIG-KIC-S7C1V1"
+        },
+        {
+         "name": "Gatare",
+         "code": "KIG-KIC-S7C1V2"
+        },
+        {
+         "name": "Imena",
+         "code": "KIG-KIC-S7C1V3"
+        },
+        {
+         "name": "Ituze",
+         "code": "KIG-KIC-S7C1V4"
+        },
+        {
+         "name": "Kabutare",
+         "code": "KIG-KIC-S7C1V5"
+        },
+        {
+         "name": "Kimisange",
+         "code": "KIG-KIC-S7C1V6"
+        },
+        {
+         "name": "Nyenyeri",
+         "code": "KIG-KIC-S7C1V7"
+        },
+        {
+         "name": "Ubumenyi",
+         "code": "KIG-KIC-S7C1V8"
+        }
+       ]
+      },
+      {
+       "name": "Karugira",
+       "code": "KIG-KIC-S7C2",
+       "villages": [
+        {
+         "name": "Ibuga",
+         "code": "KIG-KIC-S7C2V1"
+        },
+        {
+         "name": "Ihuriro",
+         "code": "KIG-KIC-S7C2V2"
+        },
+        {
+         "name": "Murambi",
+         "code": "KIG-KIC-S7C2V3"
+        },
+        {
+         "name": "Rutoki",
+         "code": "KIG-KIC-S7C2V4"
+        },
+        {
+         "name": "Taba",
+         "code": "KIG-KIC-S7C2V5"
+        },
+        {
+         "name": "Terimbere",
+         "code": "KIG-KIC-S7C2V6"
+        },
+        {
+         "name": "Ubutare",
+         "code": "KIG-KIC-S7C2V7"
+        },
+        {
+         "name": "Umurimo",
+         "code": "KIG-KIC-S7C2V8"
+        }
+       ]
+      },
+      {
+       "name": "Kigarama",
+       "code": "KIG-KIC-S7C3",
+       "villages": [
+        {
+         "name": "Akimana",
+         "code": "KIG-KIC-S7C3V1"
+        },
+        {
+         "name": "Amahoro",
+         "code": "KIG-KIC-S7C3V2"
+        },
+        {
+         "name": "Byimana",
+         "code": "KIG-KIC-S7C3V3"
+        },
+        {
+         "name": "Indatwa",
+         "code": "KIG-KIC-S7C3V4"
+        },
+        {
+         "name": "Ingenzi",
+         "code": "KIG-KIC-S7C3V5"
+        },
+        {
+         "name": "Kabeza",
+         "code": "KIG-KIC-S7C3V6"
+        },
+        {
+         "name": "Karurayi",
+         "code": "KIG-KIC-S7C3V7"
+        },
+        {
+         "name": "Mataba",
+         "code": "KIG-KIC-S7C3V8"
+        },
+        {
+         "name": "Umucyo",
+         "code": "KIG-KIC-S7C3V9"
+        }
+       ]
+      },
+      {
+       "name": "Nyarurama",
+       "code": "KIG-KIC-S7C4",
+       "villages": [
+        {
+         "name": "Kamabuye",
+         "code": "KIG-KIC-S7C4V1"
+        },
+        {
+         "name": "Karuyenzi",
+         "code": "KIG-KIC-S7C4V2"
+        },
+        {
+         "name": "Kivu",
+         "code": "KIG-KIC-S7C4V3"
+        },
+        {
+         "name": "Rebero",
+         "code": "KIG-KIC-S7C4V4"
+        },
+        {
+         "name": "Twishorezo",
+         "code": "KIG-KIC-S7C4V5"
+        },
+        {
+         "name": "Zuba",
+         "code": "KIG-KIC-S7C4V6"
+        }
+       ]
+      },
+      {
+       "name": "Rwampara",
+       "code": "KIG-KIC-S7C5",
+       "villages": [
+        {
+         "name": "Amajyambere",
+         "code": "KIG-KIC-S7C5V1"
+        },
+        {
+         "name": "Bwiza",
+         "code": "KIG-KIC-S7C5V2"
+        },
+        {
+         "name": "Nyarurembo",
+         "code": "KIG-KIC-S7C5V3"
+        },
+        {
+         "name": "Ubumwe",
+         "code": "KIG-KIC-S7C5V4"
+        },
+        {
+         "name": "Umutekano",
+         "code": "KIG-KIC-S7C5V5"
+        },
+        {
+         "name": "Urumuri",
+         "code": "KIG-KIC-S7C5V6"
+        },
+        {
+         "name": "Uwateke",
+         "code": "KIG-KIC-S7C5V7"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "name": "Masaka",
+     "code": "KIG-KIC-S8",
+     "cells": [
+      {
+       "name": "Ayabaraya",
+       "code": "KIG-KIC-S8C1",
+       "villages": [
+        {
+         "name": "Akababyeyi",
+         "code": "KIG-KIC-S8C1V1"
+        },
+        {
+         "name": "Ayabaraya",
+         "code": "KIG-KIC-S8C1V2"
+        },
+        {
+         "name": "Nyamico",
+         "code": "KIG-KIC-S8C1V3"
+        },
+        {
+         "name": "Nyamyijima",
+         "code": "KIG-KIC-S8C1V4"
+        },
+        {
+         "name": "Nyirakavomo",
+         "code": "KIG-KIC-S8C1V5"
+        },
+        {
+         "name": "Rususa",
+         "code": "KIG-KIC-S8C1V6"
+        }
+       ]
+      },
+      {
+       "name": "Cyimo",
+       "code": "KIG-KIC-S8C2",
+       "villages": [
+        {
+         "name": "Biryogo",
+         "code": "KIG-KIC-S8C2V1"
+        },
+        {
+         "name": "Bwiza",
+         "code": "KIG-KIC-S8C2V2"
+        },
+        {
+         "name": "Cyimo",
+         "code": "KIG-KIC-S8C2V3"
+        },
+        {
+         "name": "Kabeza",
+         "code": "KIG-KIC-S8C2V4"
+        },
+        {
+         "name": "Kiyovu",
+         "code": "KIG-KIC-S8C2V5"
+        },
+        {
+         "name": "Masaka",
+         "code": "KIG-KIC-S8C2V6"
+        },
+        {
+         "name": "Murambi",
+         "code": "KIG-KIC-S8C2V7"
+        },
+        {
+         "name": "Nyakagunga",
+         "code": "KIG-KIC-S8C2V8"
+        },
+        {
+         "name": "Urugwiro",
+         "code": "KIG-KIC-S8C2V9"
+        }
+       ]
+      },
+      {
+       "name": "Gako",
+       "code": "KIG-KIC-S8C3",
+       "villages": [
+        {
+         "name": "Bamporeze",
+         "code": "KIG-KIC-S8C3V1"
+        },
+        {
+         "name": "Butangampundu",
+         "code": "KIG-KIC-S8C3V2"
+        },
+        {
+         "name": "Butare",
+         "code": "KIG-KIC-S8C3V3"
+        },
+        {
+         "name": "Cyugamo",
+         "code": "KIG-KIC-S8C3V4"
+        },
+        {
+         "name": "Gicaca",
+         "code": "KIG-KIC-S8C3V5"
+        },
+        {
+         "name": "Gihuke",
+         "code": "KIG-KIC-S8C3V6"
+        },
+        {
+         "name": "Kabeza",
+         "code": "KIG-KIC-S8C3V7"
+        },
+        {
+         "name": "Kibande",
+         "code": "KIG-KIC-S8C3V8"
+        },
+        {
+         "name": "Rebero",
+         "code": "KIG-KIC-S8C3V9"
+        },
+        {
+         "name": "Rugende",
+         "code": "KIG-KIC-S8C3V10"
+        },
+        {
+         "name": "Ruyaga",
+         "code": "KIG-KIC-S8C3V11"
+        }
+       ]
+      },
+      {
+       "name": "Gitaraga",
+       "code": "KIG-KIC-S8C4",
+       "villages": [
+        {
+         "name": "Gitaraga",
+         "code": "KIG-KIC-S8C4V1"
+        },
+        {
+         "name": "Kabeza",
+         "code": "KIG-KIC-S8C4V2"
+        },
+        {
+         "name": "Kajevuba",
+         "code": "KIG-KIC-S8C4V3"
+        },
+        {
+         "name": "Nyakarambi",
+         "code": "KIG-KIC-S8C4V4"
+        },
+        {
+         "name": "Nyange",
+         "code": "KIG-KIC-S8C4V5"
+        },
+        {
+         "name": "Ruhanga",
+         "code": "KIG-KIC-S8C4V6"
+        },
+        {
+         "name": "Rwintare",
+         "code": "KIG-KIC-S8C4V7"
+        }
+       ]
+      },
+      {
+       "name": "Mbabe",
+       "code": "KIG-KIC-S8C5",
+       "villages": [
+        {
+         "name": "Kabeza",
+         "code": "KIG-KIC-S8C5V1"
+        },
+        {
+         "name": "Kamashashi",
+         "code": "KIG-KIC-S8C5V2"
+        },
+        {
+         "name": "Mbabe",
+         "code": "KIG-KIC-S8C5V3"
+        },
+        {
+         "name": "Murambi",
+         "code": "KIG-KIC-S8C5V4"
+        },
+        {
+         "name": "Ngarama",
+         "code": "KIG-KIC-S8C5V5"
+        },
+        {
+         "name": "Sangano",
+         "code": "KIG-KIC-S8C5V6"
+        }
+       ]
+      },
+      {
+       "name": "Rusheshe",
+       "code": "KIG-KIC-S8C6",
+       "villages": [
+        {
+         "name": "Cyankongi",
+         "code": "KIG-KIC-S8C6V1"
+        },
+        {
+         "name": "Cyeru",
+         "code": "KIG-KIC-S8C6V2"
+        },
+        {
+         "name": "Gatare",
+         "code": "KIG-KIC-S8C6V3"
+        },
+        {
+         "name": "Kagese",
+         "code": "KIG-KIC-S8C6V4"
+        },
+        {
+         "name": "Kanyetabi",
+         "code": "KIG-KIC-S8C6V5"
+        },
+        {
+         "name": "Mubano",
+         "code": "KIG-KIC-S8C6V6"
+        },
+        {
+         "name": "Ruhosha",
+         "code": "KIG-KIC-S8C6V7"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "name": "Niboye",
+     "code": "KIG-KIC-S9",
+     "cells": [
+      {
+       "name": "Gatare",
+       "code": "KIG-KIC-S9C1",
+       "villages": [
+        {
+         "name": "Byimana",
+         "code": "KIG-KIC-S9C1V1"
+        },
+        {
+         "name": "Gatare",
+         "code": "KIG-KIC-S9C1V2"
+        },
+        {
+         "name": "Imena",
+         "code": "KIG-KIC-S9C1V3"
+        },
+        {
+         "name": "Kamahoro",
+         "code": "KIG-KIC-S9C1V4"
+        },
+        {
+         "name": "Kigarama",
+         "code": "KIG-KIC-S9C1V5"
+        },
+        {
+         "name": "Rugunga",
+         "code": "KIG-KIC-S9C1V6"
+        },
+        {
+         "name": "Rurembo",
+         "code": "KIG-KIC-S9C1V7"
+        },
+        {
+         "name": "Taba",
+         "code": "KIG-KIC-S9C1V8"
+        }
+       ]
+      },
+      {
+       "name": "Niboye",
+       "code": "KIG-KIC-S9C2",
+       "villages": [
+        {
+         "name": "Buhoro",
+         "code": "KIG-KIC-S9C2V1"
+        },
+        {
+         "name": "Gaseke",
+         "code": "KIG-KIC-S9C2V2"
+        },
+        {
+         "name": "Gateke",
+         "code": "KIG-KIC-S9C2V3"
+        },
+        {
+         "name": "Gorora",
+         "code": "KIG-KIC-S9C2V4"
+        },
+        {
+         "name": "Kigabiro",
+         "code": "KIG-KIC-S9C2V5"
+        },
+        {
+         "name": "Kinunga",
+         "code": "KIG-KIC-S9C2V6"
+        },
+        {
+         "name": "Kiruhura",
+         "code": "KIG-KIC-S9C2V7"
+        },
+        {
+         "name": "Munini",
+         "code": "KIG-KIC-S9C2V8"
+        },
+        {
+         "name": "Murehe",
+         "code": "KIG-KIC-S9C2V9"
+        },
+        {
+         "name": "Mwijabo",
+         "code": "KIG-KIC-S9C2V10"
+        },
+        {
+         "name": "Mwijuto",
+         "code": "KIG-KIC-S9C2V11"
+        },
+        {
+         "name": "Nyarubande",
+         "code": "KIG-KIC-S9C2V12"
+        },
+        {
+         "name": "Rwezamenyo",
+         "code": "KIG-KIC-S9C2V13"
+        },
+        {
+         "name": "Sovu",
+         "code": "KIG-KIC-S9C2V14"
+        },
+        {
+         "name": "Taba",
+         "code": "KIG-KIC-S9C2V15"
+        }
+       ]
+      },
+      {
+       "name": "Nyakabanda",
+       "code": "KIG-KIC-S9C3",
+       "villages": [
+        {
+         "name": "Amahoro",
+         "code": "KIG-KIC-S9C3V1"
+        },
+        {
+         "name": "Amarebe",
+         "code": "KIG-KIC-S9C3V2"
+        },
+        {
+         "name": "Amarembo",
+         "code": "KIG-KIC-S9C3V3"
+        },
+        {
+         "name": "Bigabiro",
+         "code": "KIG-KIC-S9C3V4"
+        },
+        {
+         "name": "Bukinanyana",
+         "code": "KIG-KIC-S9C3V5"
+        },
+        {
+         "name": "Bumanzi",
+         "code": "KIG-KIC-S9C3V6"
+        },
+        {
+         "name": "Bwiza",
+         "code": "KIG-KIC-S9C3V7"
+        },
+        {
+         "name": "Gatsibo",
+         "code": "KIG-KIC-S9C3V8"
+        },
+        {
+         "name": "Gikundiro",
+         "code": "KIG-KIC-S9C3V9"
+        },
+        {
+         "name": "Indakemwa",
+         "code": "KIG-KIC-S9C3V10"
+        },
+        {
+         "name": "Indamutsa",
+         "code": "KIG-KIC-S9C3V11"
+        },
+        {
+         "name": "Indatwa",
+         "code": "KIG-KIC-S9C3V12"
+        },
+        {
+         "name": "Inyarurembo",
+         "code": "KIG-KIC-S9C3V13"
+        },
+        {
+         "name": "Isangano",
+         "code": "KIG-KIC-S9C3V14"
+        },
+        {
+         "name": "Karama",
+         "code": "KIG-KIC-S9C3V15"
+        },
+        {
+         "name": "Kinyana",
+         "code": "KIG-KIC-S9C3V16"
+        },
+        {
+         "name": "Rugwiro",
+         "code": "KIG-KIC-S9C3V17"
+        },
+        {
+         "name": "Umurava",
+         "code": "KIG-KIC-S9C3V18"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "name": "Nyarugunga",
+     "code": "KIG-KIC-S10",
+     "cells": [
+      {
+       "name": "Kamashashi",
+       "code": "KIG-KIC-S10C1",
+       "villages": [
+        {
+         "name": "Akindege",
+         "code": "KIG-KIC-S10C1V1"
+        },
+        {
+         "name": "Indatwa",
+         "code": "KIG-KIC-S10C1V2"
+        },
+        {
+         "name": "Intwari",
+         "code": "KIG-KIC-S10C1V3"
+        },
+        {
+         "name": "Kabagendwa",
+         "code": "KIG-KIC-S10C1V4"
+        },
+        {
+         "name": "Kibaya",
+         "code": "KIG-KIC-S10C1V5"
+        },
+        {
+         "name": "Mukoni",
+         "code": "KIG-KIC-S10C1V6"
+        },
+        {
+         "name": "Mulindi",
+         "code": "KIG-KIC-S10C1V7"
+        },
+        {
+         "name": "Umucyo",
+         "code": "KIG-KIC-S10C1V8"
+        },
+        {
+         "name": "Uruhongore",
+         "code": "KIG-KIC-S10C1V9"
+        }
+       ]
+      },
+      {
+       "name": "Nonko",
+       "code": "KIG-KIC-S10C2",
+       "villages": [
+        {
+         "name": "Gasaraba",
+         "code": "KIG-KIC-S10C2V1"
+        },
+        {
+         "name": "Gihanga",
+         "code": "KIG-KIC-S10C2V2"
+        },
+        {
+         "name": "Gitara",
+         "code": "KIG-KIC-S10C2V3"
+        },
+        {
+         "name": "Kavumu",
+         "code": "KIG-KIC-S10C2V4"
+        },
+        {
+         "name": "Mahoro",
+         "code": "KIG-KIC-S10C2V5"
+        },
+        {
+         "name": "Nyarutovu",
+         "code": "KIG-KIC-S10C2V6"
+        },
+        {
+         "name": "Rugali",
+         "code": "KIG-KIC-S10C2V7"
+        },
+        {
+         "name": "Runyonza",
+         "code": "KIG-KIC-S10C2V8"
+        }
+       ]
+      },
+      {
+       "name": "Rwimbogo",
+       "code": "KIG-KIC-S10C3",
+       "villages": [
+        {
+         "name": "Gabiro",
+         "code": "KIG-KIC-S10C3V1"
+        },
+        {
+         "name": "Kabaya",
+         "code": "KIG-KIC-S10C3V2"
+        },
+        {
+         "name": "Kanogo",
+         "code": "KIG-KIC-S10C3V3"
+        },
+        {
+         "name": "Marembo",
+         "code": "KIG-KIC-S10C3V4"
+        },
+        {
+         "name": "Mushumbamwiza",
+         "code": "KIG-KIC-S10C3V5"
+        },
+        {
+         "name": "Nyandungu",
+         "code": "KIG-KIC-S10C3V6"
+        },
+        {
+         "name": "Ruragendwa",
+         "code": "KIG-KIC-S10C3V7"
+        },
+        {
+         "name": "Rwinyana",
+         "code": "KIG-KIC-S10C3V8"
+        },
+        {
+         "name": "Rwinyange",
+         "code": "KIG-KIC-S10C3V9"
+        },
+        {
+         "name": "Rwiza",
+         "code": "KIG-KIC-S10C3V10"
+        },
+        {
+         "name": "Urwibutso",
+         "code": "KIG-KIC-S10C3V11"
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "name": "Nyarugenge",
+   "code": "KIG-NYA",
+   "sectors": [
+    {
+     "name": "Gitega",
+     "code": "KIG-NYA-S1",
+     "cells": [
+      {
+       "name": "Akabahizi",
+       "code": "KIG-NYA-S1C1",
+       "villages": [
+        {
+         "name": "Gihanga",
+         "code": "KIG-NYA-S1C1V1"
+        },
+        {
+         "name": "Iterambere",
+         "code": "KIG-NYA-S1C1V2"
+        },
+        {
+         "name": "Izuba",
+         "code": "KIG-NYA-S1C1V3"
+        },
+        {
+         "name": "Nyaburanga",
+         "code": "KIG-NYA-S1C1V4"
+        },
+        {
+         "name": "Nyenyeri",
+         "code": "KIG-NYA-S1C1V5"
+        },
+        {
+         "name": "Ubukorikori",
+         "code": "KIG-NYA-S1C1V6"
+        },
+        {
+         "name": "Ubumwe",
+         "code": "KIG-NYA-S1C1V7"
+        },
+        {
+         "name": "Ubwiyunge",
+         "code": "KIG-NYA-S1C1V8"
+        },
+        {
+         "name": "Umucyo",
+         "code": "KIG-NYA-S1C1V9"
+        },
+        {
+         "name": "Umurabyo",
+         "code": "KIG-NYA-S1C1V10"
+        },
+        {
+         "name": "Umuseke",
+         "code": "KIG-NYA-S1C1V11"
+        },
+        {
+         "name": "Vugizo",
+         "code": "KIG-NYA-S1C1V12"
+        }
+       ]
+      },
+      {
+       "name": "Akabeza",
+       "code": "KIG-NYA-S1C2",
+       "villages": [
+        {
+         "name": "Akinyambo",
+         "code": "KIG-NYA-S1C2V1"
+        },
+        {
+         "name": "Amayaga",
+         "code": "KIG-NYA-S1C2V2"
+        },
+        {
+         "name": "Gitwa",
+         "code": "KIG-NYA-S1C2V3"
+        },
+        {
+         "name": "Ituze",
+         "code": "KIG-NYA-S1C2V4"
+        },
+        {
+         "name": "Mpazi",
+         "code": "KIG-NYA-S1C2V5"
+        }
+       ]
+      },
+      {
+       "name": "Gacyamo",
+       "code": "KIG-NYA-S1C3",
+       "villages": [
+        {
+         "name": "Amahoro",
+         "code": "KIG-NYA-S1C3V1"
+        },
+        {
+         "name": "Impuhwe",
+         "code": "KIG-NYA-S1C3V2"
+        },
+        {
+         "name": "Intsinzi",
+         "code": "KIG-NYA-S1C3V3"
+        },
+        {
+         "name": "Kivumu",
+         "code": "KIG-NYA-S1C3V4"
+        },
+        {
+         "name": "Ubumwe",
+         "code": "KIG-NYA-S1C3V5"
+        },
+        {
+         "name": "Urukundo",
+         "code": "KIG-NYA-S1C3V6"
+        },
+        {
+         "name": "Ururembo",
+         "code": "KIG-NYA-S1C3V7"
+        }
+       ]
+      },
+      {
+       "name": "Kigarama",
+       "code": "KIG-NYA-S1C4",
+       "villages": [
+        {
+         "name": "Ingenzi",
+         "code": "KIG-NYA-S1C4V1"
+        },
+        {
+         "name": "Sangwa",
+         "code": "KIG-NYA-S1C4V2"
+        },
+        {
+         "name": "Umubano",
+         "code": "KIG-NYA-S1C4V3"
+        },
+        {
+         "name": "Umucyo",
+         "code": "KIG-NYA-S1C4V4"
+        },
+        {
+         "name": "Umuhoza",
+         "code": "KIG-NYA-S1C4V5"
+        },
+        {
+         "name": "Umurava",
+         "code": "KIG-NYA-S1C4V6"
+        }
+       ]
+      },
+      {
+       "name": "Kinyange",
+       "code": "KIG-NYA-S1C5",
+       "villages": [
+        {
+         "name": "Akabugenewe",
+         "code": "KIG-NYA-S1C5V1"
+        },
+        {
+         "name": "Ihuriro",
+         "code": "KIG-NYA-S1C5V2"
+        },
+        {
+         "name": "Isangano",
+         "code": "KIG-NYA-S1C5V3"
+        },
+        {
+         "name": "Isano",
+         "code": "KIG-NYA-S1C5V4"
+        },
+        {
+         "name": "Karitasi",
+         "code": "KIG-NYA-S1C5V5"
+        },
+        {
+         "name": "Ubumanzi",
+         "code": "KIG-NYA-S1C5V6"
+        },
+        {
+         "name": "Uburezi",
+         "code": "KIG-NYA-S1C5V7"
+        },
+        {
+         "name": "Ubwiza",
+         "code": "KIG-NYA-S1C5V8"
+        },
+        {
+         "name": "Umucyo",
+         "code": "KIG-NYA-S1C5V9"
+        },
+        {
+         "name": "Umwembe",
+         "code": "KIG-NYA-S1C5V10"
+        },
+        {
+         "name": "Urugano",
+         "code": "KIG-NYA-S1C5V11"
+        }
+       ]
+      },
+      {
+       "name": "Kora",
+       "code": "KIG-NYA-S1C6",
+       "villages": [
+        {
+         "name": "Isangano",
+         "code": "KIG-NYA-S1C6V1"
+        },
+        {
+         "name": "Kanunga",
+         "code": "KIG-NYA-S1C6V2"
+        },
+        {
+         "name": "Kinyambo",
+         "code": "KIG-NYA-S1C6V3"
+        },
+        {
+         "name": "Kivumu",
+         "code": "KIG-NYA-S1C6V4"
+        },
+        {
+         "name": "Kora",
+         "code": "KIG-NYA-S1C6V5"
+        },
+        {
+         "name": "Mpazi",
+         "code": "KIG-NYA-S1C6V6"
+        },
+        {
+         "name": "Rugano",
+         "code": "KIG-NYA-S1C6V7"
+        },
+        {
+         "name": "Rugari",
+         "code": "KIG-NYA-S1C6V8"
+        },
+        {
+         "name": "Ubumwe",
+         "code": "KIG-NYA-S1C6V9"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "name": "Kanyinya",
+     "code": "KIG-NYA-S2",
+     "cells": [
+      {
+       "name": "Nyamweru",
+       "code": "KIG-NYA-S2C1",
+       "villages": [
+        {
+         "name": "Bwimo",
+         "code": "KIG-NYA-S2C1V1"
+        },
+        {
+         "name": "Gatare",
+         "code": "KIG-NYA-S2C1V2"
+        },
+        {
+         "name": "Mubuga",
+         "code": "KIG-NYA-S2C1V3"
+        },
+        {
+         "name": "Nyakirambi",
+         "code": "KIG-NYA-S2C1V4"
+        },
+        {
+         "name": "Nyamweru",
+         "code": "KIG-NYA-S2C1V5"
+        },
+        {
+         "name": "Ruhengeri",
+         "code": "KIG-NYA-S2C1V6"
+        }
+       ]
+      },
+      {
+       "name": "Nzove",
+       "code": "KIG-NYA-S2C2",
+       "villages": [
+        {
+         "name": "Bibungo",
+         "code": "KIG-NYA-S2C2V1"
+        },
+        {
+         "name": "Bwiza",
+         "code": "KIG-NYA-S2C2V2"
+        },
+        {
+         "name": "Gateko",
+         "code": "KIG-NYA-S2C2V3"
+        },
+        {
+         "name": "Kagasa",
+         "code": "KIG-NYA-S2C2V4"
+        },
+        {
+         "name": "Nyabihu",
+         "code": "KIG-NYA-S2C2V5"
+        },
+        {
+         "name": "RutagaraI",
+         "code": "KIG-NYA-S2C2V6"
+        },
+        {
+         "name": "RutagaraIi",
+         "code": "KIG-NYA-S2C2V7"
+        },
+        {
+         "name": "Ruyenzi",
+         "code": "KIG-NYA-S2C2V8"
+        }
+       ]
+      },
+      {
+       "name": "Taba",
+       "code": "KIG-NYA-S2C3",
+       "villages": [
+        {
+         "name": "Kagaramira",
+         "code": "KIG-NYA-S2C3V1"
+        },
+        {
+         "name": "Ngendo",
+         "code": "KIG-NYA-S2C3V2"
+        },
+        {
+         "name": "Nyarurama",
+         "code": "KIG-NYA-S2C3V3"
+        },
+        {
+         "name": "Nyarusange",
+         "code": "KIG-NYA-S2C3V4"
+        },
+        {
+         "name": "Rwakivumu",
+         "code": "KIG-NYA-S2C3V5"
+        },
+        {
+         "name": "Taba",
+         "code": "KIG-NYA-S2C3V6"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "name": "Kigali",
+     "code": "KIG-NYA-S3",
+     "cells": [
+      {
+       "name": "Kigali",
+       "code": "KIG-NYA-S3C1",
+       "villages": [
+        {
+         "name": "Akirwanda",
+         "code": "KIG-NYA-S3C1V1"
+        },
+        {
+         "name": "Gisenga",
+         "code": "KIG-NYA-S3C1V2"
+        },
+        {
+         "name": "Kadobogo",
+         "code": "KIG-NYA-S3C1V3"
+        },
+        {
+         "name": "Kagarama",
+         "code": "KIG-NYA-S3C1V4"
+        },
+        {
+         "name": "Kibisogi",
+         "code": "KIG-NYA-S3C1V5"
+        },
+        {
+         "name": "Muganza",
+         "code": "KIG-NYA-S3C1V6"
+        },
+        {
+         "name": "Murama",
+         "code": "KIG-NYA-S3C1V7"
+        },
+        {
+         "name": "Rubuye",
+         "code": "KIG-NYA-S3C1V8"
+        },
+        {
+         "name": "Ruhango",
+         "code": "KIG-NYA-S3C1V9"
+        },
+        {
+         "name": "Ryasharangabo",
+         "code": "KIG-NYA-S3C1V10"
+        }
+       ]
+      },
+      {
+       "name": "Mwendo",
+       "code": "KIG-NYA-S3C2",
+       "villages": [
+        {
+         "name": "Agakomeye",
+         "code": "KIG-NYA-S3C2V1"
+        },
+        {
+         "name": "Akagugu",
+         "code": "KIG-NYA-S3C2V2"
+        },
+        {
+         "name": "Amahoro",
+         "code": "KIG-NYA-S3C2V3"
+        },
+        {
+         "name": "Amajyambere",
+         "code": "KIG-NYA-S3C2V4"
+        },
+        {
+         "name": "Birambo",
+         "code": "KIG-NYA-S3C2V5"
+        },
+        {
+         "name": "Isangano",
+         "code": "KIG-NYA-S3C2V6"
+        },
+        {
+         "name": "Kanyabami",
+         "code": "KIG-NYA-S3C2V7"
+        },
+        {
+         "name": "Karambo",
+         "code": "KIG-NYA-S3C2V8"
+        },
+        {
+         "name": "Mwendo",
+         "code": "KIG-NYA-S3C2V9"
+        },
+        {
+         "name": "Ruhuha",
+         "code": "KIG-NYA-S3C2V10"
+        },
+        {
+         "name": "Ubuzima",
+         "code": "KIG-NYA-S3C2V11"
+        },
+        {
+         "name": "Umutekano",
+         "code": "KIG-NYA-S3C2V12"
+        }
+       ]
+      },
+      {
+       "name": "Nyabugogo",
+       "code": "KIG-NYA-S3C3",
+       "villages": [
+        {
+         "name": "Gakoni",
+         "code": "KIG-NYA-S3C3V1"
+        },
+        {
+         "name": "Gatare",
+         "code": "KIG-NYA-S3C3V2"
+        },
+        {
+         "name": "Giticyinyoni",
+         "code": "KIG-NYA-S3C3V3"
+        },
+        {
+         "name": "Kadobogo",
+         "code": "KIG-NYA-S3C3V4"
+        },
+        {
+         "name": "Kamenge",
+         "code": "KIG-NYA-S3C3V5"
+        },
+        {
+         "name": "Karama",
+         "code": "KIG-NYA-S3C3V6"
+        },
+        {
+         "name": "Kiruhura",
+         "code": "KIG-NYA-S3C3V7"
+        },
+        {
+         "name": "Nyabikoni",
+         "code": "KIG-NYA-S3C3V8"
+        },
+        {
+         "name": "Nyabugogo",
+         "code": "KIG-NYA-S3C3V9"
+        },
+        {
+         "name": "Ruhondo",
+         "code": "KIG-NYA-S3C3V10"
+        }
+       ]
+      },
+      {
+       "name": "Ruriba",
+       "code": "KIG-NYA-S3C4",
+       "villages": [
+        {
+         "name": "Misibya",
+         "code": "KIG-NYA-S3C4V1"
+        },
+        {
+         "name": "Nyabitare",
+         "code": "KIG-NYA-S3C4V2"
+        },
+        {
+         "name": "Ruhango",
+         "code": "KIG-NYA-S3C4V3"
+        },
+        {
+         "name": "Ruharabuge",
+         "code": "KIG-NYA-S3C4V4"
+        },
+        {
+         "name": "Ruriba",
+         "code": "KIG-NYA-S3C4V5"
+        },
+        {
+         "name": "Ruzigimbogo",
+         "code": "KIG-NYA-S3C4V6"
+        },
+        {
+         "name": "Ryamakomari",
+         "code": "KIG-NYA-S3C4V7"
+        },
+        {
+         "name": "Tubungo",
+         "code": "KIG-NYA-S3C4V8"
+        }
+       ]
+      },
+      {
+       "name": "Rwesero",
+       "code": "KIG-NYA-S3C5",
+       "villages": [
+        {
+         "name": "Akanyamirambo",
+         "code": "KIG-NYA-S3C5V1"
+        },
+        {
+         "name": "Akinama",
+         "code": "KIG-NYA-S3C5V2"
+        },
+        {
+         "name": "Makaga",
+         "code": "KIG-NYA-S3C5V3"
+        },
+        {
+         "name": "Musimba",
+         "code": "KIG-NYA-S3C5V4"
+        },
+        {
+         "name": "Ruhogo",
+         "code": "KIG-NYA-S3C5V5"
+        },
+        {
+         "name": "Rwesero",
+         "code": "KIG-NYA-S3C5V6"
+        },
+        {
+         "name": "Rweza",
+         "code": "KIG-NYA-S3C5V7"
+        },
+        {
+         "name": "Vuganyana",
+         "code": "KIG-NYA-S3C5V8"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "name": "Kimisagara",
+     "code": "KIG-NYA-S4",
+     "cells": [
+      {
+       "name": "Kamuhoza",
+       "code": "KIG-NYA-S4C1",
+       "villages": [
+        {
+         "name": "Buhoro",
+         "code": "KIG-NYA-S4C1V1"
+        },
+        {
+         "name": "Busasamana",
+         "code": "KIG-NYA-S4C1V2"
+        },
+        {
+         "name": "Isimbi",
+         "code": "KIG-NYA-S4C1V3"
+        },
+        {
+         "name": "Ituze",
+         "code": "KIG-NYA-S4C1V4"
+        },
+        {
+         "name": "Karama",
+         "code": "KIG-NYA-S4C1V5"
+        },
+        {
+         "name": "Karwarugabo",
+         "code": "KIG-NYA-S4C1V6"
+        },
+        {
+         "name": "Kigabiro",
+         "code": "KIG-NYA-S4C1V7"
+        },
+        {
+         "name": "Mataba",
+         "code": "KIG-NYA-S4C1V8"
+        },
+        {
+         "name": "Munini",
+         "code": "KIG-NYA-S4C1V9"
+        },
+        {
+         "name": "Ntaraga",
+         "code": "KIG-NYA-S4C1V10"
+        },
+        {
+         "name": "Nunga",
+         "code": "KIG-NYA-S4C1V11"
+        },
+        {
+         "name": "Rurama",
+         "code": "KIG-NYA-S4C1V12"
+        },
+        {
+         "name": "Rutunga",
+         "code": "KIG-NYA-S4C1V13"
+        },
+        {
+         "name": "Tetero",
+         "code": "KIG-NYA-S4C1V14"
+        }
+       ]
+      },
+      {
+       "name": "Katabaro",
+       "code": "KIG-NYA-S4C2",
+       "villages": [
+        {
+         "name": "Akamahoro",
+         "code": "KIG-NYA-S4C2V1"
+        },
+        {
+         "name": "Akishinge",
+         "code": "KIG-NYA-S4C2V2"
+        },
+        {
+         "name": "Akishuri",
+         "code": "KIG-NYA-S4C2V3"
+        },
+        {
+         "name": "Amahumbezi",
+         "code": "KIG-NYA-S4C2V4"
+        },
+        {
+         "name": "Inganzo",
+         "code": "KIG-NYA-S4C2V5"
+        },
+        {
+         "name": "Kigarama",
+         "code": "KIG-NYA-S4C2V6"
+        },
+        {
+         "name": "Mpazi",
+         "code": "KIG-NYA-S4C2V7"
+        },
+        {
+         "name": "Mugina",
+         "code": "KIG-NYA-S4C2V8"
+        },
+        {
+         "name": "Ubumwe",
+         "code": "KIG-NYA-S4C2V9"
+        },
+        {
+         "name": "Ubusabane",
+         "code": "KIG-NYA-S4C2V10"
+        },
+        {
+         "name": "Umubano",
+         "code": "KIG-NYA-S4C2V11"
+        },
+        {
+         "name": "Umurinzi",
+         "code": "KIG-NYA-S4C2V12"
+        },
+        {
+         "name": "Uruyange",
+         "code": "KIG-NYA-S4C2V13"
+        }
+       ]
+      },
+      {
+       "name": "Kimisagara",
+       "code": "KIG-NYA-S4C3",
+       "villages": [
+        {
+         "name": "Akabeza",
+         "code": "KIG-NYA-S4C3V1"
+        },
+        {
+         "name": "Amahoro",
+         "code": "KIG-NYA-S4C3V2"
+        },
+        {
+         "name": "Birama",
+         "code": "KIG-NYA-S4C3V3"
+        },
+        {
+         "name": "Buhoro",
+         "code": "KIG-NYA-S4C3V4"
+        },
+        {
+         "name": "Bwiza",
+         "code": "KIG-NYA-S4C3V5"
+        },
+        {
+         "name": "Byimana",
+         "code": "KIG-NYA-S4C3V6"
+        },
+        {
+         "name": "Gakaraza",
+         "code": "KIG-NYA-S4C3V7"
+        },
+        {
+         "name": "Gaseke",
+         "code": "KIG-NYA-S4C3V8"
+        },
+        {
+         "name": "Ihuriro",
+         "code": "KIG-NYA-S4C3V9"
+        },
+        {
+         "name": "Inkurunziza",
+         "code": "KIG-NYA-S4C3V10"
+        },
+        {
+         "name": "Karambi",
+         "code": "KIG-NYA-S4C3V11"
+        },
+        {
+         "name": "Kigina",
+         "code": "KIG-NYA-S4C3V12"
+        },
+        {
+         "name": "Kimisagara",
+         "code": "KIG-NYA-S4C3V13"
+        },
+        {
+         "name": "Kove",
+         "code": "KIG-NYA-S4C3V14"
+        },
+        {
+         "name": "Muganza",
+         "code": "KIG-NYA-S4C3V15"
+        },
+        {
+         "name": "Nyabugogo",
+         "code": "KIG-NYA-S4C3V16"
+        },
+        {
+         "name": "Nyagakoki",
+         "code": "KIG-NYA-S4C3V17"
+        },
+        {
+         "name": "Nyakabingo",
+         "code": "KIG-NYA-S4C3V18"
+        },
+        {
+         "name": "Nyamabuye",
+         "code": "KIG-NYA-S4C3V19"
+        },
+        {
+         "name": "Sangwa",
+         "code": "KIG-NYA-S4C3V20"
+        },
+        {
+         "name": "Sano",
+         "code": "KIG-NYA-S4C3V21"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "name": "Mageragere",
+     "code": "KIG-NYA-S5",
+     "cells": [
+      {
+       "name": "Kankuba",
+       "code": "KIG-NYA-S5C1",
+       "villages": [
+        {
+         "name": "Kamatamu",
+         "code": "KIG-NYA-S5C1V1"
+        },
+        {
+         "name": "Kankuba",
+         "code": "KIG-NYA-S5C1V2"
+        },
+        {
+         "name": "Karukina",
+         "code": "KIG-NYA-S5C1V3"
+        },
+        {
+         "name": "Musave",
+         "code": "KIG-NYA-S5C1V4"
+        },
+        {
+         "name": "Nyarumanga",
+         "code": "KIG-NYA-S5C1V5"
+        },
+        {
+         "name": "Rugendabari",
+         "code": "KIG-NYA-S5C1V6"
+        }
+       ]
+      },
+      {
+       "name": "Kavumu",
+       "code": "KIG-NYA-S5C2",
+       "villages": [
+        {
+         "name": "Ayabatanga",
+         "code": "KIG-NYA-S5C2V1"
+        },
+        {
+         "name": "Kankurimba",
+         "code": "KIG-NYA-S5C2V2"
+        },
+        {
+         "name": "Kavumu",
+         "code": "KIG-NYA-S5C2V3"
+        },
+        {
+         "name": "Mubura",
+         "code": "KIG-NYA-S5C2V4"
+        },
+        {
+         "name": "Murondo",
+         "code": "KIG-NYA-S5C2V5"
+        },
+        {
+         "name": "Nyakabingo",
+         "code": "KIG-NYA-S5C2V6"
+        },
+        {
+         "name": "Nyarubuye",
+         "code": "KIG-NYA-S5C2V7"
+        }
+       ]
+      },
+      {
+       "name": "Mataba",
+       "code": "KIG-NYA-S5C3",
+       "villages": [
+        {
+         "name": "Burema",
+         "code": "KIG-NYA-S5C3V1"
+        },
+        {
+         "name": "Gahombo",
+         "code": "KIG-NYA-S5C3V2"
+        },
+        {
+         "name": "Kabeza",
+         "code": "KIG-NYA-S5C3V3"
+        },
+        {
+         "name": "Karambi",
+         "code": "KIG-NYA-S5C3V4"
+        },
+        {
+         "name": "Kwisanga",
+         "code": "KIG-NYA-S5C3V5"
+        },
+        {
+         "name": "Mageragere",
+         "code": "KIG-NYA-S5C3V6"
+        },
+        {
+         "name": "Mataba",
+         "code": "KIG-NYA-S5C3V7"
+        },
+        {
+         "name": "Rushubi",
+         "code": "KIG-NYA-S5C3V8"
+        }
+       ]
+      },
+      {
+       "name": "Ntungamo",
+       "code": "KIG-NYA-S5C4",
+       "villages": [
+        {
+         "name": "Akanakamagerager",
+         "code": "KIG-NYA-S5C4V1"
+        },
+        {
+         "name": "Gatovu",
+         "code": "KIG-NYA-S5C4V2"
+        },
+        {
+         "name": "Nyabitare",
+         "code": "KIG-NYA-S5C4V3"
+        },
+        {
+         "name": "Nyarubande",
+         "code": "KIG-NYA-S5C4V4"
+        },
+        {
+         "name": "Rubungo",
+         "code": "KIG-NYA-S5C4V5"
+        },
+        {
+         "name": "Rwindonyi",
+         "code": "KIG-NYA-S5C4V6"
+        }
+       ]
+      },
+      {
+       "name": "Nyarufunzo",
+       "code": "KIG-NYA-S5C5",
+       "villages": [
+        {
+         "name": "Akabungo",
+         "code": "KIG-NYA-S5C5V1"
+        },
+        {
+         "name": "Akamashinge",
+         "code": "KIG-NYA-S5C5V2"
+        },
+        {
+         "name": "Maya",
+         "code": "KIG-NYA-S5C5V3"
+        },
+        {
+         "name": "Nyarufunzo",
+         "code": "KIG-NYA-S5C5V4"
+        },
+        {
+         "name": "Nyarurama",
+         "code": "KIG-NYA-S5C5V5"
+        },
+        {
+         "name": "Rubete",
+         "code": "KIG-NYA-S5C5V6"
+        }
+       ]
+      },
+      {
+       "name": "Nyarurenzi",
+       "code": "KIG-NYA-S5C6",
+       "villages": [
+        {
+         "name": "Amahoro",
+         "code": "KIG-NYA-S5C6V1"
+        },
+        {
+         "name": "Ayabaramba",
+         "code": "KIG-NYA-S5C6V2"
+        },
+        {
+         "name": "Gikuyu",
+         "code": "KIG-NYA-S5C6V3"
+        },
+        {
+         "name": "Iterambere",
+         "code": "KIG-NYA-S5C6V4"
+        },
+        {
+         "name": "Nyabirondo",
+         "code": "KIG-NYA-S5C6V5"
+        },
+        {
+         "name": "Nyarurenzi",
+         "code": "KIG-NYA-S5C6V6"
+        }
+       ]
+      },
+      {
+       "name": "Runzenze",
+       "code": "KIG-NYA-S5C7",
+       "villages": [
+        {
+         "name": "Gisunzu",
+         "code": "KIG-NYA-S5C7V1"
+        },
+        {
+         "name": "Mpanga",
+         "code": "KIG-NYA-S5C7V2"
+        },
+        {
+         "name": "Nkomero",
+         "code": "KIG-NYA-S5C7V3"
+        },
+        {
+         "name": "Runzenze",
+         "code": "KIG-NYA-S5C7V4"
+        },
+        {
+         "name": "Uwurugenge",
+         "code": "KIG-NYA-S5C7V5"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "name": "Muhima",
+     "code": "KIG-NYA-S6",
+     "cells": [
+      {
+       "name": "Amahoro",
+       "code": "KIG-NYA-S6C1",
+       "villages": [
+        {
+         "name": "Amahoro",
+         "code": "KIG-NYA-S6C1V1"
+        },
+        {
+         "name": "Amizero",
+         "code": "KIG-NYA-S6C1V2"
+        },
+        {
+         "name": "Inyarurembo",
+         "code": "KIG-NYA-S6C1V3"
+        },
+        {
+         "name": "Kabirizi",
+         "code": "KIG-NYA-S6C1V4"
+        },
+        {
+         "name": "Ubuzima",
+         "code": "KIG-NYA-S6C1V5"
+        },
+        {
+         "name": "Uruhimbi",
+         "code": "KIG-NYA-S6C1V6"
+        }
+       ]
+      },
+      {
+       "name": "Kabasengerezi",
+       "code": "KIG-NYA-S6C2",
+       "villages": [
+        {
+         "name": "Icyeza",
+         "code": "KIG-NYA-S6C2V1"
+        },
+        {
+         "name": "Ikana",
+         "code": "KIG-NYA-S6C2V2"
+        },
+        {
+         "name": "Intwari",
+         "code": "KIG-NYA-S6C2V3"
+        },
+        {
+         "name": "Kabasengerezi",
+         "code": "KIG-NYA-S6C2V4"
+        }
+       ]
+      },
+      {
+       "name": "Kabeza",
+       "code": "KIG-NYA-S6C3",
+       "villages": [
+        {
+         "name": "Hirwa",
+         "code": "KIG-NYA-S6C3V1"
+        },
+        {
+         "name": "Ikaze",
+         "code": "KIG-NYA-S6C3V2"
+        },
+        {
+         "name": "Imanzi",
+         "code": "KIG-NYA-S6C3V3"
+        },
+        {
+         "name": "Ingenzi",
+         "code": "KIG-NYA-S6C3V4"
+        },
+        {
+         "name": "Ituze",
+         "code": "KIG-NYA-S6C3V5"
+        },
+        {
+         "name": "Sangwa",
+         "code": "KIG-NYA-S6C3V6"
+        },
+        {
+         "name": "Umwezi",
+         "code": "KIG-NYA-S6C3V7"
+        }
+       ]
+      },
+      {
+       "name": "Nyabugogo",
+       "code": "KIG-NYA-S6C4",
+       "villages": [
+        {
+         "name": "Abeza",
+         "code": "KIG-NYA-S6C4V1"
+        },
+        {
+         "name": "Icyerekezo",
+         "code": "KIG-NYA-S6C4V2"
+        },
+        {
+         "name": "Indatwa",
+         "code": "KIG-NYA-S6C4V3"
+        },
+        {
+         "name": "Rwezangoro",
+         "code": "KIG-NYA-S6C4V4"
+        },
+        {
+         "name": "Ubucuruzi",
+         "code": "KIG-NYA-S6C4V5"
+        },
+        {
+         "name": "Umutekano",
+         "code": "KIG-NYA-S6C4V6"
+        }
+       ]
+      },
+      {
+       "name": "Rugenge",
+       "code": "KIG-NYA-S6C5",
+       "villages": [
+        {
+         "name": "Imihigo",
+         "code": "KIG-NYA-S6C5V1"
+        },
+        {
+         "name": "Impala",
+         "code": "KIG-NYA-S6C5V2"
+        },
+        {
+         "name": "Rugenge",
+         "code": "KIG-NYA-S6C5V3"
+        },
+        {
+         "name": "Ubumanzi",
+         "code": "KIG-NYA-S6C5V4"
+        }
+       ]
+      },
+      {
+       "name": "Tetero",
+       "code": "KIG-NYA-S6C6",
+       "villages": [
+        {
+         "name": "Indamutsa",
+         "code": "KIG-NYA-S6C6V1"
+        },
+        {
+         "name": "Ingoro",
+         "code": "KIG-NYA-S6C6V2"
+        },
+        {
+         "name": "Inkingi",
+         "code": "KIG-NYA-S6C6V3"
+        },
+        {
+         "name": "Intiganda",
+         "code": "KIG-NYA-S6C6V4"
+        },
+        {
+         "name": "Iwacu",
+         "code": "KIG-NYA-S6C6V5"
+        },
+        {
+         "name": "Tetero",
+         "code": "KIG-NYA-S6C6V6"
+        }
+       ]
+      },
+      {
+       "name": "Ubumwe",
+       "code": "KIG-NYA-S6C7",
+       "villages": [
+        {
+         "name": "Bwahirimba",
+         "code": "KIG-NYA-S6C7V1"
+        },
+        {
+         "name": "Duterimbere",
+         "code": "KIG-NYA-S6C7V2"
+        },
+        {
+         "name": "Isangano",
+         "code": "KIG-NYA-S6C7V3"
+        },
+        {
+         "name": "Nyanza",
+         "code": "KIG-NYA-S6C7V4"
+        },
+        {
+         "name": "Urugwiro",
+         "code": "KIG-NYA-S6C7V5"
+        },
+        {
+         "name": "Urwego",
+         "code": "KIG-NYA-S6C7V6"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "name": "Nyakabanda",
+     "code": "KIG-NYA-S7",
+     "cells": [
+      {
+       "name": "MunaniraI",
+       "code": "KIG-NYA-S7C1",
+       "villages": [
+        {
+         "name": "Kabusunzu",
+         "code": "KIG-NYA-S7C1V1"
+        },
+        {
+         "name": "Munanira",
+         "code": "KIG-NYA-S7C1V2"
+        },
+        {
+         "name": "Ntaraga",
+         "code": "KIG-NYA-S7C1V3"
+        },
+        {
+         "name": "Nyagasozi",
+         "code": "KIG-NYA-S7C1V4"
+        },
+        {
+         "name": "Rurembo",
+         "code": "KIG-NYA-S7C1V5"
+        }
+       ]
+      },
+      {
+       "name": "MunaniraIi",
+       "code": "KIG-NYA-S7C2",
+       "villages": [
+        {
+         "name": "Gasiza",
+         "code": "KIG-NYA-S7C2V1"
+        },
+        {
+         "name": "Kamwiza",
+         "code": "KIG-NYA-S7C2V2"
+        },
+        {
+         "name": "Kanyange",
+         "code": "KIG-NYA-S7C2V3"
+        },
+        {
+         "name": "Karudandi",
+         "code": "KIG-NYA-S7C2V4"
+        },
+        {
+         "name": "Kigabiro",
+         "code": "KIG-NYA-S7C2V5"
+        },
+        {
+         "name": "Kokobe",
+         "code": "KIG-NYA-S7C2V6"
+        },
+        {
+         "name": "Mucyuranyana",
+         "code": "KIG-NYA-S7C2V7"
+        },
+        {
+         "name": "Nkundumurimbo",
+         "code": "KIG-NYA-S7C2V8"
+        }
+       ]
+      },
+      {
+       "name": "NyakabandaI",
+       "code": "KIG-NYA-S7C3",
+       "villages": [
+        {
+         "name": "Akinkware",
+         "code": "KIG-NYA-S7C3V1"
+        },
+        {
+         "name": "Gapfupfu",
+         "code": "KIG-NYA-S7C3V2"
+        },
+        {
+         "name": "Gasiza",
+         "code": "KIG-NYA-S7C3V3"
+        },
+        {
+         "name": "Kariyeri",
+         "code": "KIG-NYA-S7C3V4"
+        },
+        {
+         "name": "Kokobe",
+         "code": "KIG-NYA-S7C3V5"
+        },
+        {
+         "name": "Munini",
+         "code": "KIG-NYA-S7C3V6"
+        },
+        {
+         "name": "Nyakabanda",
+         "code": "KIG-NYA-S7C3V7"
+        },
+        {
+         "name": "Rwagitanga",
+         "code": "KIG-NYA-S7C3V8"
+        }
+       ]
+      },
+      {
+       "name": "NyakabandaIi",
+       "code": "KIG-NYA-S7C4",
+       "villages": [
+        {
+         "name": "Ibuhoro",
+         "code": "KIG-NYA-S7C4V1"
+        },
+        {
+         "name": "Kabeza",
+         "code": "KIG-NYA-S7C4V2"
+        },
+        {
+         "name": "Kanyiranganji",
+         "code": "KIG-NYA-S7C4V3"
+        },
+        {
+         "name": "Karujongi",
+         "code": "KIG-NYA-S7C4V4"
+        },
+        {
+         "name": "Kigarama",
+         "code": "KIG-NYA-S7C4V5"
+        },
+        {
+         "name": "Kirwa",
+         "code": "KIG-NYA-S7C4V6"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "name": "Nyamirambo",
+     "code": "KIG-NYA-S8",
+     "cells": [
+      {
+       "name": "Cyivugiza",
+       "code": "KIG-NYA-S8C1",
+       "villages": [
+        {
+         "name": "Amizero",
+         "code": "KIG-NYA-S8C1V1"
+        },
+        {
+         "name": "Gabiro",
+         "code": "KIG-NYA-S8C1V2"
+        },
+        {
+         "name": "Imanzi",
+         "code": "KIG-NYA-S8C1V3"
+        },
+        {
+         "name": "Ingenzi",
+         "code": "KIG-NYA-S8C1V4"
+        },
+        {
+         "name": "Intwari",
+         "code": "KIG-NYA-S8C1V5"
+        },
+        {
+         "name": "Karisimbi",
+         "code": "KIG-NYA-S8C1V6"
+        },
+        {
+         "name": "Mahoro",
+         "code": "KIG-NYA-S8C1V7"
+        },
+        {
+         "name": "Mpano",
+         "code": "KIG-NYA-S8C1V8"
+        },
+        {
+         "name": "Muhabura",
+         "code": "KIG-NYA-S8C1V9"
+        },
+        {
+         "name": "Muhoza",
+         "code": "KIG-NYA-S8C1V10"
+        },
+        {
+         "name": "Munini",
+         "code": "KIG-NYA-S8C1V11"
+        },
+        {
+         "name": "Rugero",
+         "code": "KIG-NYA-S8C1V12"
+        },
+        {
+         "name": "Shema",
+         "code": "KIG-NYA-S8C1V13"
+        }
+       ]
+      },
+      {
+       "name": "Gasharu",
+       "code": "KIG-NYA-S8C2",
+       "villages": [
+        {
+         "name": "Kagunga",
+         "code": "KIG-NYA-S8C2V1"
+        },
+        {
+         "name": "Karukoro",
+         "code": "KIG-NYA-S8C2V2"
+        },
+        {
+         "name": "Rwintare",
+         "code": "KIG-NYA-S8C2V3"
+        }
+       ]
+      },
+      {
+       "name": "Mumena",
+       "code": "KIG-NYA-S8C3",
+       "villages": [
+        {
+         "name": "Akanyana",
+         "code": "KIG-NYA-S8C3V1"
+        },
+        {
+         "name": "Akanyirazaninka",
+         "code": "KIG-NYA-S8C3V2"
+        },
+        {
+         "name": "Akarekare",
+         "code": "KIG-NYA-S8C3V3"
+        },
+        {
+         "name": "Akatabaro",
+         "code": "KIG-NYA-S8C3V4"
+        },
+        {
+         "name": "Irembo",
+         "code": "KIG-NYA-S8C3V5"
+        },
+        {
+         "name": "Itaba",
+         "code": "KIG-NYA-S8C3V6"
+        },
+        {
+         "name": "Kiberinka",
+         "code": "KIG-NYA-S8C3V7"
+        },
+        {
+         "name": "Mumena",
+         "code": "KIG-NYA-S8C3V8"
+        },
+        {
+         "name": "Rwampara",
+         "code": "KIG-NYA-S8C3V9"
+        }
+       ]
+      },
+      {
+       "name": "Rugarama",
+       "code": "KIG-NYA-S8C4",
+       "villages": [
+        {
+         "name": "Gatare",
+         "code": "KIG-NYA-S8C4V1"
+        },
+        {
+         "name": "Kiberinka",
+         "code": "KIG-NYA-S8C4V2"
+        },
+        {
+         "name": "Munanira",
+         "code": "KIG-NYA-S8C4V3"
+        },
+        {
+         "name": "Riba",
+         "code": "KIG-NYA-S8C4V4"
+        },
+        {
+         "name": "Rubona",
+         "code": "KIG-NYA-S8C4V5"
+        },
+        {
+         "name": "Rugarama",
+         "code": "KIG-NYA-S8C4V6"
+        },
+        {
+         "name": "Runyinya",
+         "code": "KIG-NYA-S8C4V7"
+        },
+        {
+         "name": "Rusisiro",
+         "code": "KIG-NYA-S8C4V8"
+        },
+        {
+         "name": "Tetero",
+         "code": "KIG-NYA-S8C4V9"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "name": "Nyarugenge",
+     "code": "KIG-NYA-S9",
+     "cells": [
+      {
+       "name": "Agatare",
+       "code": "KIG-NYA-S9C1",
+       "villages": [
+        {
+         "name": "Agatare",
+         "code": "KIG-NYA-S9C1V1"
+        },
+        {
+         "name": "Amajyambere",
+         "code": "KIG-NYA-S9C1V2"
+        },
+        {
+         "name": "Inyambo",
+         "code": "KIG-NYA-S9C1V3"
+        },
+        {
+         "name": "Meraneza",
+         "code": "KIG-NYA-S9C1V4"
+        },
+        {
+         "name": "Uburezi",
+         "code": "KIG-NYA-S9C1V5"
+        },
+        {
+         "name": "Umucyo",
+         "code": "KIG-NYA-S9C1V6"
+        },
+        {
+         "name": "Umurava",
+         "code": "KIG-NYA-S9C1V7"
+        }
+       ]
+      },
+      {
+       "name": "Biryogo",
+       "code": "KIG-NYA-S9C2",
+       "villages": [
+        {
+         "name": "Biryogo",
+         "code": "KIG-NYA-S9C2V1"
+        },
+        {
+         "name": "Gabiro",
+         "code": "KIG-NYA-S9C2V2"
+        },
+        {
+         "name": "Isoko",
+         "code": "KIG-NYA-S9C2V3"
+        },
+        {
+         "name": "Nyiranuma",
+         "code": "KIG-NYA-S9C2V4"
+        },
+        {
+         "name": "Umurimo",
+         "code": "KIG-NYA-S9C2V5"
+        }
+       ]
+      },
+      {
+       "name": "Kiyovu",
+       "code": "KIG-NYA-S9C3",
+       "villages": [
+        {
+         "name": "Amizero",
+         "code": "KIG-NYA-S9C3V1"
+        },
+        {
+         "name": "CercleSportif",
+         "code": "KIG-NYA-S9C3V2"
+        },
+        {
+         "name": "Ganza",
+         "code": "KIG-NYA-S9C3V3"
+        },
+        {
+         "name": "Imena",
+         "code": "KIG-NYA-S9C3V4"
+        },
+        {
+         "name": "Indangamirwa",
+         "code": "KIG-NYA-S9C3V5"
+        },
+        {
+         "name": "Ingenzi",
+         "code": "KIG-NYA-S9C3V6"
+        },
+        {
+         "name": "Inyarurembo",
+         "code": "KIG-NYA-S9C3V7"
+        },
+        {
+         "name": "Ishema",
+         "code": "KIG-NYA-S9C3V8"
+        },
+        {
+         "name": "Isibo",
+         "code": "KIG-NYA-S9C3V9"
+        },
+        {
+         "name": "Muhabura",
+         "code": "KIG-NYA-S9C3V10"
+        },
+        {
+         "name": "Rugunga",
+         "code": "KIG-NYA-S9C3V11"
+        },
+        {
+         "name": "Sugira",
+         "code": "KIG-NYA-S9C3V12"
+        }
+       ]
+      },
+      {
+       "name": "Rwampara",
+       "code": "KIG-NYA-S9C4",
+       "villages": [
+        {
+         "name": "Amahoro",
+         "code": "KIG-NYA-S9C4V1"
+        },
+        {
+         "name": "Gacaca",
+         "code": "KIG-NYA-S9C4V2"
+        },
+        {
+         "name": "Intwari",
+         "code": "KIG-NYA-S9C4V3"
+        },
+        {
+         "name": "Rwampara",
+         "code": "KIG-NYA-S9C4V4"
+        },
+        {
+         "name": "Umucyo",
+         "code": "KIG-NYA-S9C4V5"
+        },
+        {
+         "name": "Umuganda",
+         "code": "KIG-NYA-S9C4V6"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "name": "Rwezamenyo",
+     "code": "KIG-NYA-S10",
+     "cells": [
+      {
+       "name": "KabuguruI",
+       "code": "KIG-NYA-S10C1",
+       "villages": [
+        {
+         "name": "Muhoza",
+         "code": "KIG-NYA-S10C1V1"
+        },
+        {
+         "name": "Muhuza",
+         "code": "KIG-NYA-S10C1V2"
+        },
+        {
+         "name": "Mumararungu",
+         "code": "KIG-NYA-S10C1V3"
+        },
+        {
+         "name": "Murambi",
+         "code": "KIG-NYA-S10C1V4"
+        }
+       ]
+      },
+      {
+       "name": "KabuguruIi",
+       "code": "KIG-NYA-S10C2",
+       "villages": [
+        {
+         "name": "Buhoro",
+         "code": "KIG-NYA-S10C2V1"
+        },
+        {
+         "name": "Gasabo",
+         "code": "KIG-NYA-S10C2V2"
+        },
+        {
+         "name": "Mutara",
+         "code": "KIG-NYA-S10C2V3"
+        },
+        {
+         "name": "Ubusabane",
+         "code": "KIG-NYA-S10C2V4"
+        }
+       ]
+      },
+      {
+       "name": "RwezamenyoI",
+       "code": "KIG-NYA-S10C3",
+       "villages": [
+        {
+         "name": "Abatarushwa",
+         "code": "KIG-NYA-S10C3V1"
+        },
+        {
+         "name": "Indatwa",
+         "code": "KIG-NYA-S10C3V2"
+        },
+        {
+         "name": "Inkerakubanza",
+         "code": "KIG-NYA-S10C3V3"
+        },
+        {
+         "name": "Intwari",
+         "code": "KIG-NYA-S10C3V4"
+        }
+       ]
+      },
+      {
+       "name": "RwezamenyoIi",
+       "code": "KIG-NYA-S10C4",
+       "villages": [
+        {
+         "name": "Amahoro",
+         "code": "KIG-NYA-S10C4V1"
+        },
+        {
+         "name": "Umucyo",
+         "code": "KIG-NYA-S10C4V2"
+        },
+        {
+         "name": "Urumuri",
+         "code": "KIG-NYA-S10C4V3"
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}
